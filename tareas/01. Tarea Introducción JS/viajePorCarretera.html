@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Viaje por carretera</title>
+    </head>
+
+    <body>
+        <script>
+            const VELOCIDAD = 40;
+            let distanciaRecorrer = Number(prompt("Ingrese en millas la distancia que planea recorrer"));
+
+            // Operaciones matemática
+            let resultado = (distanciaRecorrer / VELOCIDAD) * 60;
+
+            console.log(`El tiempo (en minutos) que le llevará recorrer ${distanciaRecorrer} millas es de: ${resultado} minutos.`);
+        </script>
+    </body>
+
+</html>
