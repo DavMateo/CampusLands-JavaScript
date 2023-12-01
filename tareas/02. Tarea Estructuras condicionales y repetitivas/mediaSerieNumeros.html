@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS | Estructuras condicionales y repetitivas</title>
+
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #caf0f8;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            #encabezado {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2.25rem;
+            }
+
+            #principal {
+                padding: 2.25rem;
+                background-color: #edede9;
+                border-radius: 1.5rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header id="encabezado">
+            <h1>JavaScript - Estructuras Condicionales y Repetitivas</h1>
+        </header>
+
+        <main id="principal">
+            <ul class="lista"></ul>
+            <span class="media"></span>
+        </main>
+
+
+        <!-- JAVASCRIPT -->
+        <script>
+            const PRINCIPAL = document.getElementById("principal");
+            const LISTA = PRINCIPAL.querySelector(".lista");
+            const MEDIA = PRINCIPAL.querySelector(".media");
+            let isVerdadero = true;
+            let contador = 0, sumaTotal = 0;
+
+            while (isVerdadero) {
+                let numUser = Number(prompt("Ingrese un número positivo (Digite -1 para salir): "));
+
+                if (numUser >= 0) {
+                    contador++;
+                    sumaTotal += numUser;
+
+                    LISTA.innerHTML += `
+                        <li>${numUser}</li>
+                    `;
+
+                    MEDIA.innerHTML = `
+                        La media es: ${(sumaTotal / contador).toFixed(2)}
+                    `;
+                    
+
+                } else if (numUser < 0) {
+                    alert("Saliendo...");
+                    isVerdadero = false;
+
+                } else {
+                    alert("Digite un número válido.");
+                }
+            }
+        </script>
+    </body>
+
+</html>
