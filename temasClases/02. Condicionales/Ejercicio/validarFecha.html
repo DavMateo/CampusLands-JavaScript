@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Validar Fecha</title>
+    </head>
+
+    <body>
+        <script>
+            let fecha = prompt("Ingrese la feha en el siguiente formato: DD/MM/AAAA");
+            let isBisiesto = false;
+            let isVerdadero;
+            
+            let dia = fecha.slice(0, 2);
+            let mes = fecha.slice(3, 5);
+            let year = fecha.slice(6);
+
+            // Validando las entradas del código
+            if (dia.length < 1 || dia.length > 2 || dia > 31) {
+                isVerdadero = false;
+            } else if (mes.length < 1 || mes.length > 2 || mes > 12) {
+                isVerdadero = false;
+            } else if (year.length < 1 || year.length > 4) {
+                isVerdadero = false;
+            }
+
+
+            if (mes == 2) {
+                let dividir4 = year / 4;
+                let dividir100 = year / 100;
+                let dividir400 = year / 400;
+
+                if (dividir4 % 1 !== 0 || dividir100 % 1 !== 0 || dividir400 % 1 !== 0) {
+                    if (mes === 2 && dia > 0 && dia < 29) {
+                        isBisiesto = true;
+                    }
+                }
+            }
+
+
+            if (isVerdadero) {
+                
+            }
+
+
+        </script>
+    </body>
+
+</html>

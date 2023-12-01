@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Resolver una ecuación cuadrática</title>
+    </head>
+
+    <body>
+        <script>
+            let a = Number(prompt("Ingrese un valor numérico para la variable a"));
+            let b = Number(prompt("Ingrese un valor numérico para la variable b"));
+            let c = Number(prompt("Ingrese un valor numérico para la variable c"));
+            let solucionExponente = b * 2;
+            let resultadoPositivo, resultadoNegativo;
+
+
+            if (solucionExponente < 0) {
+                console.log("La respuesta no tiene solución dentro de los números reales");
+            } else if (a == 0) {
+                console.log("La variable 'a' no puede ser igual a 0");
+            } else {
+                resultadoPositivo = (-b + ((b * b) - 4 * a * c) * 0.5) / (2 * a);
+                resultadoNegativo = (-b - ((b * b) - 4 * a * c) * 0.5) / (2 * a);
+            }
+
+            console.log(resultadoPositivo);
+            console.log(resultadoNegativo);
+        </script>
+    </body>
+
+</html>
