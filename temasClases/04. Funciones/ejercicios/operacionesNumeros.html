@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Función sin nombre</title>
+    </head>
+
+    <body>
+        <script>
+            const funcionSinNombre = function (num1, num2) {
+                if (num1 > num2) {
+                    return `
+                        El número 1 es MAYOR al número 2.
+                        La suma es: ${num1 + num2}.
+                        La diferencia es: ${num1 - num2}.
+                    `;
+                } else {
+                    return `
+                        El número 1 es MENOR al número 2.
+                        El producto es: ${num1 * num2}.
+                        La división es: ${num1 / num2}.
+                    `;
+                }
+            };
+
+            let num1 = Number(prompt("Ingrese el primer número"));
+            let num2 = Number(prompt("Ingrese el número 2"));
+
+            alert(funcionSinNombre(num1, num2));
+        </script>
+    </body>
+
+</html>
