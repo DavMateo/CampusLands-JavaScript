@@ -1,0 +1,2 @@
+# Abreviaturas
+mn = Menu Navbar
