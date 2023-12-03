@@ -1,0 +1,20 @@
+:root {
+    --lightMode_fondo: #daecff;
+    --lightMode_titulos: #212f3d;
+    --lightMode_textoPrincipal: #17202a;
+    --lightMode_textoSecundario: #212f3c;
+    --lightMode_textoMenu: #2c3e50;
+    --lightMode_textCard: #1b46b2;
+    
+    --darkMode_fondo: #051a2e;
+    --darkMode_titulos: #bae0fd;
+    --darkMode_textoPrincipal: #f0f8ff;
+    --darkMode_textoSecundario: #e5e7e9;
+    --darkMode_textoMenu: #e0effe;
+    --darkMode_textCard: #074e85;
+
+    --flexbox: flex;
+    --inline-flexbox: inline-flex;
+    --gridbox: grid;
+    --inline-gridbox: inline-grid;
+}

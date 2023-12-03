@@ -1,0 +1,68 @@
+@import url("./variables.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'); /* TÍTULOS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap'); /* SUBTITULOS - RESALTAR */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap'); /* TEXTO */
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--lightMode_fondo);
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif, serif;
+}
+
+
+/* HEADER */
+
+
+
+
+/* RESPONSIVE 240px -> Celulares pequeños (Galaxy Fold) */
+@media (max-width: 240px) {
+
+}
+
+/* RESPONSIVE 320px -> Celulares */
+@media (min-width: 241px) and (max-width: 320px) {
+
+}
+
+/* RESPONSIVE 480px -> Celulares grandes y tablets pequeñas */
+@media (min-width: 321px) and (max-width: 480px) {
+
+}
+
+/* RESPONSIVE 768px -> Tablets*/
+@media (min-width: 481px) and (max-width: 768px) {
+
+}
+
+/* RESPONSIVE 960px -> Tablets grandes y portátiles pequeños */
+@media (min-width: 769px) and (max-width: 960px) {
+
+}
+
+/* RESPONSIVE 1024px -> Portátiles y Monitores pequeños */
+@media (min-width: 961px) and (max-width: 1024px) {
+
+}
+
+/* RESPONSIVE 1328px -> Monitores y portátiles grandes */
+@media (min-width: 1025px) and (max-width: 1328px) {
+
+}
+
+/* RESPONSIVE 1920px -> Pantallas grandes y TV (FullHD) */
+@media (min-width: 1329px) and (max-width: 1920px) {
+
+}
+
+/* RESPONSIVE >1920 -> FullHD+ a 4k */
+@media (min-width: 1921px) {
+    
+}
