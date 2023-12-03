@@ -17,4 +17,9 @@
     --inline-flexbox: inline-flex;
     --gridbox: grid;
     --inline-gridbox: inline-grid;
+    --desabilitado: none;
+
+    --tipografia_titulo: 'Roboto', 'Inter', 'Open Sans', Arial, Helvetica, sans-serif;
+    --tipografia_subtitulo: 'Inter', 'Roboto', 'Open Sans', Arial, Helvetica, sans-serif;
+    --tipografia_texto: 'Open Sans', 'Inter', 'Roboto', Arial, Helvetica, sans-serif;
 }

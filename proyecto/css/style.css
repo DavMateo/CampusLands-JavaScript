@@ -8,23 +8,207 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 body {
     background-color: var(--lightMode_fondo);
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif, serif;
+    position: relative;
 }
 
 
 /* HEADER */
+#encabezado {
+    display: var(--gridbox);
+    overflow-x: hidden;
+    background-color: rgba(0, 0, 0, .6);
+    grid-template-columns: auto;
+    grid-template-rows: repeat(10, auto);
+    grid-template-areas:    "menuHeader"
+                            "menuHeader"
+                            "menuHeader"
+                            "infoHeader"
+                            "infoHeader"
+                            "infoHeader"
+                            "infoHeader"
+                            "infoHeader"
+                            "infoHeader"
+                            "infoHeader";
+}
+
+.videoFondo {
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: 0;
+}
+
+.sidebar, .menu_navbar {
+    display: var(--desabilitado);
+}
+
+.menu {
+    display: var(--flexbox);
+    justify-content: space-between;
+    align-items: center;
+    grid-area: menuHeader;
+}
+
+.menu_titulo {
+    color: var(--darkMode_textoPrincipal);
+    text-align: center;
+    font-weight: 700;
+    font-family: var(--tipografia_titulo);
+}
+
+.sidebar_btn {
+    display: var(--flexbox);
+    justify-content: center;
+    align-items: flex-start;
+    background-color: transparent !important;
+    border: none;
+    color: var(--darkMode_textoPrincipal);
+}
+
+.infoHeader {
+    display: var(--flexbox);
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    grid-area: infoHeader;
+    color: var(--darkMode_textoPrincipal);
+    font-family: var(--tipografia_subtitulo);
+}
+
+.infoHeader_titulo {
+    font-weight: 700;
+    font-family: var(--tipografia_titulo);
+}
+
+.infoHeader_btn {
+    text-align: center;
+    font-weight: 700;
+    border: none;
+    background: linear-gradient(165deg, #a2d2ff, #378afa);
+    cursor: pointer;
+    position: relative;
+}
+
+.infoHeader_btn a {
+    text-decoration: none;
+    color: #162755;
+}
+
+.infoHeader_btn::after {
+    display: var(--flexbox);
+    content: 'Registrarse';
+    background: linear-gradient(165deg, #bedeff, #5dacfd);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: all .15s ease-in;
+    justify-content: center;
+    align-items: center;
+    color: #162755;
+}
+
+.infoHeader_btn:hover::after {
+    opacity: 1;
+}
+
+.infoHeader_btn:active {
+    background: linear-gradient(165deg, #5dacfd, #216bef);
+}
+
+.infoHeader_btn:active::after {
+    opacity: 0;
+}
+
+.infoHeader_btn:disabled {
+    background: linear-gradient(165deg, #1955dc, #1c3e8c);
+}
+
+.infoHeader_btn:disabled::after {
+    opacity: 0;
+}
+
+.infoHeader_btn:disabled > a {
+    color: #daecff;
+}
+
+.infoHeader_btn-signUp {
+    z-index: 100;
+}
+
+
+/* MAIN */
+
+
+
+/* FOOTER */
 
 
 
 
 /* RESPONSIVE 240px -> Celulares pequeños (Galaxy Fold) */
-@media (max-width: 240px) {
+@media (max-width: 280px) {
+    body {
+        font-size: 12px;
+    }
 
+    .sidebar {
+        display: var(--flexbox);
+    }
+
+    #encabezado, .videoFondo {
+        height: 65vh;
+    }
+
+    .menu {
+        padding: 2rem 1.25rem;
+    }
+
+    .menu_titulo {
+        font-size: 24px;
+        letter-spacing: 1.62px;
+    }
+
+    .infoHeader {
+        padding: 0 2rem 3.125rem 1rem;
+    }
+
+    .infoHeader_titulo {
+        font-size: 24px;
+        margin-bottom: .3rem;
+        letter-spacing: 1.4px;
+    }
+
+    .infoHeader_parrafo {
+        line-height: 1.4em;
+        letter-spacing: .75px;
+        margin-bottom: 1rem;
+    }
+
+    .infoHeader_btn {
+        font-size: 14px;
+        padding: 1rem 2rem;
+        border-radius: .5rem;
+        box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+    }
+
+    .infoHeader_btn a {
+        letter-spacing: 1px;
+    }
+
+    .infoHeader_btn::after {
+        border-radius: .5rem;
+        letter-spacing: 1px;
+    }
 }
 
 /* RESPONSIVE 320px -> Celulares */
@@ -64,5 +248,5 @@ body {
 
 /* RESPONSIVE >1920 -> FullHD+ a 4k */
 @media (min-width: 1921px) {
-    
+
 }
