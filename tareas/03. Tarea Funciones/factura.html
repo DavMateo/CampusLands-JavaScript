@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Factura JS</title>
+    </head>
+
+    <body>
+        <table border="1" id="tabla">
+            <thead>
+                <th>Cantidad</th>
+                <th>Producto</th>
+                <th>Precio</th>
+            </thead>
+
+            <tbody class="viveres"></tbody>
+
+            <tfoot class="totalPagar"></tfoot>
+        </table>
+
+
+        <script>
+            const TABLA = document.getElementById("tabla");
+            const FACTURA = TABLA.querySelector(".viveres");
+            const PRECIO_FACTURA = TABLA.querySelector(".totalPagar");
+            let nombreProducto = prompt("Nombre del producto: ");
+            let precioProducto = Number(prompt("Precio del producto: "));
+            let cantidadProducto = Number(prompt("Cantidad del producto: "));
+
+            function validarNombre(nombre) {
+                let isVerdadero = false;
+
+                while (!isVerdadero) {
+                    if (isNaN(nombre) || nombre.lenght == 0) {
+                        alert("Error, el nombre del producto no puede ser vacío ni componerse de solo números");
+                        isVerdadero = false;
+                    } else {
+                        isVerdadero = true;
+                    }
+                }
+
+                return nombre;
+            }
+
+            function validarPrecio(precio) {
+                let isVerdadero = false;
+
+                while (!isVerdadero) {
+                    if (typeof precio != String || isNaN(precio) || precio <= 0) {
+                        alert("Error, el precio ingresado es inválido. Inténtelo de nuevo.");
+                        isVerdadero = false;
+                    } else {
+                        isVerdadero = true;
+                    }
+                }
+
+                return precio;
+            }
+
+            function validarCantidad(cantidad) {
+                let isVerdadero = false;
+
+                while (!isVerdadero) {
+                    if (isNaN(cantidad) || typeof cantidad != Number || cantidad <= 0) {
+                        alert("Error, la cantidad ingresada es inválida. Inténtelo de nuevo.");
+                        isVerdadero = false;
+                    } else {
+                        isVerdadero = true;
+                    }
+                }
+
+                return cantidad;
+            }
+
+
+
+
+            FACTURA.innerHTML += `
+                <td>
+                    <tr>${validarCantidad(cantidadProducto)}</tr>
+                    <tr>${validarNombre(nombreProducto)}</tr>
+                    <tr>$${validarPrecio(precioProducto).toFixed(2)}COP</tr>
+                </td>
+            `;
+        </script>
+    </body>
+
+</html>
