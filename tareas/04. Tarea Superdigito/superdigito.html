@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Superdígito | JS</title>
+    </head>
+    
+    <body>
+        <p id="resultado"></p>
+
+        <script>
+            const resultado = document.getElementById("resultado");
+            let numUserX = Number(prompt("Digite un número positivo: "));
+            let numRepeatK = Number(prompt("¿Cuántas veces quiere que se repita el número?: "));
+            let resultadoEjercicio = 0;
+
+
+            // Validando entradas de usuario
+            function validarNumUserX(numUser) {
+                while (numUser < 0 || isNaN(numUser)) {
+                    alert("Error, el número ingresado es inválido. Inténtelo de nuevo.");
+                    numUserX = Number(prompt("Digite un número positivo: "));
+                }
+
+                return numUserX;
+            }
+
+            function validarNumRepeatK(numRepeat) {
+                while (numRepeat <= 0 || isNaN(numRepeat)) {
+                    alert("Error, el número de repeticiones ingresado no es válido. Inténtelo de nuevo.");
+                    numRepeatK = Number(prompt("¿Cuántas veces quiere que se repita el número?: "));
+                }
+
+                return numRepeatK;
+            }
+
+
+            // Funciones necesarias
+            function dividirNumero(num, arrNumber) {
+                for (i = 0; i < num.length; i++) {
+                    arrNumber[i] = num.slice(i, i+1);
+                }
+
+                return arrNumber;
+            }
+
+
+
+            //Verificar si el número del usuario es de un solo dígito o múltiple
+            function super_digit(numberUser, repeat) {
+                if (numberUser >= 0 && numberUser <= 9 && String(numberUser).length == 1) {
+                   resultado.innerHTML = `El superdígito del número <strong>${numUserX}</strong> es <strong><em>${numberUser}</em></strong>.`;
+                } else {
+                    let strNumberUser = String(numberUser);
+                    let arrNumber = dividirNumero(strNumberUser, []);
+
+                    console.log("arrNumber");
+                }
+            }
+
+            super_digit(validarNumUserX(numUserX), validarNumRepeatK(numRepeatK));
+        </script>
+    </body>
+
+</html>
