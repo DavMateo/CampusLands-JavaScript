@@ -30,9 +30,10 @@
             }
 
             function validarNumRepeatK(numRepeat) {
-                while (numRepeat <= 0 || isNaN(numRepeat)) {
+                while (numRepeat <= 0 || isNaN(numRepeat) || numRepeat > 100000) {
                     alert("Error, el número de repeticiones ingresado no es válido. Inténtelo de nuevo.");
                     numRepeatK = Number(prompt("¿Cuántas veces quiere que se repita el número?: "));
+                    numRepeat = numRepeatK;
                 }
 
                 return numRepeatK;
@@ -48,17 +49,38 @@
                 return arrNumber;
             }
 
+            function reducirNumero(arrNumber) {
+                let sumaNums = 0;
+
+                arrNumber.forEach((num) => {
+                    sumaNums += Number(num);
+                });
+
+                return String(sumaNums);
+            }
+
+            function sumarNumeros(arrNumber) {
+                let numReduce = reducirNumero(arrNumber);
+
+                while (numReduce.length > 1) {
+                    numReduce = reducirNumero(dividirNumero(numReduce, []));
+                }
+                return numReduce;
+            }
+
 
 
             //Verificar si el número del usuario es de un solo dígito o múltiple
             function super_digit(numberUser, repeat) {
-                if (numberUser >= 0 && numberUser <= 9 && String(numberUser).length == 1) {
+                if (numberUser >= 0 && numberUser <= 9 && String(numberUser).length === 1 && numRepeatK === 1) {
                    resultado.innerHTML = `El superdígito del número <strong>${numUserX}</strong> es <strong><em>${numberUser}</em></strong>.`;
-                } else {
-                    let strNumberUser = String(numberUser);
-                    let arrNumber = dividirNumero(strNumberUser, []);
 
-                    console.log("arrNumber");
+                } else {
+                    let strNumberUser = String(numberUser).repeat(repeat);
+                    let arrNumber = dividirNumero(strNumberUser, []);
+                    let sumarNumerosDivididos = sumarNumeros(arrNumber);
+
+                    resultado.innerHTML = `El superdígito del número <strong>${numUserX}</strong> concatenado ${numRepeatK} veces es <strong><em>${sumarNumerosDivididos}</em></strong>.`;
                 }
             }
 
