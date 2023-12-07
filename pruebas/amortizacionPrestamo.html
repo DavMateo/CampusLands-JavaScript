@@ -175,10 +175,7 @@
                 }
 
                 let calculoValorMensual = calcValorMensual(dictInfoUser.get("montoDelCredito"), dictInfoUser.get("interes"), dictInfoUser.get("numeroPagos"));
-                console.log(calculoValorMensual); // EliminarLuego
-
                 let valorTotal = calculoValorMensual[0] * dictInfoUser.get("numeroPagos");
-                console.log(valorTotal); // EliminarLuego
 
                 escribirTablas(dictInfoUser, calculoValorMensual[0], valorTotal, calculoValorMensual[1], calculoValorMensual[2]);
             }
