@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gestor de facturas con Diccionarios | JS</title>
+
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1 class="titulo">Gestor de facturas con Diccionarios</h1>
+        </header>
+
+        <main>
+            <section id="resultado">
+                <table class="resultado_tabla">
+                    <thead>
+                        <tr>
+                            <th>Cantidad</th>
+                            <th>Artículo</th>
+                            <th>Valor Unitario</th>
+                            <th>Valor total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="cuerpoTabla"></tbody>
+
+                    <tfoot class="pieTabla"></tfoot>
+                </table>
+
+                <aside id="ingresarInfo">
+                    <form class="ingresarInfo_formulario" action="">
+                        <label for="codigo">Código del artículo</label>
+                        <input type="number" name="codigo" id="codigo" min="1" max="1000000000000" />
+    
+                        <label for="cantidad">Cantidad: </label>
+                        <input type="number" name="cantidad" id="cantidad" min="1" max="1000000000" />
+                    </form>
+                </aside>
+            </section>
+        </main>
+        
+        <script>
+            const articulos = [[1, "Lapiz"], [2, "Cuadernos"], [3, "Borrador"], [4, "Calculadora"], [5, "Escuadra"]];
+            const valores = [[1, 2500], [2, 3800], [3, 1200], [4, 35000], [5, 3700]];
+            const dictArticulos = new Map(articulos);
+            const dictValores = new Map(valores);
+            const formulario = document.getElementById("ingresarInfo").querySelector(".ingresarInfo_formulario");
+            const formData = new FormData(formulario);
+
+
+            // Funciones de validación
+            function validarCodigo(cod) {
+                if ((Number(cod) < 1 || Number(cod) > 1000000000000) || (isNaN(cod) && cod.length > 0)) {
+                    return false;
+                } else {
+                    return Number(cod);
+                }
+            }
+
+            function validarCantidad(cant) {
+                if ((Number(cant) < 1 || Number(cant) > 1000000000000) || (isNaN(cant) && cant.length > 0)) {
+                    return false;
+                } else {
+                    return Number(cant);
+                }
+            }
+
+            function pedirInfoUsuario() {
+                let lstRespuestaFuncion = [];
+                let codigoUser = validarCodigo(formData.getAll("codigo"));
+                
+                if (codigoUser === false) {
+                    alert("Error. El código ingresado no existe. Inténtelo nuevamente.");
+                    lstRespuestaFuncion[0] = false;
+                } else {
+                    lstRespuestaFuncion[0] = codigoUser;
+                }
+
+                let cantidadUser = validarCantidad(formData.getAll("cantidad"));
+
+                if (cantidadUser === false) {
+                    alert("Error. La cantidad ingresada no es válida. Inténtelo de nuevo.");
+                    lstRespuestaFuncion[1] = false;
+                } else {
+                    lstRespuestaFuncion[1] = cantidadUser;
+                }
+
+                return lstRespuestaFuncion;
+            }
+
+
+            // Funciones necesarias
+            function iniciarPrograma() {
+                let codigo, cantidad = pedirInfoUsuario();
+            }
+        </script>
+    </body>
+
+</html>

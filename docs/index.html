@@ -3,19 +3,68 @@
 <html lang="es">
 
     <head>
-        <meta charset="UTF-8" />
+        <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/style.css" />
-        <script src="./js/main.js" defer></script>
-        <title>Clase JavaScript</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <script src="./main.js" defer></script>
+        <title>Ciclo 3 | JavaScript</title>
     </head>
 
     <body>
-        <h2>Prueba Amortización Prestamo - 06/12/2023</h2>
-        <ul>
-            <li> <a href="./../practicas/programa_factura/factura.html">Amortización</a> </li>
-        </ul>
+        <header id="encabezado">
+            <div class="menu">
+                <h1 class="menu_titulo">Ciclo JavaScript</h1>
+                <nav class="navbar">
+                    <ul class="navbar_lista">
+                        <li class="navbar_lista-item inicio">Inicio</li>
+                        <li class="navbar_lista-item descripcion">Descripción</li>
+                        <li class="navbar_lista-item categorias">Categorías</li>
+                        <li class="navbar_lista-item contacto">Contacto</li>
+                        <li class="navbar_lista-item acercaDe">Acerca de</li>
+                    </ul>
+                </nav>
+
+                <div class="sidebar">
+                    <button class="sidebar_btnMenu">
+                        <span class="sidebar_icono material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="resumen">
+                <div class="resumen_info">
+                    <h2 class="resumen_info-subtitulo">Trabajo reciente</h2>
+                    <p class="resumen_info-descripcion">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quas sit numquam enim omnis, hic similique quo. Laudantium molestias harum magnam? Itaque optio ipsa omnis alias dolores quo obcaecati! Accusantium.
+                    </p>
+                    <button class="resumen_info-btn">Visualizar</button>
+                </div>
+
+                <img class="resumen_img" src="./img/paginaIndex.png" alt="miniatura" title="Previsualización trabajo más reciente" />
+            </div>
+        </header>
+
+        <main id="principal">
+            <section class="descripcion"></section>
+
+            <section class="categorias"></section>
+
+            <section class="contacto"></section>
+
+            <section class="acercaDe"></section>
+        </main>
+
+        <footer id="pieDePagina">
+            <div class="descripcionSitio"></div>
+
+            <div class="atajos"></div>
+
+            <div class="redesSociales"></div>
+
+            <div class="legal"></div>
+        </footer>
     </body>
 
 </html>
