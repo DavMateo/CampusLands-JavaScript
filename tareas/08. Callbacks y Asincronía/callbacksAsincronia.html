@@ -9,7 +9,17 @@
         <title>Callbacks y Asincronía | JS</title>
 
         <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
 
+            #resultado p {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 2px solid #000;
+                padding: 1rem;
+            }
         </style>
     </head>
 
@@ -39,6 +49,8 @@
                 </ul>
             </section>
 
+            <br/><br/>
+
             <section id="resultado">
 
             </section>
@@ -46,15 +58,62 @@
         
 
         <script>
+            const resultado = document.getElementById("resultado");
+
             // Declarando las funciones principales
-            function mostrarA() {
+            function obtenerHora() {
+                const fecha = new Date();
+                return [fecha.getHours(), fecha.getMinutes(), fecha.getSeconds()].join(":");
+            }
+
+            function mostrarA(funcion) {
+                resultado.innerHTML += `
+                    <p>A [Enviado de: 1] apareció en ${obtenerHora()}</p>
+                `;
                 
+                setTimeout(() => {
+                    resultado.innerHTML += `<p>C [Enviado de: 3] apareció en ${obtenerHora()}</p>`;
+                }, 5000);
+
+                return funcion => funcion(); 
+            }
+
+            function mostrarB() {
+                resultado.innerHTML += `<p>B [Enviado de: 2] apareció en ${obtenerHora()}</p>`;
+
+                setTimeout(() => {
+                    resultado.innerHTML += `<p>F [Enviado de: 6] apareció en ${obtenerHora()}</p>`;
+                }, 7000);
+            }
+
+            function mostrarD() {
+                resultado.innerHTML += `<p>D [Enviado de: 4] apareció en ${obtenerHora()}</p>`;
+
+                setTimeout(() => {
+                    resultado.innerHTML += `<p>E [Enviado de: 5] apareció en ${obtenerHora()}</p>`;
+
+                    setTimeout(() => {
+                        resultado.innerHTML += `<p>G [Enviado de: 7] apareció en ${obtenerHora()}</p>`;
+
+                        setTimeout(() => {
+                            resultado.innerHTML += `<p>H [Enviado de: 8] apareció en ${obtenerHora()}</p>`;
+                        }, 3000);
+                    }, 2000);
+                }, 2000);
             }
 
 
             function iniciarPrograma() {
-                mostrarA();
+                const segAleatorio = Math.floor(Math.random() * (5 - 2 + 1) + 2);
+                const funcionAsincrona = mostrarA();
+                funcionAsincrona(mostrarB);
+
+                setTimeout(() => {
+                    mostrarD();
+                }, segAleatorio * 1000);
             }
+
+            iniciarPrograma();
         </script>
     </body>
 
