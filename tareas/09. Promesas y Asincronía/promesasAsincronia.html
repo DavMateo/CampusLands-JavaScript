@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Promesas con Callbacks y Asincronía | JS</title>
+
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+        <header id="encabezado">
+            <h1>Promesas con Callbacks y Asincronía | JS</h1>
+        </header>
+
+        <main id="principal">
+            <section id="instrucciones">
+                <h2>Instrucciones</h2>
+
+                <ul>
+                    <li> <strong>A</strong> debería aparecer de una vez cuando se carga la ventana. </li>
+
+                    <li> <strong>B</strong> debería aparecer inmediatamente después de <em>A</em>. </li>
+
+                    <li> <strong>C</strong> debería aparecer <em>5</em> segundos después de <em>A</em>. </li>
+
+                    <li> <strong>D</strong> debería aparecer aleatoriamente entre <em>2 y 5</em> segundos random después de cargar la ventana. </li>
+
+                    <li> <strong>E</strong> debería aparecer <em>2</em> segundos después de <em>D</em>. </li>
+
+                    <li> <strong>F</strong> debería aparecer <em>7</em> segundos después de <em>B</em>. </li>
+
+                    <li> <strong>G</strong> debería aparecer <em>2</em> segundos después de <em>E</em>. </li>
+
+                    <li> <strong>H</strong> debería aparecer <em>3</em> segundos después de <em>G</em>. </li>
+                </ul>
+            </section>
+
+            <section id="resultado">
+                <h2>Salida</h2>
+            </section>
+        </main>
+        
+        <script>
+            // Construye el objeto "Date" cada vez que se llame la función para tener la hora actualizada
+            function obtenerFecha() {
+                const fecha = new Date();
+                return [fecha.getHours(), fecha.getMinutes(), fecha.getSeconds()].join(":");
+            }
+
+            // Construye las cajas de la salida del programa según el texto que reciba
+            function construirCaja(infoPrint) {
+
+            }
+
+            // Ejecutar la función que mostrará a "A"
+            function mostrarA(mostrarB) {
+                const promesa = new Promise((resolve, reject) => {
+                    if (true) {
+                        resolve(`A [Enviado de: 1] apareció en ${obtenerFecha()}`);
+                    } else {
+                        reject(`Ha ocurrido un error al imprimir "A".`);
+                    }
+                });
+
+                return [promesa, () => {console.log("TEST-1");}];
+            }
+
+            function mostrarB() {
+                console.log(`B [Enviado de: 2] apareció en ${obtenerFecha()}`);
+            }
+
+            // Esta función es quien administra y dirige todo el programa. Es el punto de partida del programa
+            function iniciarPrograma() {
+                const resultado = document.getElementById("resultado");
+
+                let test = mostrarA(mostrarB);
+                // Se puede enviar funciones dentro de un array junto con otros tipos de datos.
+            }
+
+            iniciarPrograma();
+        </script>
+    </body>
+
+</html>
