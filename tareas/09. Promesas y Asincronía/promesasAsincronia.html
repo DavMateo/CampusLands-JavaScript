@@ -9,7 +9,28 @@
         <title>Promesas con Callbacks y Asincronía | JS</title>
 
         <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
 
+            #encabezado {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #resultado {
+                margin-top: 4rem;
+            }
+
+            #resultado p {
+                display: flex;
+                padding: 1.75rem;
+                border: 2px solid #000;
+                justify-content: center;
+                align-items: center;
+                border-radius: 7px;
+            }
         </style>
     </head>
 
@@ -54,33 +75,58 @@
             }
 
             // Construye las cajas de la salida del programa según el texto que reciba
-            function construirCaja(infoPrint) {
-
+            function construirCaja(infoPrint, elemResultado) {
+                elemResultado.innerHTML += infoPrint;
             }
+
 
             // Ejecutar la función que mostrará a "A"
-            function mostrarA(mostrarB) {
-                const promesa = new Promise((resolve, reject) => {
-                    if (true) {
-                        resolve(`A [Enviado de: 1] apareció en ${obtenerFecha()}`);
-                    } else {
-                        reject(`Ha ocurrido un error al imprimir "A".`);
-                    }
-                });
+            const mostrarA = new Promise((resolve, reject) => {
+                const resultado = document.getElementById("resultado");
+                construirCaja(`<p style="color: #1f618d">A [Enviado de: 1] apareció en ${obtenerFecha()}</p>`, resultado)
 
-                return [promesa, () => {console.log("TEST-1");}];
-            }
+                // Asincronía de "mostrarC()"
+                setTimeout(() => {
+                    construirCaja(`<p style="color: #1f618d">C [Enviado de: 3] apareció en ${obtenerFecha()}</p>`, resultado);
+                }, 5000);
+            });
 
-            function mostrarB() {
-                console.log(`B [Enviado de: 2] apareció en ${obtenerFecha()}`);
-            }
+            const mostrarB = new Promise((resolve, reject) => {
+                const resultado = document.getElementById("resultado");
+
+                construirCaja(`<p style="color: #1f618d">B [Enviado de: 2] apareció en ${obtenerFecha()}</p>`, resultado);
+
+                setTimeout(() => {
+                    construirCaja(`<p style="color: #1f618d">F [Enviado de: 5] apareció en ${obtenerFecha()}</p>`, resultado);
+                }, 7000);
+            })
+
+            const mostrarD = new Promise((resolve, reject) => {
+                const resultado = document.getElementById("resultado");
+                const segAleatorio = Math.floor(Math.random() * (5 - 2 + 1) + 2);
+
+                setTimeout(() => {
+                    construirCaja(`<p style="color: #1f618d">D [Enviado de: 5] apareció en ${obtenerFecha()}</p>`, resultado);
+                }, segAleatorio * 1000);
+
+                setTimeout(() => {
+                    construirCaja(`<p style="color: #1f618d">E [Enviado de: 5] apareció en ${obtenerFecha()}</p>`, resultado);
+                }, segAleatorio * 1000 + 2000);
+
+                setTimeout(() => {
+                    construirCaja(`<p style="color: #1f618d">G [Enviado de: 5] apareció en ${obtenerFecha()}</p>`, resultado);
+                }, segAleatorio * 1000 + 2000 + 2000);
+
+                setTimeout(() => {
+                    construirCaja(`<p style="color: #1f618d">H [Enviado de: 5] apareció en ${obtenerFecha()}</p>`, resultado);
+                }, segAleatorio * 1000 + 2000 + 2000 + 3000);
+            })
+
 
             // Esta función es quien administra y dirige todo el programa. Es el punto de partida del programa
             function iniciarPrograma() {
-                const resultado = document.getElementById("resultado");
+                
 
-                let test = mostrarA(mostrarB);
-                // Se puede enviar funciones dentro de un array junto con otros tipos de datos.
             }
 
             iniciarPrograma();

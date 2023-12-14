@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Listar Pokemones | JS</title>
+
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+        <header id="encabezado">
+            <h1 class="encabezado_titulo">Listar primeros 100 Pokemones</h1>
+        </header>
+
+        <main id="principal">
+            <section id="resultado">
+                <table class="resultado_tabla">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NOMBRE</th>
+                            <th>IMAGEN FRONTAL</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="resultado_tablaCuerpo"></tbody>
+                </table>
+            </section>
+
+            
+            <script>
+                async function infoPokemon(id) {
+                    const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+                    const respuesta = await fetch(url);
+                    const jsonRespuesta = await respuesta.json();
+                    
+
+                    return [jsonRespuesta.name, jsonRespuesta.id, jsonRespuesta.sprites.front_default]
+                }
+
+                async function iniciarPrograma() {
+                    const tablaCuerpo = document.getElementById("resultado_tablaCuerpo");
+                    const numRep = 100;
+                    
+                    for (let i = 1; i <= numRep; i++) {
+                        await infoPokemon(i)
+                            .then((respuesta) => {
+                                console.log(respuesta);
+
+                                tablaCuerpo.innerHTML += `
+                                    <tr>
+                                        <td>${respuesta[1]}</td>
+                                        <td>${respuesta[0]}</td>
+                                        <td>
+                                            <img src="${respuesta[2]}" alt="img${respuesta[0]}" />
+                                        </td>
+                                    </tr>
+                                `;
+                            })
+
+                            .catch(error => alert(error));
+                    }
+                }
+
+                iniciarPrograma();
+            </script>
+        </main>
+    </body>
+
+</html>
