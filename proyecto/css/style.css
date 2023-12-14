@@ -190,6 +190,17 @@ body {
     display: var(--gridbox);
 }
 
+.articulo1, .articulo2, .articulo3 {
+    display: var(--flexbox);
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, .3);
+    backdrop-filter: blur(4px);
+}
+
+.articulo1_img, .articulo2_img, .articulo3_img {
+    width: 100%;
+}
+
 
 /* FOOTER */
 
@@ -263,7 +274,77 @@ body {
     .info {
         gap: 2rem;
         grid-template-columns: auto;
-        grid-template-rows: repeat();
+        grid-template-rows: repeat(9, auto);
+        grid-template-areas:    "articulo1"
+                                "articulo1"
+                                "articulo1"
+                                "articulo2"
+                                "articulo2"
+                                "articulo2"
+                                "articulo3"
+                                "articulo3"
+                                "articulo3";
+    }
+
+    .articulo1 {
+        grid-area: articulo1;
+    }
+
+    .articulo2 {
+        grid-area: articulo2;
+    }
+
+    .articulo3 {
+        grid-area: articulo3;
+    }
+
+    .articulo1, .articulo2, .articulo3 {
+        gap: .55rem;
+        border-radius: .5rem;
+    }
+
+    .articulo1_titulo, .articulo2_titulo, .articulo3_titulo {
+        font-size: 20px;
+        padding: .5rem 1rem;
+    }
+
+    .articulo1_parrafo, .articulo2_parrafo, .articulo3_parrafo {
+        padding: 0 1rem;
+    }
+
+    .articulo1_btnLeerMas, .articulo2_btnLeerMas, .articulo3_btnLeerMas {
+        display: var(--flexbox);
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 2rem;
+        margin: 1rem auto;
+        border: none;
+        border-radius: 6px;
+        background: linear-gradient(100deg, #90cbff, #368cfb);
+        color: #152856;
+        cursor: pointer;
+        position: relative;
+        transition: all .2s ease-in-out;
+    }
+
+    .articulo1_btnLeerMas:hover::before, .articulo2_btnLeerMas:hover::before, .articulo3_btnLeerMas:hover::before {
+        content: "Leer más";
+        display: var(--flexbox);
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(100deg, #bddfff, #5caefe);
+        box-shadow: 0 0 8px rgba(255, 255, 255, .35);
+        border-radius: 6px;
+    }
+
+    .articulo1_btnLeerMas:active, .articulo2_btnLeerMas:active, .articulo3_btnLeerMas:active {
+        background: linear-gradient(100deg, #5caefe, #1f6df1);
     }
 }
 
