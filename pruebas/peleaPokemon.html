@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>El club de la pelea pokemon</title>
+        
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 16px;
+                background-color: beige;
+            }
+
+            #encabezado {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+            }
+
+            .encabezado_titulo {
+                font-variant: small-caps;
+                letter-spacing: 1px;
+            }
+
+            #principal, .resultados, #miPokemon, #cpuPokemon {
+                display: flex;
+            }
+
+            #principal {
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #000;
+                padding: 1rem 2rem;
+            }
+
+            #miPokemon {
+                flex-direction: column;
+                gap: .75rem;
+            }
+
+            #cpuPokemon {
+                flex-direction: column;
+                gap: .75rem;
+            }
+
+            #miPokemon_btn, #btnFight, #cpuPokemon_btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 18vw;
+                height: 2.7rem;
+                box-shadow: 4px 2px 6px rgba(0, 0, 0, .5);
+                margin-right: 5rem;
+                font-weight: bolder;
+                font-family: Arial, Helvetica, sans-serif;
+                letter-spacing: 1px;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            #miPokemon_btn {
+                border: 2px solid rgb(77, 77, 251);
+                background-color: skyblue;
+            }
+
+            #cpuPokemon_btn {
+                border: 2px solid greenyellow;
+                background-color: lightgreen;
+            }
+
+            .pokemonImg {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #000;
+            }
+
+            .pokemon_textInfo {
+                color: blue;
+                text-transform: capitalize;
+            }
+
+            #btnFight {
+                border: 2px solid salmon;
+                background-color: rgb(250, 188, 181);
+                margin: auto 5rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header id="encabezado">
+            <h1 class="encabezado_titulo">El club de la pelea pokemon</h1>
+        </header>
+
+        <main id="principal">
+            <section class="resultados">
+                <article id="miPokemon">
+                    <button id="miPokemon_btn" onclick="elegirPokemon()">MI Pokemón</button>
+                    <div id="miPokemon_infoContainer"></div>
+                </article>
+                
+                <button id="btnFight">Figth</button>
+
+                <article id="cpuPokemon">
+                    
+                </article>
+            </section>
+        </main>
+
+
+
+        <script>
+            const botonFight = document.getElementById("btnFight");
+            const miPokemonBtn = document.getElementById("miPokemon_btn");
+            const dictPokemonUser = new Map();
+            const dictPokemonCpu = new Map();
+            let isFight = false;
+            let isReady = false;
+
+
+            miPokemonBtn.addEventListener("click", (e) => {
+                isReady = true;
+                test(true, false);
+            });
+
+            
+            function buscarPokemon() {
+                const numAleatorio = Math.floor(Math.random() * (806 - 1 + 1) + 1);
+                return getPokemon(numAleatorio);
+            }
+
+            async function construirTarjetaPokemon(elemento, atributos, checked = true) {
+                console.log(await elemento);
+                
+                if (checked) {
+                    elemento.innerHTML = `
+                        <button id="cpuPokemon_btn">CPU Pokemon</button>
+
+                        <div id="cpuPokemon_infoContainer">
+                            <div class="pokemonImg">
+                                <img src="${atributos.imagen}" alt="imagen_${atributos.nombre}" width="150px" />
+                            </div>
+
+                            <br/>
+
+                            <p class="pokemon_textInfo">Name: ${atributos.nombre}</p>
+                            <p class="pokemon_textInfo">${atributos.caracteristicas[0][0]}: ${atributos.caracteristicas[0][1]}</p>
+                            <p class="pokemon_textInfo">${atributos.caracteristicas[1][0]}: ${atributos.caracteristicas[1][1]}</p>
+                            <p class="pokemon_textInfo">${atributos.caracteristicas[2][0]}: ${atributos.caracteristicas[2][1]}</p>
+                            <p class="pokemon_textInfo">${atributos.caracteristicas[3][0]}: ${atributos.caracteristicas[3][1]}</p>
+                        </div>  
+                    `;
+                } else {
+                    elemento.innerHTML = `
+                        <div class="pokemonImg">
+                            <img src="${atributos.imagen}" alt="imagen_${atributos.nombre}" width="150px" />
+                        </div>
+
+                        <br/>
+
+                        <p class="pokemon_textInfo">Name: ${atributos.nombre}</p>
+                        <p class="pokemon_textInfo">${atributos.caracteristicas[0][0]}: ${atributos.caracteristicas[0][1]}</p>
+                        <p class="pokemon_textInfo">${atributos.caracteristicas[1][0]}: ${atributos.caracteristicas[1][1]}</p>
+                        <p class="pokemon_textInfo">${atributos.caracteristicas[2][0]}: ${atributos.caracteristicas[2][1]}</p>
+                        <p class="pokemon_textInfo">${atributos.caracteristicas[3][0]}: ${atributos.caracteristicas[3][1]}</p>
+                    `;
+                }
+            }
+
+            async function getPokemon(id) {
+                const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+                const respuesta = await fetch(url);
+                const respuestaJson = await respuesta.json();
+            
+
+                return new Promise((resolve, reject) => {
+                    if (respuesta.ok) {
+                        resolve({
+                            nombre: respuestaJson.name,
+                            imagen: respuestaJson.sprites.other["official-artwork"].front_default,
+                            caracteristicas: [
+                                [respuestaJson.stats[0].stat.name, respuestaJson.stats[0].base_stat],
+                                [respuestaJson.stats[1].stat.name, respuestaJson.stats[1].base_stat],
+                                [respuestaJson.stats[2].stat.name, respuestaJson.stats[2].base_stat],
+                                [respuestaJson.stats[5].stat.name, respuestaJson.stats[5].base_stat]
+                            ],
+                            experienciaBase: respuestaJson.base_experience
+                        });
+                    } else {
+                        reject("Ha ocurrido un error al intentar obtener la información del servidor. Recargue la página e inténtelo de nuevo.");
+                    }
+
+                });
+            }
+
+
+            async function elegirPokemon() {
+                buscarPokemon()
+                    .then((respuesta) => {
+                        const miPokemon = document.getElementById("miPokemon_infoContainer");
+                        construirTarjetaPokemon(miPokemon, respuesta, false);
+
+                        //Construir diccionario
+                        dictPokemonUser.set("imagen", respuesta.imagen);
+                        dictPokemonUser.set("nombre", respuesta.nombre);
+                        dictPokemonUser.set(respuesta.caracteristicas[0][0], respuesta.caracteristicas[0][1]);
+                        dictPokemonUser.set(respuesta.caracteristicas[1][0], respuesta.caracteristicas[1][1]);
+                        dictPokemonUser.set(respuesta.caracteristicas[2][0], respuesta.caracteristicas[2][1]);
+                        dictPokemonUser.set(respuesta.caracteristicas[3][0], respuesta.caracteristicas[3][1]);
+                    })
+
+                    .catch((error) => {
+                        console.error(error);
+                });
+            }
+
+            function cpuElegir() {
+                if (isFight && isReady) {
+                    for (let i = 0; i < 7; i++) {
+                        buscarPokemon()
+                            .then((respuesta) => {
+                                const cpuPokemon = document.getElementById("cpuPokemon");
+                                construirTarjetaPokemon(cpuPokemon, respuesta);
+
+                                //Construir diccionario
+                                dictPokemonCpu.set("imagen", respuesta.imagen);
+                                dictPokemonCpu.set("nombre", respuesta.nombre);
+                                dictPokemonCpu.set(respuesta.caracteristicas[0][0], respuesta.caracteristicas[0][1]);
+                                dictPokemonCpu.set(respuesta.caracteristicas[1][0], respuesta.caracteristicas[1][1]);
+                                dictPokemonCpu.set(respuesta.caracteristicas[2][0], respuesta.caracteristicas[2][1]);
+                                dictPokemonCpu.set(respuesta.caracteristicas[3][0], respuesta.caracteristicas[3][1]);
+                            })
+                
+                            .catch((error) => {
+                                console.error(error);
+                        });
+                    }
+                } else {
+                    alert("Debes elegir primero a tu pokemón.");
+                }
+            }
+
+            botonFight.addEventListener("click", async (e) => {
+                isFight = true;
+                
+                setTimeout(() => {
+                    cpuElegir();
+                }, 1000);
+
+                test(false, true);
+            });
+
+            
+            function test(user, cpu) {
+                if (user) {
+                    console.log(dictPokemonUser.get("nombre"));
+                } else if (cpu) {
+                    console.log(dictPokemonCpu.get("nombre"));
+                }
+            }
+        </script>
+    </body>
+
+</html>
