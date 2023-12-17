@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ejemplo removeAttribute</title>
+    </head>
+
+    <body>
+        <div id="miElemento" data-info="informacionAdicional">Contenido del Elemento</div>
+
+        <script>
+            // Seleccionar el elemento
+            const miElemento = document.getElementById("miElemento");
+
+            // Eliminar el atributo "data-info"
+            miElemento.removeAttribute("data-info");
+
+            // Mostrar en la consola si el atributo "data-info" está presente en el documento HTML
+            console.log("¿Está presente data-info?:", miElemento.hasAttribute("data-info"));
+        </script>
+    </body>
+
+</html>
