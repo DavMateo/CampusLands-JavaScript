@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Conversor de Temperatura | JS</title>
+
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-size: 16px;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #b8fadd;
+            }
+
+            #encabezado {
+                display: flex;
+                width: 100vw;
+                padding: 1.5rem;
+                justify-content: center;
+                align-items: center;
+                background: linear-gradient(180deg, #1acd81, #b8fadd);
+                margin-bottom: 4rem;
+                
+                & .encabezado_titulo {
+                    letter-spacing: 1px;
+                    font-variant: small-caps;
+                    text-transform: capitalize;
+                    text-align: center;
+                }
+            }
+
+            #principal {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                padding: 0 2rem;
+            }
+
+            .botones {
+                display: flex;
+                width: calc(100vw - (2rem * 2));
+                height: fit-content;
+                justify-content: space-between;
+
+                & .botones_fahrenheit, .botones_celsius {
+                    display: flex;
+                    width: 14rem;
+                    height: 3rem;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 18px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    letter-spacing: 3px;
+                    border: none;
+                    border-radius: .45rem;
+                    font-variant: small-caps;
+                    text-transform: capitalize;
+                    font-weight: bold;
+                    position: relative;
+                    cursor: pointer;
+                }
+
+                & .botones_fahrenheit--electricViolet {
+                    background: linear-gradient(100deg, #c5a6ff, #943bff);
+
+                    &::before {
+                        content: 'Fahrenheit';
+                        display: flex;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: .45rem;
+                        background: linear-gradient(100deg, #ddcdff, #ab73ff);
+                        opacity: 0;
+                        transition: all .2s ease-in-out;
+                    }
+                }
+
+                & .botones_celsius--roseSharon {
+                    background: linear-gradient(100deg, #fbd24e, #f49d0c);
+
+                    &::before {
+                        content: 'Centígrados';
+                        display: flex;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: .45rem;
+                        background: linear-gradient(100deg, #fde58a, #fabe25);
+                        opacity: 0;
+                        transition: all .2s ease-in-out;
+                    }
+                }
+            }
+
+            .botones_fahrenheit--electricViolet:hover::before {
+                opacity: 1;
+            }
+
+            .botones_fahrenheit--electricViolet:active {
+                background: linear-gradient(100deg, #ab73ff, #8c14ff);
+            }
+
+            .botones_fahrenheit--electricViolet:active::before {
+                opacity: 0;
+            }
+
+            .botones_celsius--roseSharon:hover::before {
+                opacity: 1;
+            }
+
+            .botones_celsius--roseSharon:active {
+                background: linear-gradient(100deg, #fabe25, #d87607);
+            }
+
+            .botones_celsius--roseSharon:active::before {
+                opacity: 0;
+            }
+
+            #celsius_to_fahrenheit {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                border: 2px solid #943bff;
+                background-color: #ede4ff;
+                padding: 2rem;
+                border-radius: .5rem;
+            }
+
+            .formulario1 {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                & .formulario1_celsius, .formulario1_resFahrenheit {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: .5rem;
+
+                    & label {
+                        color: #6c01d6;
+                        font-weight: bold;
+                    }
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header id="encabezado">
+            <h1 class="encabezado_titulo">Conversor de Temperatura</h1>
+        </header>
+
+        <main id="principal">
+            <div class="botones">
+                <button class="botones_fahrenheit botones_fahrenheit--electricViolet">Fahrenheit</button>
+                <button class="botones_celsius botones_celsius--roseSharon">centígrados</button>
+            </div>
+
+            <section id="celsius_to_fahrenheit">
+                <form class="formulario1" action="">
+                    <div class="formulario1_celsius">
+                        <label for="celsius">Grados centígrados: </label>
+                        <input type="number" name="celsius" id="celsius" />
+                    </div>
+
+                    <div class="formulario1_resFahrenheit">
+                        <label for="fahrenheit">Grados fahrenheit: </label>
+                        <input type="text" name="fahrenheit" id="fahrenheit" placeholder="0°F" disabled/>
+                    </div>
+                </form>
+
+                <button class="btnCalcularFahrenheit" onclick="iniciarPrograma('fahrenheit')">Calcular Fahrenheit</button>
+            </section>
+
+            <section id="fahrenheit_to_celsius" style="display: none">
+                <form class="formulario2" action="">
+                    <div class="formulario2_fahrenheit">
+                        <label for="fahrenheit">Grados fahrenheit: </label>
+                        <input type="number" name="fahrenheit" id="fahrenheit" />
+                    </div>
+
+                    <div class="formulario2_resCelsius">
+                        <label for="celsius">Grados centígrados: </label>
+                        <input type="text" name="celsius" id="celsius" />
+                    </div>
+                </form>
+
+                <button onclick="iniciarPrograma('celsius')">Calcular Centígrados</button>
+            </section>
+        </main>
+
+
+        <script>
+            function iniciarPrograma(tipoPeticion) {
+                const formulario1 = document.getElementById("celsius_to_fahrenheit").querySelector(".formulario1");
+                const formulario2 = document.getElementById("fahrenheit_to_celsius").querySelector(".formulario2");
+
+                if (tipoPeticion === "fahrenheit") {
+                    const formData = new FormData(formulario1);
+                    const respuestaFahrenheit = calcularFahrenheit(formData.getAll("celsius"));
+                    const mostrarRespuesta = formulario1.querySelector(".formulario1_resFahrenheit").querySelector("input");
+                    mostrarRespuesta.setAttribute("placeholder", `${respuestaFahrenheit.toFixed(2)}°F`);
+
+                } else if (tipoPeticion === "celsius") {
+                    const formData = new FormData(formulario2);
+                    const respuestaCelsius = calcularCelsius(formData.getAll("fahrenheit"));
+                    const mostrarRespuesta = formulario2.querySelector(".formulario2_resCelsius").querySelector("input");
+                    mostrarRespuesta.setAttribute("placeholder", `${respuestaCelsius.toFixed(2)}°C`);
+
+                } else {
+                    alert("Error fatal: Algo ha ido mal. Comuníquese con un administrador o con el desarrollador de este sitio web");
+                }
+            }
+
+            function calcularFahrenheit(celsius) {
+                return celsius * (9/5) + 32;
+            }
+
+            function calcularCelsius(fahrenheit) {
+                return (fahrenheit - 32) * 5/9;
+            }
+        </script>
+    </body>
+
+</html>

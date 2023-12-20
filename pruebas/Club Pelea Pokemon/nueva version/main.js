@@ -2,6 +2,21 @@
 const btnMiPokemon = document.getElementById("miPokemon").querySelector("miPokemon_btn");
 const btnFigth = document.getElementById("btnFigth");
 let infoPokemonUser = null, infoPokemonCpu = null;
+let isbtnFightPress = false;
+
+
+//Agregando los eventos de escucha necesarios al HTML
+btnFigth.addEventListener("click", (e) => {
+    if (btnFigth.dataset.state === "disabled") {
+        alert("Antes de iniciar la batalla, debes elegir a tu pokemón.");
+
+    } else if (btnFigth.dataset.state === "active") {
+        escogerPokemon('cpu');
+
+    } else {
+        alert("Ha ocurrido un error inesperado. Recarga la página e intenta de nuevo.");
+    }
+});
 
 
 // Definiendo las funciones necesarias
@@ -57,21 +72,71 @@ async function getInfoPokemon(peticion) {
 }
 
 async function escogerPokemon(peticion) {
-    getInfoPokemon(peticion)
+    if (peticion === "user") {
+        btnFigth.dataset.state = "active";
+        btnFigth.classList.remove("btnFigth--disabled");
+    }
+
+    await getInfoPokemon(peticion)
         .then(respuesta =>  iniciarCombate(peticion, respuesta) )
 
-        .catch(error =>  console.log(error) );
+        .catch(error =>  console.error(error) );
 }
 
-function iniciarCombate(peticion, infoPokemon) {
-    const contenedorMiPokemon = document.getElementById("miPokemon").querySelector(".miPokemon_info");
+async function mostrarPokemonAleatorio7seg(peticion) {
     const cpuPokemon = document.getElementById("cpuPokemon");
+    let count = 1;
+
+    const idIntervalo = setInterval(async () => {
+        if (count < 7) {
+            let infoPokemon = await getInfoPokemon(peticion);
+
+            cpuPokemon.innerHTML = `
+                <img class="miPokemon_img" src=${infoPokemon.imagen} alt="pokemon_${infoPokemon.nombre}" />
+            `;
+
+        } else {
+            clearInterval(idIntervalo);
+            await getInfoPokemon(peticion)
+                .then(respuesta => iniciarCombate(peticion, respuesta, true, cpuPokemon))
+
+                .catch(error => console.error(error) );
+        }
+        count++;
+
+    }, 1000);
+}
+
+
+async function iniciarCombate(peticion, infoPokemon, checked = false, elementoHTML) {
+    const contenedorMiPokemon = document.getElementById("miPokemon").querySelector(".miPokemon_info");
+    let turno = 1;
 
     if (peticion === "user") {
+        infoPokemonUser = infoPokemon;
         construirTarjetaPokemon(peticion, infoPokemon, contenedorMiPokemon);
 
     } else if (peticion === "cpu") {
-        construirTarjetaPokemon(peticion, infoPokemon, cpuPokemon);
+        if (checked) {
+            infoPokemonCpu = infoPokemon;
+            construirTarjetaPokemon(peticion, infoPokemon, elementoHTML);
+
+        } else {
+            mostrarPokemonAleatorio7seg(peticion);
+        }
+    }
+
+
+    // Algoritmo de batalla
+    try {
+        if (infoPokemonUser.construirMapa().get("hp") > 0 && infoPokemonCpu.construirMapa().get("hp") > 0) {
+            console.log("ENTRE AQUÍ EN EL ALGORITMO DE BATALLA");
+        }
+
+    } catch(err) {
+        if (err.name === "TypeError") {
+            //pass
+        }
     }
 }
 
@@ -79,7 +144,6 @@ function iniciarCombate(peticion, infoPokemon) {
 function construirTarjetaPokemon(peticion, infoPokemon, elementoHTML) {
     let dictPokemon = infoPokemon.construirMapa(peticion);
     console.log(dictPokemon, peticion);
-
 
     if (peticion === "user") {
         elementoHTML.innerHTML = `
