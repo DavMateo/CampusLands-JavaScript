@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>API Elementos - Append | JS</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="parent">
+                <p>Hola a todos</p>
+                <p class="message">Hola, soy todo un Camper</p>
+            </div>
+        </div>
+
+        <button onclick="insertarElement()">Insertar Párrafo</button>
+        <button onclick="afterElement()">After Párrafo</button>
+        <button onclick="prependElement()">Prepend Párrafo</button>
+        <button onclick="appendElement()">Append Párrafo</button>
+
+
+        <script>
+            function insertarElement() {
+                const div = document.querySelector("div");
+                const p = document.createElement("p");
+                p.innerHTML = "<span style='color:red;>Este es el contenido insertado</span>";
+                div.before(p);
+            }
+
+            function afterElement() {
+                const div = document.querySelector("div");
+                const p = document.createElement("p");
+                p.innerHTML = "<span style='color: red;'>Este es el contenido insertado</span>";
+                div.after(p);
+            }
+
+            function prependElement() {
+                const div = document.querySelector("div");
+                const p = document.createElement("p");
+                p.innerHTML = "<span style='color:blue;'>Este es el contenido insertado</span>";
+                div.prepend(p);
+            }
+
+            function appendElement() {
+                const div = document.querySelector("div");
+                const p = document.createElement("p");
+                p.innerHTML = "<span style='color:blue;'>Este es el contenido insertado</span>";
+                div.append(p);
+            }
+        </script>
+    </body>
+
+</html>
