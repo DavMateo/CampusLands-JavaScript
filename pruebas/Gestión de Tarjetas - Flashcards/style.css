@@ -1,0 +1,220 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e0f2fe;
+}
+
+#encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    background-color: #fff;
+
+    & .encabezado_titulo {
+        font-variant: small-caps;
+        text-transform: capitalize;
+        letter-spacing: 1.35px;
+    }
+}
+
+.navBtn {
+    & .navBtn_lista {
+        display: flex;
+        list-style: none;
+        gap: 1.25rem;
+
+        & .navBtn_lista-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1.65px solid red;
+            width: 7rem;
+            height: 2.85rem;
+            border-radius: .45rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+
+            &:nth-child(1) {
+                background-color: #bae6fd;
+                border: 1px solid #0ea5e9;
+            }
+
+            &:nth-child(2) {
+                background-color: #fecaca;
+                border: 1px solid #ef4444;
+            }
+        }
+    }
+}
+
+.navBtn_lista-item--disabled {
+    cursor: no-drop !important;
+    background-color: #991b1b !important;
+    color: rgba(254, 226, 226, .5);
+    border: none;
+    
+    
+}
+
+#principal {
+    display: flex;
+    gap: 3.25rem;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .35);
+    width: 25rem;
+    height: 21rem;
+    padding: 1rem 2rem;
+    justify-content: space-around;
+    align-self: center;
+    background-color: #bae6fd;
+    border-radius: .5rem;
+
+    & .container_titulo {
+        align-self: center;
+        font-variant: small-caps;
+        text-transform: capitalize;
+        letter-spacing: 1.2px;
+        margin-bottom: 1rem;
+    }
+}
+
+#containerFlashcard {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+
+    & .formulario_pregunta, .formulario_respuesta {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        margin-bottom: 1rem;
+
+        & label {
+            font-weight: bold;
+        }
+
+        & input {
+            width: 100%;
+            height: 2.35rem;
+            padding: 1rem;
+            border: none;
+            border-radius: .35rem;
+            background-color: #0284c7;
+            color: #f0f9ff;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+.botones {
+    display: flex;
+    gap: 1.25rem;
+
+    & .botones_guardar, .botones_cerrar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10rem;
+        height: 2.5rem;
+        font-family: Arial, Helvetica, sans-serif;
+        letter-spacing: 1px;
+        font-weight: bold;
+        background-color: #0c4a6e;
+        border: none;
+        border-radius: .35rem;
+        color: #f0f9ff;
+        cursor: pointer;
+    }
+}
+
+.flashcard {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 48%;
+    height: fit-content;
+    margin: auto 0;
+    border-radius: .35rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    flex-wrap: wrap;
+    user-select: none;
+
+    & .flashcard_encabezado {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        height: 2.25rem;
+        padding: 0 .75rem;
+        border-bottom: 2px dotted #b91c1c;
+
+        & .flashcard_btnCerrar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1.5rem;
+            height: 1.5rem;
+            font-weight: bolder;
+            border: none;
+            background-color: #b91c1c;
+            color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all .25s ease-in-out;
+
+            &:hover {
+                background-color: #dc2626;
+            }
+
+            &:active {
+                background-color: #7f1d1d;
+            }
+        }
+    }
+
+    & .flashcard_pregunta {
+        padding: 1rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    & .flashcard_respuesta {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 1rem;
+        padding: 1rem;
+        text-align: left;
+        background-color: lightgray;
+        color: #b45309;
+        border-radius: .25rem;
+
+        
+    }
+}
+
+.flashcard_respuesta--disabled {
+    display: none !important;
+}
