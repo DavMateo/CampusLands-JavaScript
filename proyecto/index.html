@@ -84,20 +84,20 @@
                 </div>
 
                 <div class="suscribirse_derecha">
-                    <form class="formulario" action="#" method="post">
-                        <ul class="formulario_lista">
-                            <li class="formulario_lista-item">
-                                <input type="text" name="nombre" id="user_nombre" />
-                            </li>
+                    <form class="formulario" action="#" method="post" onsubmit="return false;">
+                        <div class="formulario_nombre">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" name="nombre" id="nombre" placeholder="Ej: David Carreño" />
+                        </div>
 
-                            <li class="formulario_lista-item">
-                                <input type="email" name="email" id="user_email" />
-                            </li>
+                        <div class="formulario_email">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Ej: micorreo@dominio.com" />
+                        </div>
 
-                            <li class="formulario_lista-item">
-                                <button class="formulario_lista-itemBtn" type="submit">suscribirse</button>
-                            </li>
-                        </ul>
+                        <div class="formulario_btnEnviar">
+                            <button id="enviar" type="submit">Suscribirse</button>
+                        </div>
                     </form>
                 </div>
             </section>

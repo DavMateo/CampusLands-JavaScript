@@ -191,6 +191,7 @@ body {
 #principal {
     display: var(--flexbox);
     flex-direction: column;
+    font-family: var(--tipografia_texto);
 
     & .info {
         display: var(--gridbox);
@@ -211,6 +212,132 @@ body {
                 font-variant: small-caps;
                 text-transform: capitalize;
                 letter-spacing: 1px;
+            }
+        }
+    }
+
+    & .suscribirse {
+        display: var(--flexbox);
+        flex-direction: column;
+        margin: 7rem 0;
+        gap: 1.5rem;
+        background-color: rgba(0, 0, 0, .25);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        padding: 1rem;
+        border-radius: 10px;
+
+        & .suscribirse_izquierda {
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+            font-family: var(--tipografia_texto);
+
+            & h3 {
+                font-size: 185%;
+                font-variant: small-caps;
+                text-transform: capitalize;
+                letter-spacing: .75px;
+                font-family: var(--tipografia_subtitulo);
+            }
+
+            & p {
+                font-weight: 500;
+                line-height: 1.2rem;
+            }
+        }
+
+        & .suscribirse_derecha {
+            & .formulario {
+                display: flex;
+                flex-direction: column;
+                gap: 1.125rem;
+                font-family: var(--tipografia_subtitulo);
+
+                & .formulario_nombre, .formulario_email {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .35rem;
+                    width: 100%;
+
+                    & input {
+                        height: 2.5rem;
+                        border: 1px solid #ecf0f1;
+                        background-color: rgba(255, 255, 255, .25);
+                        color: var(--lightMode_textoPrincipal);
+                        font-family: var(--tipografia_subtitulo);
+                        border-radius: 10px;
+                        padding: 0 .7rem;
+                        outline: none;
+                        color: #152856;
+
+                        &:focus {
+                            border: 2px solid #368cfb;
+                        }
+                    }
+
+                    & label {
+                        font-weight: 600;
+                        font-variant: small-caps;
+                        text-transform: capitalize;
+                        letter-spacing: 1px;
+                        cursor: pointer;
+                    }
+                }
+
+                & .formulario_btnEnviar{
+                    display: flex;
+                    align-items: center;
+                    margin-top: 1rem;
+
+                    & button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 7.125rem;
+                        height: 2.5rem;
+                        background: linear-gradient(100deg, #90cbff, #368cfb);
+                        color: #152856;
+                        font-weight: 600;
+                        font-family: var(--tipografia_subtitulo);
+                        letter-spacing: .6px;
+                        border: none;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        position: relative;
+
+                        &::before {
+                            content: 'Suscribirse';
+                            display: flex;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            background: linear-gradient(140deg, #bddfff, #5caefe);
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 8px;
+                            opacity: 0;
+                            transition: all .2s ease-in-out;
+                            box-shadow: 0 0 8px rgba(255, 255, 255, .35);
+                        }
+
+                        &:hover {
+                            &::before {
+                                opacity: 1;
+                            }
+                        }
+
+                        &:active {
+                            background: linear-gradient(130deg, #5caefe, #1f6df1);
+
+                            &::before {
+                                opacity: 0;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
