@@ -359,10 +359,10 @@ body {
                             "atajos recursos"
                             "descargar descargar"
                             "descargar descargar"
-                            "copyright copyright"
-                            "copyright copyright"
                             "redesSociales redesSociales"
-                            "redesSociales redesSociales";
+                            "redesSociales redesSociales"
+                            "copyright copyright"
+                            "copyright copyright";
 
     & .infoWebsite {
         display: flex;
@@ -465,22 +465,189 @@ body {
         grid-area: descargar;
         display: grid;
         margin: 2.75rem 0;
-        gap: .4rem;
+        gap: .75rem;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(12, auto);
+        grid-template-areas:    "titulo"
+                                "titulo"
+                                "android"
+                                "android"
+                                "ios"
+                                "ios"
+                                "windows"
+                                "windows"
+                                "linux"
+                                "linux"
+                                "appweb"
+                                "appweb";
 
         & .descargar_titulo {
             font-size: 16px;
             font-family: var(--tipografia_titulo);
+            grid-area: titulo;
+            padding-bottom: .6rem;
+        }
+
+        & .descargar_app {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 2.75rem;
+            margin: 0 auto;
+            border: none;
+            font-family: var(--tipografia_subtitulo);
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: .4rem;
+            cursor: pointer;
+            text-decoration: var(--desabilitado);
+            font-size: 13px;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: all .3s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:active {
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+
+        & .descargar_app--android {
+            grid-area: android;
+            background: linear-gradient(160deg, #81f4c3, #1acd81);
+            color: #03301f;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .35);
+
+            &::before {
+                content: 'Android';
+                background: linear-gradient(160deg, #b8fadd, #43e5a0);
+            }
+
+            &:active {
+                background: linear-gradient(160deg, #43e5a0, #0fa968);
+            }
+        }
+
+        & .descargar_app--ios {
+            grid-area: ios;
+            background: linear-gradient(160deg, #d1d1d1, #aaaaaa);
+            color: #333333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .35);
+
+            &::before {
+                content: 'iOS';
+                background: linear-gradient(160deg, #e3e3e3, #c0c0c0);
+            }
+
+            &:active {
+                background: linear-gradient(160deg, #c0c0c0, #969696);
+            }
+        }
+
+        & .descargar_app--windows {
+            grid-area: windows;
+            background: linear-gradient(160deg, #85a8ff, #2f45ff);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .35);
+            color: #0a0b5c;
+
+            &::before {
+                content: 'Windows';
+                background: linear-gradient(160deg, #b3ccff, #5676ff);
+            }
+
+            &:active {
+                background: linear-gradient(160deg, #5676ff, #0c0eff);
+            }
+        }
+
+        & .descargar_app--linux {
+            grid-area: linux;
+            background: linear-gradient(160deg, #f8af79, #f0641f);
+            color: #411009;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .35);
+
+            &::before {
+                content: 'Linux';
+                background: linear-gradient(160deg, #fbd0ad, #f48443);
+            }
+
+            &:active {
+                background: linear-gradient(160deg, #f48443, #dd4814);
+            }
+        }
+
+        & .descargar_app--appweb {
+            grid-area: appweb;
+            background: linear-gradient(160deg, #ffe746, #ffb703);
+            color: #481f00;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .35);
+
+            &::before {
+                content: 'Aplicación Web';
+                background: linear-gradient(160deg, #fff485, #ffd71b);
+            }
+
+            &:active {
+                background: linear-gradient(160deg, #ffd71b, #e28b00);
+            }
         }
     }
 
     & .copyright {
         grid-area: copyright;
-        margin-bottom: .5rem;
+        margin: 1rem .6rem;
     }
 
     & .redesSociales {
         grid-area: redesSociales;
         display: grid;
+        grid-template-columns: repeat(5, auto);
+        grid-template-rows: auto;
+        grid-template-areas: "facebook instagram twitter github youtube";
+
+        & svg {
+            cursor: pointer;
+
+            &:nth-child(1) {
+                grid-area: facebook;
+            }
+    
+            &:nth-child(2) {
+                grid-area: instagram;
+            }
+    
+            &:nth-child(3) {
+                grid-area: twitter
+            }
+    
+            &:nth-child(4) {
+                grid-area: github
+            }
+    
+            &:nth-child(5) {
+                grid-area: youtube
+            }
+        }
     }
 }
 
