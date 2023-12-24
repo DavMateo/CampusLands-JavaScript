@@ -344,9 +344,145 @@ body {
 }
 
 
-
 /* FOOTER */
+#pieDePagina {
+    display: grid;
+    background: linear-gradient(165deg, #5caefe, #1a47b3);
+    color: #daecff;
+    padding: 1.25rem;
+    font-family: var(--tipografia_texto);
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(10, auto);
+    grid-template-areas:    "infoWebsite infoWebsite"
+                            "infoWebsite infoWebsite"
+                            "atajos recursos"
+                            "atajos recursos"
+                            "descargar descargar"
+                            "descargar descargar"
+                            "copyright copyright"
+                            "copyright copyright"
+                            "redesSociales redesSociales"
+                            "redesSociales redesSociales";
 
+    & .infoWebsite {
+        display: flex;
+        flex-direction: column;
+        gap: .85rem;
+        grid-area: infoWebsite;
+
+        & .infoWebsite_encabezado {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            & .infoWebsite_encabezado-img {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 10px;
+            }
+
+            & .infoWebsite_encabezado-titulo {
+                margin: 0 auto;
+                font-family: var(--tipografia_titulo);
+                letter-spacing: 1px;
+            }
+        }
+
+        & .infoWebsite_principal {
+            margin-bottom: 1.5rem;
+
+            & .infoWebsite_principal-parrafo {
+                user-select: none;
+                cursor: text;
+            }
+        }
+    }
+
+    & .atajos {
+        grid-area: atajos;
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+
+        & .atajos_titulo {
+            font-size: 16px;
+            font-family: var(--tipografia_titulo);
+        }
+
+        & .atajos_lista {
+            display: flex;
+            flex-direction: column;
+            gap: .2rem;
+            list-style: var(--desabilitado);
+            
+            & .atajos_lista-item a {
+                text-decoration: none;
+                color: #152856;
+                transition: all .2s ease-in-out;
+
+                &:hover {
+                    color: #bddfff;
+                    text-shadow: 0 0 6px rgba(0, 0, 0, .65);
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    & .recursos {
+        grid-area: recursos;
+        display: flex;
+        flex-direction: column;
+        justify-self: flex-end;
+        gap: .4rem;
+
+        & .recursos_titulo {
+            font-size: 16px;
+            font-family: var(--tipografia_titulo);
+        }
+
+        & .recursos_lista {
+            display: flex;
+            flex-direction: column;
+            gap: .2rem;
+            list-style: var(--desabilitado);
+            
+            & .recursos_lista-item a {
+                text-decoration: none;
+                color: #152856;
+                transition: all .2s ease-in-out;
+
+                &:hover {
+                    color: #bddfff;
+                    text-shadow: 0 0 6px rgba(0, 0, 0, .65);
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    & .descargar {
+        grid-area: descargar;
+        display: grid;
+        margin: 2.75rem 0;
+        gap: .4rem;
+
+        & .descargar_titulo {
+            font-size: 16px;
+            font-family: var(--tipografia_titulo);
+        }
+    }
+
+    & .copyright {
+        grid-area: copyright;
+        margin-bottom: .5rem;
+    }
+
+    & .redesSociales {
+        grid-area: redesSociales;
+        display: grid;
+    }
+}
 
 
 
