@@ -219,31 +219,23 @@ body {
     & .suscribirse {
         display: var(--flexbox);
         flex-direction: column;
-        margin: 7rem 0;
-        gap: 1.5rem;
         background-color: rgba(0, 0, 0, .25);
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
-        padding: 1rem;
-        border-radius: 10px;
 
         & .suscribirse_izquierda {
             display: flex;
             flex-direction: column;
-            gap: .25rem;
             font-family: var(--tipografia_texto);
 
             & h3 {
-                font-size: 185%;
                 font-variant: small-caps;
                 text-transform: capitalize;
-                letter-spacing: .75px;
                 font-family: var(--tipografia_subtitulo);
             }
 
             & p {
                 font-weight: 500;
-                line-height: 1.2rem;
             }
         }
 
@@ -251,23 +243,16 @@ body {
             & .formulario {
                 display: flex;
                 flex-direction: column;
-                gap: 1.125rem;
                 font-family: var(--tipografia_subtitulo);
 
                 & .formulario_nombre, .formulario_email {
                     display: flex;
                     flex-direction: column;
-                    gap: .35rem;
-                    width: 100%;
 
                     & input {
-                        height: 2.5rem;
-                        border: 1px solid #ecf0f1;
                         background-color: rgba(255, 255, 255, .25);
                         color: var(--lightMode_textoPrincipal);
                         font-family: var(--tipografia_subtitulo);
-                        border-radius: 10px;
-                        padding: 0 .7rem;
                         outline: none;
                         color: #152856;
 
@@ -288,21 +273,16 @@ body {
                 & .formulario_btnEnviar{
                     display: flex;
                     align-items: center;
-                    margin-top: 1rem;
 
                     & button {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        width: 7.125rem;
-                        height: 2.5rem;
                         background: linear-gradient(100deg, #90cbff, #368cfb);
                         color: #152856;
                         font-weight: 600;
                         font-family: var(--tipografia_subtitulo);
-                        letter-spacing: .6px;
                         border: none;
-                        border-radius: 8px;
                         cursor: pointer;
                         position: relative;
 
@@ -317,7 +297,6 @@ body {
                             background: linear-gradient(140deg, #bddfff, #5caefe);
                             justify-content: center;
                             align-items: center;
-                            border-radius: 8px;
                             opacity: 0;
                             transition: all .2s ease-in-out;
                             box-shadow: 0 0 8px rgba(255, 255, 255, .35);
@@ -349,25 +328,11 @@ body {
     display: grid;
     background: linear-gradient(165deg, #5caefe, #1a47b3);
     color: #daecff;
-    padding: 1.25rem;
     font-family: var(--tipografia_texto);
-    grid-template-columns: auto auto;
-    grid-template-rows: repeat(10, auto);
-    grid-template-areas:    "infoWebsite infoWebsite"
-                            "infoWebsite infoWebsite"
-                            "atajos recursos"
-                            "atajos recursos"
-                            "descargar descargar"
-                            "descargar descargar"
-                            "redesSociales redesSociales"
-                            "redesSociales redesSociales"
-                            "copyright copyright"
-                            "copyright copyright";
 
     & .infoWebsite {
         display: flex;
         flex-direction: column;
-        gap: .85rem;
         grid-area: infoWebsite;
 
         & .infoWebsite_encabezado {
@@ -375,22 +340,13 @@ body {
             justify-content: flex-start;
             align-items: center;
 
-            & .infoWebsite_encabezado-img {
-                width: 4rem;
-                height: 4rem;
-                border-radius: 10px;
-            }
-
             & .infoWebsite_encabezado-titulo {
                 margin: 0 auto;
                 font-family: var(--tipografia_titulo);
-                letter-spacing: 1px;
             }
         }
 
         & .infoWebsite_principal {
-            margin-bottom: 1.5rem;
-
             & .infoWebsite_principal-parrafo {
                 user-select: none;
                 cursor: text;
@@ -402,17 +358,14 @@ body {
         grid-area: atajos;
         display: flex;
         flex-direction: column;
-        gap: .4rem;
 
         & .atajos_titulo {
-            font-size: 16px;
             font-family: var(--tipografia_titulo);
         }
 
         & .atajos_lista {
             display: flex;
             flex-direction: column;
-            gap: .2rem;
             list-style: var(--desabilitado);
             
             & .atajos_lista-item a {
@@ -423,7 +376,6 @@ body {
                 &:hover {
                     color: #bddfff;
                     text-shadow: 0 0 6px rgba(0, 0, 0, .65);
-                    font-size: 14px;
                 }
             }
         }
@@ -434,17 +386,14 @@ body {
         display: flex;
         flex-direction: column;
         justify-self: flex-end;
-        gap: .4rem;
 
         & .recursos_titulo {
-            font-size: 16px;
             font-family: var(--tipografia_titulo);
         }
 
         & .recursos_lista {
             display: flex;
             flex-direction: column;
-            gap: .2rem;
             list-style: var(--desabilitado);
             
             & .recursos_lista-item a {
@@ -455,7 +404,6 @@ body {
                 &:hover {
                     color: #bddfff;
                     text-shadow: 0 0 6px rgba(0, 0, 0, .65);
-                    font-size: 14px;
                 }
             }
         }
@@ -464,45 +412,22 @@ body {
     & .descargar {
         grid-area: descargar;
         display: grid;
-        margin: 2.75rem 0;
-        gap: .75rem;
-        grid-template-columns: auto;
-        grid-template-rows: repeat(12, auto);
-        grid-template-areas:    "titulo"
-                                "titulo"
-                                "android"
-                                "android"
-                                "ios"
-                                "ios"
-                                "windows"
-                                "windows"
-                                "linux"
-                                "linux"
-                                "appweb"
-                                "appweb";
 
         & .descargar_titulo {
-            font-size: 16px;
             font-family: var(--tipografia_titulo);
             grid-area: titulo;
-            padding-bottom: .6rem;
         }
 
         & .descargar_app {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 80%;
-            height: 2.75rem;
             margin: 0 auto;
             border: none;
             font-family: var(--tipografia_subtitulo);
-            font-weight: 500;
             letter-spacing: 1px;
-            border-radius: .4rem;
             cursor: pointer;
             text-decoration: var(--desabilitado);
-            font-size: 13px;
             position: relative;
 
             &::before {
@@ -615,15 +540,11 @@ body {
 
     & .copyright {
         grid-area: copyright;
-        margin: 1rem .6rem;
     }
 
     & .redesSociales {
         grid-area: redesSociales;
         display: grid;
-        grid-template-columns: repeat(5, auto);
-        grid-template-rows: auto;
-        grid-template-areas: "facebook instagram twitter github youtube";
 
         & svg {
             cursor: pointer;
@@ -653,7 +574,7 @@ body {
 
 
 
-/* RESPONSIVE 280px -> Celulares pequeños (Galaxy Fold) */
+/* RESPONSIVE 240px -> Celulares pequeños (Galaxy Fold) */
 @media (max-width: 280px) {
     body {
         font-size: 12px;
@@ -730,75 +651,238 @@ body {
 
     .articulo1 {
         grid-area: articulo1;
-        border-radius: 8px;
     }
 
     .articulo2 {
         grid-area: articulo2;
-        border-radius: 8px;
     }
 
     .articulo3 {
         grid-area: articulo3;
+    }
+
+    .articulo1, .articulo2, .articulo3 {
         border-radius: 8px;
+
+        & .articulo_titulo {
+            font-size: 20px;
+            padding: 1rem;
+        }
+    
+        & .articulo_parrafo {
+            padding: 0 1rem;
+        }
+
+        & .articulo_btnLeerMas {
+            display: var(--flexbox);
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            height: 2rem;
+            margin: 1rem auto;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(100deg, #90cbff, #368cfb);
+            color: #152856;
+            cursor: pointer;
+            position: relative;
+
+            &::before {
+                content: "Leer más";
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(100deg, #bddfff, #5caefe);
+                box-shadow: 0 0 8px rgba(255, 255, 255, .35);
+                border-radius: 6px;
+                opacity: 0;
+                transition: all .2s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:active {
+                background: linear-gradient(100deg, #5caefe, #1f6df1);
+
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
     }
 
-    .articulo {
-        gap: .55rem;
-        border-radius: .5rem;
-    }
-
-    .articulo_titulo {
-        font-size: 20px;
+    .suscribirse {
+        margin: 7rem 0;
+        gap: 1.5rem;
         padding: 1rem;
+        border-radius: 10px;
+
+        & .suscribirse_izquierda {
+            gap: .25rem;
+    
+            & h3 {
+                font-size: 185%;
+                letter-spacing: .75px;
+            }
+    
+            & p {
+                line-height: 1.2rem;
+            }
+        }
     }
 
-    .articulo_parrafo {
-        padding: 0 1rem;
+    .formulario {
+        gap: 1.125rem;
+        
+        & .formulario_nombre, .formulario_email {
+            gap: .35rem;
+            width: 100%;
+
+            & input {
+                height: 2.5rem;
+                border: 1px solid #ecf0f1;
+                border-radius: 10px;
+                padding: 0 .7rem;
+            }
+        }
+
+        & .formulario_btnEnviar {
+            margin-top: 1rem;
+
+            & button {
+                width: 7.125rem;
+                height: 2.5rem;
+                letter-spacing: .6px;
+                border-radius: 8px;
+
+                &::before {
+                    border-radius: 8px;
+                }
+            }
+        }
     }
 
-    .articulo_btnLeerMas {
-        display: var(--flexbox);
-        justify-content: center;
-        align-items: center;
-        width: 50%;
-        height: 2rem;
-        margin: 1rem auto;
-        border: none;
-        border-radius: 6px;
-        background: linear-gradient(100deg, #90cbff, #368cfb);
-        color: #152856;
-        cursor: pointer;
-        position: relative;
-    }
 
-    .articulo_btnLeerMas::before {
-        content: "Leer más";
-        display: var(--flexbox);
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: linear-gradient(100deg, #bddfff, #5caefe);
-        box-shadow: 0 0 8px rgba(255, 255, 255, .35);
-        border-radius: 6px;
-        opacity: 0;
-        transition: all .2s ease-in-out;
-    }
+    /* FOOTER - RESPONSIVE */
+    #pieDePagina {
+        padding: 1.25rem;
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(10, auto);
+        grid-template-areas:    "infoWebsite infoWebsite"
+                                "infoWebsite infoWebsite"
+                                "atajos recursos"
+                                "atajos recursos"
+                                "descargar descargar"
+                                "descargar descargar"
+                                "redesSociales redesSociales"
+                                "redesSociales redesSociales"
+                                "copyright copyright"
+                                "copyright copyright";
+        
+        & .infoWebsite {
+            gap: .85rem;
 
-    .articulo_btnLeerMas:hover::before {
-        opacity: 1;
-    }
+            & .infoWebsite_encabezado-img {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 10px;
+            }
 
-    .articulo_btnLeerMas:active {
-        background: linear-gradient(100deg, #5caefe, #1f6df1);
-    }
+            & .infoWebsite_encabezado-titulo {
+                letter-spacing: 1px;
+            }
 
-    .articulo_btnLeerMas:active::before {
-        opacity: 0;
+            & .infoWebsite_principal {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        & .atajos {
+            gap: .4rem;
+
+            & .atajos_titulo {
+                font-size: 16px;
+            }
+
+            & .atajos_lista {
+                gap: .2rem;
+                
+                & .atajos_lista-item a {
+                    &:hover {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        & .recursos {
+            gap: .4rem;
+
+            & .recursos_titulo {
+                font-size: 16px;
+            }
+
+            & .recursos_lista {
+                gap: .2rem;
+
+                & .recursos_lista-item a {
+                    &:hover {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        & .descargar {
+            margin: 2.75rem 0;
+            gap: .75rem;
+            grid-template-columns: auto;
+            grid-template-rows: repeat(12, auto);
+            grid-template-areas:    "titulo"
+                                    "titulo"
+                                    "android"
+                                    "android"
+                                    "ios"
+                                    "ios"
+                                    "windows"
+                                    "windows"
+                                    "linux"
+                                    "linux"
+                                    "appweb"
+                                    "appweb";
+
+            & .descargar_titulo {
+                font-size: 16px;
+                padding-bottom: .6rem;
+            }
+
+            & .descargar_app {
+                width: 80%;
+                height: 2.75rem;
+                font-weight: 500;
+                border-radius: .4rem;
+                font-size: 13px;
+            }
+        }
+
+        & .copyright {
+            margin: 1rem .6rem;
+        }
+
+        & .redesSociales {
+            grid-template-columns: repeat(5, auto);
+            grid-template-rows: auto;
+            grid-template-areas: "facebook instagram twitter github youtube";
+        }
     }
 }
 
@@ -809,66 +893,324 @@ body {
     }
 
     .sidebar {
-        display: var(--flexbox);
+        display: var(--flexbox) !important;
     }
 
-    .menu_navbar {
-        display: var(--desabilitado);
+    .menu {
+        padding: 2rem 1.25rem;
+
+        & .menu_titulo {
+            font-size: 24px;
+            letter-spacing: 1.62px;
+        }
+
+        .menu_icon {
+            display: inline-block;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-image: url("./../img/icon.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        & .menu_navbar {
+            display: var(--desabilitado);
+        }
     }
 
     #encabezado, .videoFondo {
         height: 26.65rem;
     }
 
-    .menu {
-        padding: 2rem 1.25rem;
-    }
-
-    .menu_titulo {
-        font-size: 24px;
-        letter-spacing: 1.62px;
-    }
-
-    .menu_icon {
-        display: inline-block;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        background-image: url("./../img/icon.jpeg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-
     .infoHeader {
         padding: 0 1.5rem 1.75rem 1.5rem;
         margin-right: 1.25rem;
+
+        & .infoHeader_titulo {
+            font-size: 28px;
+            margin-bottom: .3rem;
+        }
+    
+        & .infoHeader_parrafo {
+            line-height: 1.4em;
+            margin-bottom: 1rem;
+        }
+    
+        & .infoHeader_btn {
+            font-size: 14px;
+            padding: 1rem 2rem;
+            border-radius: .5rem;
+            box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+
+            & a {
+                letter-spacing: 1px;
+            }
+
+            &::after {
+                border-radius: .5rem;
+                letter-spacing: 1px;
+            }
+        }
     }
 
-    .infoHeader_titulo {
-        font-size: 28px;
-        margin-bottom: .3rem;
+
+    /* MAIN - RESPONSIVE */
+    #principal {
+        padding: 1rem;
     }
 
-    .infoHeader_parrafo {
-        line-height: 1.4em;
-        margin-bottom: 1rem;
+    .info {
+        gap: 2rem;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(9, auto);
+        grid-template-areas:    "articulo1"
+                                "articulo1"
+                                "articulo1"
+                                "articulo2"
+                                "articulo2"
+                                "articulo2"
+                                "articulo3"
+                                "articulo3"
+                                "articulo3";
     }
 
-    .infoHeader_btn {
-        font-size: 14px;
-        padding: 1rem 2rem;
-        border-radius: .5rem;
-        box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+    .articulo1 {
+        grid-area: articulo1;
     }
 
-    .infoHeader_btn a {
-        letter-spacing: 1px;
+    .articulo2 {
+        grid-area: articulo2;
     }
 
-    .infoHeader_btn::after {
-        border-radius: .5rem;
-        letter-spacing: 1px;
+    .articulo3 {
+        grid-area: articulo3;
+    }
+
+    .articulo1, .articulo2, .articulo3 {
+        border-radius: 8px;
+
+        & .articulo_titulo {
+            font-size: 20px;
+            padding: 1rem;
+        }
+    
+        & .articulo_parrafo {
+            padding: 0 1rem;
+        }
+
+        & .articulo_btnLeerMas {
+            display: var(--flexbox);
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            height: 2rem;
+            margin: 1rem auto;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(100deg, #90cbff, #368cfb);
+            color: #152856;
+            cursor: pointer;
+            position: relative;
+
+            &::before {
+                content: "Leer más";
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(100deg, #bddfff, #5caefe);
+                box-shadow: 0 0 8px rgba(255, 255, 255, .35);
+                border-radius: 6px;
+                opacity: 0;
+                transition: all .2s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:active {
+                background: linear-gradient(100deg, #5caefe, #1f6df1);
+
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .suscribirse {
+        margin: 7rem 0;
+        gap: 1.5rem;
+        padding: 1rem;
+        border-radius: 10px;
+
+        & .suscribirse_izquierda {
+            gap: .25rem;
+    
+            & h3 {
+                font-size: 185%;
+                letter-spacing: .75px;
+            }
+    
+            & p {
+                line-height: 1.2rem;
+            }
+        }
+    }
+
+    .formulario {
+        gap: 1.125rem;
+        
+        & .formulario_nombre, .formulario_email {
+            gap: .35rem;
+            width: 100%;
+
+            & input {
+                height: 2.5rem;
+                border: 1px solid #ecf0f1;
+                border-radius: 10px;
+                padding: 0 .7rem;
+            }
+        }
+
+        & .formulario_btnEnviar {
+            margin-top: 1rem;
+
+            & button {
+                width: 7.125rem;
+                height: 2.5rem;
+                letter-spacing: .6px;
+                border-radius: 8px;
+
+                &::before {
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+
+
+    /* FOOTER - RESPONSIVE */
+    #pieDePagina {
+        padding: 1.25rem;
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(10, auto);
+        grid-template-areas:    "infoWebsite infoWebsite"
+                                "infoWebsite infoWebsite"
+                                "atajos recursos"
+                                "atajos recursos"
+                                "descargar descargar"
+                                "descargar descargar"
+                                "redesSociales redesSociales"
+                                "redesSociales redesSociales"
+                                "copyright copyright"
+                                "copyright copyright";
+        
+        & .infoWebsite {
+            gap: 1rem;
+
+            & .infoWebsite_encabezado-img {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 10px;
+            }
+
+            & .infoWebsite_encabezado-titulo {
+                letter-spacing: 1px;
+                font-size: 24px;
+            }
+
+            & .infoWebsite_principal {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        & .atajos {
+            gap: .4rem;
+
+            & .atajos_titulo {
+                font-size: 18px;
+            }
+
+            & .atajos_lista {
+                gap: .2rem;
+                
+                & .atajos_lista-item a {
+                    &:hover {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        & .recursos {
+            gap: .4rem;
+
+            & .recursos_titulo {
+                font-size: 18px;
+            }
+
+            & .recursos_lista {
+                gap: .2rem;
+
+                & .recursos_lista-item a {
+                    &:hover {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        & .descargar {
+            margin: 2.75rem 0;
+            gap: .75rem;
+            grid-template-columns: auto;
+            grid-template-rows: repeat(12, auto);
+            grid-template-areas:    "titulo"
+                                    "titulo"
+                                    "android"
+                                    "android"
+                                    "ios"
+                                    "ios"
+                                    "windows"
+                                    "windows"
+                                    "linux"
+                                    "linux"
+                                    "appweb"
+                                    "appweb";
+
+            & .descargar_titulo {
+                font-size: 18px;
+                padding-bottom: .6rem;
+            }
+
+            & .descargar_app {
+                width: 90%;
+                height: 2.75rem;
+                font-weight: 500;
+                border-radius: .4rem;
+                font-size: 13px;
+            }
+        }
+
+        & .copyright {
+            margin: 1rem .6rem;
+        }
+
+        & .redesSociales {
+            grid-template-columns: repeat(5, auto);
+            grid-template-rows: auto;
+            grid-template-areas: "facebook instagram twitter github youtube";
+        }
     }
 }
 
@@ -879,11 +1221,7 @@ body {
     }
 
     .sidebar {
-        display: var(--flexbox);
-    }
-
-    .menu_navbar {
-        display: var(--desabilitado);
+        display: var(--flexbox) !important;
     }
 
     #encabezado, .videoFondo {
@@ -892,55 +1230,316 @@ body {
 
     .menu {
         padding: 2rem 1.25rem;
-    }
 
-    .menu_titulo {
-        font-size: 28px;
-        letter-spacing: 1.62px;
-    }
+        & .menu_titulo {
+            font-size: 28px;
+            letter-spacing: 1.62px;
+        }
 
-    .menu_icon {
-        display: inline-block;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        background-image: url("./../img/icon.jpeg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+        & .menu_icon {
+            display: inline-block;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-image: url("./../img/icon.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        & .menu_navbar {
+            display: var(--desabilitado);
+        }
     }
 
     .infoHeader {
         padding: 0 1.5rem 1.75rem 1.5rem;
         margin-right: 1.75rem;
+
+        & .infoHeader_titulo {
+            font-size: 32px;
+            margin-bottom: .3rem;
+            letter-spacing: 1.4px;
+        }
+
+        & .infoHeader_parrafo {
+            line-height: 1.4em;
+            letter-spacing: .75px;
+            margin-bottom: 1rem;
+        }
+
+        & .infoHeader_btn {
+            font-size: 14px;
+            padding: 1rem 2rem;
+            border-radius: .5rem;
+            box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+
+            & a {
+                letter-spacing: 1px;
+            }
+
+            &::after {
+                border-radius: .5rem;
+                letter-spacing: 1px;
+            }
+        }
     }
 
-    .infoHeader_titulo {
-        font-size: 32px;
-        margin-bottom: .3rem;
-        letter-spacing: 1.4px;
+
+    /* MAIN - RESPONSIVE */
+    #principal {
+        padding: 1rem;
     }
 
-    .infoHeader_parrafo {
-        line-height: 1.4em;
-        letter-spacing: .75px;
-        margin-bottom: 1rem;
+    .info {
+        gap: 2rem;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(9, auto);
+        grid-template-areas:    "articulo1"
+                                "articulo1"
+                                "articulo1"
+                                "articulo2"
+                                "articulo2"
+                                "articulo2"
+                                "articulo3"
+                                "articulo3"
+                                "articulo3";
     }
 
-    .infoHeader_btn {
-        font-size: 14px;
-        padding: 1rem 2rem;
-        border-radius: .5rem;
-        box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+    .articulo1 {
+        grid-area: articulo1;
     }
 
-    .infoHeader_btn a {
-        letter-spacing: 1px;
+    .articulo2 {
+        grid-area: articulo2;
     }
 
-    .infoHeader_btn::after {
-        border-radius: .5rem;
-        letter-spacing: 1px;
+    .articulo3 {
+        grid-area: articulo3;
+    }
+
+    .articulo1, .articulo2, .articulo3 {
+        border-radius: 8px;
+
+        & .articulo_titulo {
+            font-size: 20px;
+            padding: 1rem;
+        }
+    
+        & .articulo_parrafo {
+            padding: 0 1rem;
+        }
+
+        & .articulo_btnLeerMas {
+            display: var(--flexbox);
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 2.75rem;
+            margin: 1.75rem auto;
+            margin-bottom: 1.25rem;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(100deg, #90cbff, #368cfb);
+            color: #152856;
+            cursor: pointer;
+            position: relative;
+            font-size: 16px;
+
+            &::before {
+                content: "Leer más";
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(100deg, #bddfff, #5caefe);
+                box-shadow: 0 0 8px rgba(255, 255, 255, .35);
+                border-radius: 6px;
+                opacity: 0;
+                transition: all .2s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:active {
+                background: linear-gradient(100deg, #5caefe, #1f6df1);
+
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .suscribirse {
+        margin: 7rem 0;
+        gap: 1.5rem;
+        padding: 1rem;
+        border-radius: 10px;
+
+        & .suscribirse_izquierda {
+            gap: .25rem;
+    
+            & h3 {
+                font-size: 165%;
+                letter-spacing: .75px;
+            }
+        }
+    }
+
+    .formulario {
+        gap: 1.125rem;
+        
+        & .formulario_nombre, .formulario_email {
+            gap: .35rem;
+            width: 100%;
+
+            & input {
+                height: 2.5rem;
+                border: 1px solid #ecf0f1;
+                border-radius: 10px;
+                padding: 0 .7rem;
+            }
+        }
+
+        & .formulario_btnEnviar {
+            margin-top: 1rem;
+
+            & button {
+                width: 8.5rem;
+                height: 3rem;
+                letter-spacing: .6px;
+                border-radius: 8px;
+                font-size: 16px;
+
+                &::before {
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+
+
+    /* FOOTER - RESPONSIVE */
+    #pieDePagina {
+        padding: 1.25rem;
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(10, auto);
+        grid-template-areas:    "infoWebsite infoWebsite"
+                                "infoWebsite infoWebsite"
+                                "atajos recursos"
+                                "atajos recursos"
+                                "descargar descargar"
+                                "descargar descargar"
+                                "redesSociales redesSociales"
+                                "redesSociales redesSociales"
+                                "copyright copyright"
+                                "copyright copyright";
+        
+        & .infoWebsite {
+            gap: 1rem;
+
+            & .infoWebsite_encabezado-img {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 10px;
+            }
+
+            & .infoWebsite_encabezado-titulo {
+                letter-spacing: 1px;
+                font-size: 24px;
+            }
+
+            & .infoWebsite_principal {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        & .atajos {
+            gap: .4rem;
+
+            & .atajos_titulo {
+                font-size: 18px;
+            }
+
+            & .atajos_lista {
+                gap: .2rem;
+                
+                & .atajos_lista-item a {
+                    &:hover {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        & .recursos {
+            gap: .4rem;
+
+            & .recursos_titulo {
+                font-size: 18px;
+            }
+
+            & .recursos_lista {
+                gap: .2rem;
+
+                & .recursos_lista-item a {
+                    &:hover {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        & .descargar {
+            margin: 2.75rem 0;
+            gap: .75rem;
+            grid-template-columns: auto;
+            grid-template-rows: repeat(12, auto);
+            grid-template-areas:    "titulo"
+                                    "titulo"
+                                    "android"
+                                    "android"
+                                    "ios"
+                                    "ios"
+                                    "windows"
+                                    "windows"
+                                    "linux"
+                                    "linux"
+                                    "appweb"
+                                    "appweb";
+
+            & .descargar_titulo {
+                font-size: 18px;
+                padding-bottom: .6rem;
+            }
+
+            & .descargar_app {
+                width: 90%;
+                height: 2.75rem;
+                font-weight: 500;
+                border-radius: .4rem;
+                font-size: 13px;
+            }
+        }
+
+        & .copyright {
+            margin: 1rem .6rem;
+        }
+
+        & .redesSociales {
+            grid-template-columns: repeat(5, auto);
+            grid-template-rows: auto;
+            grid-template-areas: "facebook instagram twitter github youtube";
+        }
     }
 }
 
