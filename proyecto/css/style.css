@@ -441,7 +441,7 @@ body {
                 justify-content: center;
                 align-items: center;
                 opacity: 0;
-                transition: all .3s ease-in-out;
+                transition: all .2s ease-in-out;
             }
 
             &:hover {
@@ -1550,16 +1550,12 @@ body {
     }
 
     .sidebar {
-        display: var(--flexbox);
-    }
+        display: var(--flexbox) !important;
 
-    .menu_navbar {
-        display: var(--desabilitado);
-    }
-
-    .sidebar_btn, .sidebar_btn svg {
-        width: 3rem;
-        height: 3rem;
+        & .sidebar_btn, .sidebar_btn svg {
+            width: 3rem;
+            height: 3rem;
+        }
     }
 
     #encabezado, .videoFondo {
@@ -1568,55 +1564,379 @@ body {
 
     .menu {
         padding: 2rem 1.25rem;
-    }
 
-    .menu_titulo {
-        font-size: 36px;
-        letter-spacing: 1.62px;
-    }
+        & .menu_navbar {
+            display: var(--desabilitado);
+        }
 
-    .menu_icon {
-        display: inline-block;
-        width: 4rem;
-        height: 4rem;
-        border-radius: 50%;
-        background-image: url("./../img/icon.jpeg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+        & .menu_titulo {
+            font-size: 36px;
+            letter-spacing: 1.62px;
+        }
+
+        & .menu_icon {
+            display: inline-block;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-image: url("./../img/icon.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
     }
 
     .infoHeader {
         padding: 0 1.5rem 1.75rem 1.5rem;
         margin-right: 5.25rem;
+
+        & .infoHeader_titulo {
+            font-size: 36px;
+            margin-bottom: .3rem;
+            letter-spacing: 1.4px;
+        }
+
+        & .infoHeader_parrafo {
+            line-height: 1.4em;
+            letter-spacing: .75px;
+            margin-bottom: 1rem;
+        }
+
+        & .infoHeader_btn {
+            font-size: 14px;
+            padding: 1rem 2rem;
+            border-radius: .5rem;
+            box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+
+            & a {
+                letter-spacing: 1px;
+            }
+
+            &::after {
+                border-radius: .5rem;
+                letter-spacing: 1px;
+            }
+        }
     }
 
-    .infoHeader_titulo {
-        font-size: 36px;
-        margin-bottom: .3rem;
-        letter-spacing: 1.4px;
+
+    /* MAIN - RESPONSIVE */
+    #principal {
+        padding: 1rem;
     }
 
-    .infoHeader_parrafo {
-        line-height: 1.4em;
-        letter-spacing: .75px;
-        margin-bottom: 1rem;
+    .info {
+        row-gap: 1.5rem;
+        column-gap: .8rem;
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(9, auto);
+        grid-template-areas:    "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo3 articulo3"
+                                "articulo3 articulo3"
+                                "articulo3 articulo3";
+        align-items: center;
     }
 
-    .infoHeader_btn {
-        font-size: 14px;
-        padding: 1rem 2rem;
-        border-radius: .5rem;
-        box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+    .articulo1 {
+        grid-area: articulo1;
     }
 
-    .infoHeader_btn a {
-        letter-spacing: 1px;
+    .articulo2 {
+        grid-area: articulo2;
     }
 
-    .infoHeader_btn::after {
-        border-radius: .5rem;
-        letter-spacing: 1px;
+    .articulo3 {
+        grid-area: articulo3;
+        width: 70%;
+        justify-self: center;
+    }
+
+    .articulo1, .articulo2, .articulo3 {
+        border-radius: 8px;
+
+        & .articulo_titulo {
+            font-size: 20px;
+            padding: 1rem;
+        }
+    
+        & .articulo_parrafo {
+            padding: 0 1rem;
+        }
+
+        & .articulo_btnLeerMas {
+            display: var(--flexbox);
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 2.75rem;
+            margin: 1.75rem auto;
+            margin-bottom: 1.25rem;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(100deg, #90cbff, #368cfb);
+            color: #152856;
+            cursor: pointer;
+            position: relative;
+            font-size: 16px;
+
+            &::before {
+                content: "Leer más";
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(100deg, #bddfff, #5caefe);
+                box-shadow: 0 0 8px rgba(255, 255, 255, .35);
+                border-radius: 6px;
+                opacity: 0;
+                transition: all .2s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:active {
+                background: linear-gradient(100deg, #5caefe, #1f6df1);
+
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .suscribirse {
+        margin: 7rem 0;
+        gap: 1.5rem;
+        padding: 2rem;
+        border-radius: 10px;
+
+        & .suscribirse_izquierda {
+            gap: .25rem;
+    
+            & h3 {
+                font-size: 165%;
+                letter-spacing: .75px;
+            }
+        }
+    }
+
+    .formulario {
+        gap: 1.125rem;
+        
+        & .formulario_nombre, .formulario_email {
+            gap: .35rem;
+            width: 100%;
+
+            & input {
+                height: 2.5rem;
+                border: 1px solid #ecf0f1;
+                border-radius: 10px;
+                padding: 0 .7rem;
+            }
+        }
+
+        & .formulario_btnEnviar {
+            margin-top: 1rem;
+
+            & button {
+                width: 10.5rem;
+                height: 3.5rem;
+                letter-spacing: .8px;
+                border-radius: 9px;
+                font-size: 18px;
+
+                &::before {
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+
+
+    /* FOOTER - RESPONSIVE */
+    #pieDePagina {
+        padding: 1.75rem;
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(10, auto);
+        grid-template-areas:    "infoWebsite infoWebsite"
+                                "infoWebsite infoWebsite"
+                                "atajos recursos"
+                                "atajos recursos"
+                                "descargar descargar"
+                                "descargar descargar"
+                                "redesSociales redesSociales"
+                                "redesSociales redesSociales"
+                                "copyright copyright"
+                                "copyright copyright";
+        
+        & .infoWebsite {
+            gap: 1rem;
+
+            & .infoWebsite_encabezado-img {
+                width: 5.5rem;
+                height: 5.5rem;
+                border-radius: 10px;
+            }
+
+            & .infoWebsite_encabezado-titulo {
+                letter-spacing: 1px;
+                font-size: 28px;
+            }
+
+            & .infoWebsite_principal {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        & .atajos {
+            gap: .6rem;
+
+            & .atajos_titulo {
+                font-size: 21px;
+            }
+
+            & .atajos_lista {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "inicio precios"
+                                        "inicio precios"
+                                        "acercaDe contacto"
+                                        "acercaDe contacto";
+                
+                & .atajos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 20px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: inicio;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: precios;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: acercaDe;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: contacto;
+                    }
+                }
+            }
+        }
+
+        & .recursos {
+            gap: .6rem;
+            
+
+            & .recursos_titulo {
+                font-size: 21px;
+            }
+
+            & .recursos_lista {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "tutorial blog"
+                                        "tutorial blog"
+                                        "soporte versiones"
+                                        "soporte versiones";
+
+                & .recursos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 20px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: tutorial;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: blog;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: soporte;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: versiones;
+                    }
+                }
+            }
+        }
+
+        & .descargar {
+            margin: 2.75rem 0;
+            gap: .75rem;
+            grid-template-columns: auto auto;
+            grid-template-rows: repeat(12, auto);
+            grid-template-areas:    "titulo titulo"
+                                    "titulo titulo"
+                                    "titulo titulo"
+                                    "android ios"
+                                    "android ios"
+                                    "android ios"
+                                    "windows linux"
+                                    "windows linux"
+                                    "windows linux"
+                                    "appweb appweb"
+                                    "appweb appweb"
+                                    "appweb appweb";
+
+            & .descargar_titulo {
+                font-size: 21px;
+                padding-bottom: .6rem;
+            }
+
+            & .descargar_app {
+                width: 90%;
+                height: 2.75rem;
+                font-weight: 500;
+                border-radius: .4rem;
+                font-size: 15px;
+                user-select: none;
+
+                &:last-child {
+                    width: 95%;
+                }
+            }
+        }
+
+        & .copyright {
+            margin: 1rem .6rem;
+            text-align: center;
+        }
+
+        & .redesSociales {
+            grid-template-columns: repeat(5, auto);
+            grid-template-rows: auto;
+            grid-template-areas: "facebook instagram twitter github youtube";
+            justify-content: center;
+            gap: 2rem;
+        }
     }
 }
 
@@ -1624,18 +1944,6 @@ body {
 @media (min-width: 769px) and (max-width: 960px) {
     body {
         font-size: 20px;
-    }
-
-    .mn_lista-item {
-        margin-right: 2.5rem;
-    }
-
-    .mn_lista-item:last-child {
-        margin: 0;
-    }
-
-    .mn_lista-item a:hover {
-        font-size: calc(20px + 2.45px);
     }
 
     .sidebar_btn, .sidebar_btn svg {
@@ -1649,44 +1957,400 @@ body {
 
     .menu {
         padding: 2rem;
-    }
 
-    .menu_titulo {
-        font-size: 40px;
-        letter-spacing: 1.62px;
+        & .menu_navbar {
+            display: flex !important;
+    
+            & .mn_lista {
+                display: flex;
+                align-items: center;
+    
+                & .mn_lista-item {
+                    margin-right: 2.5rem;
+    
+                    &:last-child {
+                        margin: 0;
+                    }
+    
+                    & a {
+                        &:hover {
+                            font-size: calc(20px + 2.45px);
+                        }
+                    }
+                }
+            }
+        }
+
+        & .menu_titulo {
+            font-size: 40px;
+            letter-spacing: 1.62px;
+        }
     }
 
     .infoHeader {
         padding: 0 1.5rem 1.75rem 2.5rem;
         margin-right: 18rem;
+
+        & .infoHeader_titulo {
+            font-size: 40px;
+            margin-bottom: .8rem;
+            letter-spacing: 1.4px;
+        }
+
+        & .infoHeader_parrafo {
+            line-height: 1.4em;
+            letter-spacing: .75px;
+            margin-bottom: 2rem;
+        }
+
+        & .infoHeader_btn {
+            font-size: 22px;
+            padding: 1.5rem 3.5rem;
+            border-radius: .5rem;
+            box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+
+            & a {
+                letter-spacing: 1px;
+            }
+
+            &::after {
+                border-radius: .5rem;
+                letter-spacing: 1px;
+            }
+        }
     }
 
-    .infoHeader_titulo {
-        font-size: 40px;
-        margin-bottom: .3rem;
-        letter-spacing: 1.4px;
+
+    /* MAIN - RESPONSIVE */
+    #principal {
+        padding: 1rem;
     }
 
-    .infoHeader_parrafo {
-        line-height: 1.4em;
-        letter-spacing: .75px;
-        margin-bottom: 2rem;
+    .info {
+        row-gap: 1.5rem;
+        column-gap: .8rem;
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(9, auto);
+        grid-template-areas:    "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo3 articulo3"
+                                "articulo3 articulo3"
+                                "articulo3 articulo3";
+        align-items: center;
     }
 
-    .infoHeader_btn {
-        font-size: 20px;
-        padding: 1.25rem 2.5rem;
-        border-radius: .5rem;
-        box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+    .articulo1 {
+        grid-area: articulo1;
     }
 
-    .infoHeader_btn a {
-        letter-spacing: 1px;
+    .articulo2 {
+        grid-area: articulo2;
     }
 
-    .infoHeader_btn::after {
-        border-radius: .5rem;
-        letter-spacing: 1px;
+    .articulo3 {
+        grid-area: articulo3;
+        width: 70%;
+        justify-self: center;
+    }
+
+    .articulo1, .articulo2, .articulo3 {
+        border-radius: 8px;
+
+        & .articulo_titulo {
+            font-size: 24px;
+            padding: 1rem;
+        }
+    
+        & .articulo_parrafo {
+            padding: 0 1rem;
+        }
+
+        & .articulo_btnLeerMas {
+            display: var(--flexbox);
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 3.75rem;
+            margin: 1.75rem auto;
+            margin-bottom: 1.25rem;
+            border: none;
+            border-radius: 9px;
+            background: linear-gradient(100deg, #90cbff, #368cfb);
+            color: #152856;
+            cursor: pointer;
+            position: relative;
+            font-size: 21px;
+            letter-spacing: 1px;
+
+            &::before {
+                content: "Leer más";
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(100deg, #bddfff, #5caefe);
+                box-shadow: 0 0 8px rgba(255, 255, 255, .35);
+                border-radius: 6px;
+                opacity: 0;
+                transition: all .2s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:active {
+                background: linear-gradient(100deg, #5caefe, #1f6df1);
+
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .suscribirse {
+        flex-direction: row !important;
+        margin: 7rem 0;
+        gap: 3rem;
+        padding: 2.5rem;
+        border-radius: 12px;
+
+        & .suscribirse_izquierda {
+            gap: .75rem;
+            width: 50%;
+    
+            & h3 {
+                font-size: 165%;
+                letter-spacing: .75px;
+            }
+        }
+
+        & .suscribirse_derecha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+    }
+
+    .formulario {
+        gap: 1.5rem;
+        width: 100%;
+        
+        & .formulario_nombre, .formulario_email {
+            gap: .8rem;
+            width: 100%;
+
+            & input {
+                height: 3.5rem;
+                border: 1px solid #ecf0f1;
+                border-radius: 10px;
+                padding: 0 .7rem;
+            }
+        }
+
+        & .formulario_btnEnviar {
+            margin-top: .5rem;
+
+            & button {
+                width: 13rem;
+                height: 4rem;
+                letter-spacing: 1px;
+                border-radius: 10px;
+                font-size: 20px;
+
+                &::before {
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+
+    /* FOOTER - RESPONSIVE */
+    #pieDePagina {
+        padding: 2rem;
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(10, auto);
+        grid-template-areas:    "infoWebsite infoWebsite"
+                                "infoWebsite infoWebsite"
+                                "atajos recursos"
+                                "atajos recursos"
+                                "descargar descargar"
+                                "descargar descargar"
+                                "redesSociales redesSociales"
+                                "redesSociales redesSociales"
+                                "copyright copyright"
+                                "copyright copyright";
+        
+        & .infoWebsite {
+            gap: 1.5rem;
+
+            & .infoWebsite_encabezado-img {
+                width: 7rem;
+                height: 7rem;
+                border-radius: 10px;
+            }
+
+            & .infoWebsite_encabezado-titulo {
+                letter-spacing: 1px;
+                font-size: 36px;
+            }
+
+            & .infoWebsite_principal {
+                margin-bottom: 2rem;
+            }
+        }
+
+        & .atajos {
+            gap: 1rem;
+
+            & .atajos_titulo {
+                font-size: 23px;
+            }
+
+            & .atajos_lista {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "inicio precios"
+                                        "inicio precios"
+                                        "acercaDe contacto"
+                                        "acercaDe contacto";
+                
+                & .atajos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 22px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: inicio;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: precios;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: acercaDe;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: contacto;
+                    }
+                }
+            }
+        }
+
+        & .recursos {
+            gap: 1rem;
+            justify-self: center !important;
+            width: 90%;
+            
+
+            & .recursos_titulo {
+                font-size: 23px;
+            }
+
+            & .recursos_lista {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "tutorial blog"
+                                        "tutorial blog"
+                                        "soporte versiones"
+                                        "soporte versiones";
+
+                & .recursos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 22px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: tutorial;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: blog;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: soporte;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: versiones;
+                    }
+                }
+            }
+        }
+
+        & .descargar {
+            margin: 2.75rem 0;
+            gap: 1rem;
+            grid-template-columns: auto auto;
+            grid-template-rows: repeat(12, auto);
+            grid-template-areas:    "titulo titulo"
+                                    "titulo titulo"
+                                    "titulo titulo"
+                                    "android ios"
+                                    "android ios"
+                                    "android ios"
+                                    "windows linux"
+                                    "windows linux"
+                                    "windows linux"
+                                    "appweb appweb"
+                                    "appweb appweb"
+                                    "appweb appweb";
+
+            & .descargar_titulo {
+                font-size: 23px;
+                padding-bottom: .6rem;
+            }
+
+            & .descargar_app {
+                width: 90%;
+                height: 3.5rem;
+                font-weight: 500;
+                border-radius: .5rem;
+                font-size: 15px;
+                user-select: none;
+
+                &:last-child {
+                    width: 95%;
+                }
+            }
+        }
+
+        & .copyright {
+            margin: 1rem .6rem;
+            text-align: center;
+        }
+
+        & .redesSociales {
+            grid-template-columns: repeat(5, auto);
+            grid-template-rows: auto;
+            grid-template-areas: "facebook instagram twitter github youtube";
+            justify-content: center;
+            gap: 2rem;
+        }
     }
 }
 
@@ -1696,74 +2360,420 @@ body {
         font-size: 20px;
     }
 
-    .mn_lista-item {
-        margin-right: 2.5rem;
-    }
-
-    .mn_lista-item:last-child {
-        margin: 0;
-    }
-
-    .mn_lista-item a {
-        text-decoration: var(--desabilitado);
-        color: var(--darkMode_textoMenu);
-        transition: all .15s ease-in;
-    }
-
-    .mn_lista-item a:hover {
-        text-shadow: 0 0 4px rgba(224, 240, 255, .7);
-        font-size: calc(20px + 2.45px);
-    }
-
-    .mn_lista-item a:active {
-        color: var(--lightMode_textCard);
-        text-shadow: var(--desabilitado);
-    }
-
     #encabezado, .videoFondo {
         height: 41.5rem;
     }
 
     .menu {
         padding: 1.5rem;
-    }
 
-    .menu_titulo {
-        font-size: 40px;
-        letter-spacing: 1.62px;
+        & .menu_navbar {
+            display: flex !important;
+
+            & .mn_lista {
+                display: flex;
+                align-items: center;
+
+                & .mn_lista-item {
+                    margin-right: 2.5rem;
+    
+                    &:last-child {
+                        margin: 0;
+                    }
+    
+                    & a {
+                        text-decoration: var(--desabilitado);
+                        color: var(--darkMode_textoMenu);
+                        transition: all .15s ease-in;
+    
+                        &:hover {
+                            text-shadow: 0 0 4px rgba(224, 240, 255, .7);
+                            font-size: calc(20px + 2.45px);
+                        }
+    
+                        &:active {
+                            color: var(--lightMode_textCard);
+                            text-shadow: var(--desabilitado);
+                        }
+                    }
+                }
+            }
+        }
+
+        & .menu_titulo {
+            font-size: 40px;
+            letter-spacing: 1.62px;
+        }
     }
 
     .infoHeader {
         padding: 0 1.5rem 1.75rem 2.5rem;
-        margin-right: 28rem;
+        margin-right: 24rem;
+
+        & .infoHeader_titulo {
+            font-size: 40px;
+            margin-bottom: .6rem;
+            letter-spacing: 1.4px;
+        }
+
+        & .infoHeader_parrafo {
+            line-height: 1.4em;
+            letter-spacing: .75px;
+            margin-bottom: 2rem;
+        }
+
+        & .infoHeader_btn {
+            font-size: 20px;
+            padding: 1.25rem 2.5rem;
+            border-radius: .7rem;
+            box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+
+            & a {
+                letter-spacing: 1px;
+            }
+
+            &::after {
+                border-radius: .5rem;
+                letter-spacing: 1px;
+            }
+        }
     }
 
-    .infoHeader_titulo {
-        font-size: 40px;
-        margin-bottom: .3rem;
-        letter-spacing: 1.4px;
+
+    /* MAIN - RESPONSIVE */
+    #principal {
+        padding: 2rem;
     }
 
-    .infoHeader_parrafo {
-        line-height: 1.4em;
-        letter-spacing: .75px;
-        margin-bottom: 2.5rem;
+    .info {
+        row-gap: 1.5rem;
+        column-gap: .8rem;
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(9, auto);
+        grid-template-areas:    "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo1 articulo2"
+                                "articulo3 articulo3"
+                                "articulo3 articulo3"
+                                "articulo3 articulo3";
+        align-items: center;
     }
 
-    .infoHeader_btn {
-        font-size: 20px;
-        padding: 1.25rem 2.5rem;
-        border-radius: .5rem;
-        box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+    .articulo1 {
+        grid-area: articulo1;
     }
 
-    .infoHeader_btn a {
-        letter-spacing: 1px;
+    .articulo2 {
+        grid-area: articulo2;
     }
 
-    .infoHeader_btn::after {
-        border-radius: .5rem;
-        letter-spacing: 1px;
+    .articulo3 {
+        grid-area: articulo3;
+        width: 55%;
+        justify-self: center;
+    }
+
+    .articulo1, .articulo2, .articulo3 {
+        border-radius: 14px;
+
+        & .articulo_titulo {
+            font-size: 26px;
+            padding: 1rem;
+        }
+    
+        & .articulo_parrafo {
+            padding: 0 1rem;
+        }
+
+        & .articulo_btnLeerMas {
+            display: var(--flexbox);
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 3.75rem;
+            margin: 1.75rem auto;
+            margin-bottom: 1.25rem;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(100deg, #90cbff, #368cfb);
+            color: #152856;
+            cursor: pointer;
+            position: relative;
+            font-size: 21px;
+            letter-spacing: 1px;
+
+            &::before {
+                content: "Leer más";
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(100deg, #bddfff, #5caefe);
+                box-shadow: 0 0 8px rgba(255, 255, 255, .35);
+                border-radius: 6px;
+                opacity: 0;
+                transition: all .2s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:active {
+                background: linear-gradient(100deg, #5caefe, #1f6df1);
+
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .suscribirse {
+        flex-direction: row !important;
+        margin: 7rem 0;
+        gap: 3rem;
+        padding: 2.5rem;
+        border-radius: 12px;
+
+        & .suscribirse_izquierda {
+            gap: .75rem;
+            width: 50%;
+    
+            & h3 {
+                font-size: 165%;
+                letter-spacing: .75px;
+            }
+        }
+
+        & .suscribirse_derecha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+    }
+
+    .formulario {
+        gap: 1.5rem;
+        width: 100%;
+        
+        & .formulario_nombre, .formulario_email {
+            gap: .8rem;
+            width: 100%;
+
+            & input {
+                height: 3.5rem;
+                border: 1px solid #ecf0f1;
+                border-radius: 10px;
+                padding: 0 .7rem;
+            }
+        }
+
+        & .formulario_btnEnviar {
+            margin-top: .5rem;
+
+            & button {
+                width: 13rem;
+                height: 4rem;
+                letter-spacing: 1px;
+                border-radius: 10px;
+                font-size: 20px;
+
+                &::before {
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+
+    /* FOOTER - RESPONSIVE */
+    #pieDePagina {
+        padding: 2rem;
+        column-gap: 1rem;
+        grid-template-columns: auto auto ;
+        grid-template-rows: repeat(10, auto);
+        grid-template-areas:    "infoWebsite atajos"
+                                "infoWebsite atajos"
+                                "infoWebsite recursos"
+                                "infoWebsite recursos"
+                                "descargar descargar"
+                                "descargar descargar"
+                                "redesSociales redesSociales"
+                                "redesSociales redesSociales"
+                                "copyright copyright"
+                                "copyright copyright";
+        
+        & .infoWebsite {
+            gap: 1.5rem;
+            width: 40rem;
+
+            & .infoWebsite_encabezado-img {
+                width: 7rem;
+                height: 7rem;
+                border-radius: 10px;
+            }
+
+            & .infoWebsite_encabezado-titulo {
+                letter-spacing: 1px;
+                font-size: 36px;
+            }
+
+            & .infoWebsite_principal {
+                margin-bottom: 2rem;
+            }
+        }
+
+        & .atajos {
+            gap: 1rem;
+
+            & .atajos_titulo {
+                font-size: 23px;
+            }
+
+            & .atajos_lista {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "inicio precios"
+                                        "inicio precios"
+                                        "acercaDe contacto"
+                                        "acercaDe contacto";
+                
+                & .atajos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 22px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: inicio;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: precios;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: acercaDe;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: contacto;
+                    }
+                }
+            }
+        }
+
+        & .recursos {
+            gap: 1rem;
+            justify-self: flex-start !important;
+            align-self: center;
+            width: 90%;
+            
+
+            & .recursos_titulo {
+                font-size: 23px;
+            }
+
+            & .recursos_lista {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "tutorial blog"
+                                        "tutorial blog"
+                                        "soporte versiones"
+                                        "soporte versiones";
+
+                & .recursos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 22px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: tutorial;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: blog;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: soporte;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: versiones;
+                    }
+                }
+            }
+        }
+
+        & .descargar {
+            margin: 2.75rem 0;
+            margin-bottom: 8rem;
+            gap: 1rem;
+            grid-template-columns: auto auto;
+            grid-template-rows: repeat(12, auto);
+            grid-template-areas:    "titulo titulo"
+                                    "titulo titulo"
+                                    "titulo titulo"
+                                    "android ios"
+                                    "android ios"
+                                    "android ios"
+                                    "windows linux"
+                                    "windows linux"
+                                    "windows linux"
+                                    "appweb appweb"
+                                    "appweb appweb"
+                                    "appweb appweb";
+
+            & .descargar_titulo {
+                font-size: 23px;
+                padding-bottom: .6rem;
+            }
+
+            & .descargar_app {
+                width: 90%;
+                height: 3.5rem;
+                font-weight: 500;
+                border-radius: .5rem;
+                font-size: 15px;
+                user-select: none;
+
+                &:last-child {
+                    width: 95%;
+                }
+            }
+        }
+
+        & .copyright {
+            margin: 1rem .6rem;
+            text-align: center;
+        }
+
+        & .redesSociales {
+            grid-template-columns: repeat(5, auto);
+            grid-template-rows: auto;
+            grid-template-areas: "facebook instagram twitter github youtube";
+            justify-content: center;
+            gap: 2rem;
+        }
     }
 }
 
@@ -1773,62 +2783,404 @@ body {
         font-size: 22px;
     }
 
-    .mn_lista-item {
-        margin-right: 2.5rem;
-    }
-
-    .mn_lista-item:last-child {
-        margin: 0;
-    }
-
-    .mn_lista-item a:hover {
-        font-size: calc(22px + 2.45px);
-    }
-
     #encabezado, .videoFondo {
         height: 50rem;
     }
 
     .menu {
         padding: 1rem 2rem;
-    }
 
-    .menu_titulo {
-        font-size: 44px;
-        letter-spacing: 1.62px;
+        & .menu_navbar {
+            display: flex !important;
+
+            & .mn_lista {
+                display: flex;
+                align-items: center;
+
+                & .mn_lista-item {
+                    margin-right: 2.5rem;
+    
+                    &:last-child {
+                        margin: 0;
+                    }
+    
+                    & a {
+                        &:hover {
+                            font-size: calc(22px + 2.45px);
+                        }
+                    }
+                }
+            }
+        }
+
+        & .menu_titulo {
+            font-size: 44px;
+            letter-spacing: 1.62px;
+        }
     }
 
     .infoHeader {
         padding: 0 1.5rem 1.75rem 2.5rem;
         margin-right: 28rem;
+
+        & .infoHeader_titulo {
+            font-size: 44px;
+            margin-bottom: .3rem;
+            letter-spacing: 1.4px;
+        }
+
+        & .infoHeader_parrafo {
+            line-height: 1.4em;
+            letter-spacing: .75px;
+            margin-bottom: 2.5rem;
+        }
+
+        & .infoHeader_btn {
+            font-size: 24px;
+            padding: 1.25rem 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+
+            & a {
+                letter-spacing: 1px;
+            }
+
+            &::after {
+                border-radius: 1rem;
+                letter-spacing: 1px;
+            }
+        }
     }
 
-    .infoHeader_titulo {
-        font-size: 44px;
-        margin-bottom: .3rem;
-        letter-spacing: 1.4px;
+    
+    /* MAIN - RESPONSIVE */
+    #principal {
+        padding: 1rem;
     }
 
-    .infoHeader_parrafo {
-        line-height: 1.4em;
-        letter-spacing: .75px;
-        margin-bottom: 2.5rem;
+    .info {
+        row-gap: 1.5rem;
+        column-gap: .8rem;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: repeat(9, auto);
+        grid-template-areas:    "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3";
     }
 
-    .infoHeader_btn {
-        font-size: 24px;
-        padding: 1.25rem 2.5rem;
-        border-radius: 1rem;
-        box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+    .articulo1 {
+        grid-area: articulo1;
     }
 
-    .infoHeader_btn a {
-        letter-spacing: 1px;
+    .articulo2 {
+        grid-area: articulo2;
     }
 
-    .infoHeader_btn::after {
-        border-radius: 1rem;
-        letter-spacing: 1px;
+    .articulo3 {
+        grid-area: articulo3;
+    }
+
+    .articulo1, .articulo2, .articulo3 {
+        border-radius: 14px;
+
+        & .articulo_titulo {
+            font-size: 26px;
+            padding: 1rem;
+        }
+    
+        & .articulo_parrafo {
+            padding: 0 1rem;
+        }
+
+        & .articulo_btnLeerMas {
+            display: var(--flexbox);
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 3.75rem;
+            margin: 1.75rem auto;
+            margin-bottom: 1.25rem;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(100deg, #90cbff, #368cfb);
+            color: #152856;
+            cursor: pointer;
+            position: relative;
+            font-size: 21px;
+            letter-spacing: 1px;
+
+            &::before {
+                content: "Leer más";
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(100deg, #bddfff, #5caefe);
+                box-shadow: 0 0 8px rgba(255, 255, 255, .35);
+                border-radius: 6px;
+                opacity: 0;
+                transition: all .2s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:active {
+                background: linear-gradient(100deg, #5caefe, #1f6df1);
+
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .suscribirse {
+        flex-direction: row !important;
+        margin: 7rem 0;
+        gap: 3rem;
+        padding: 2.5rem;
+        border-radius: 12px;
+
+        & .suscribirse_izquierda {
+            gap: .75rem;
+            width: 50%;
+    
+            & h3 {
+                font-size: 165%;
+                letter-spacing: .75px;
+            }
+        }
+
+        & .suscribirse_derecha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+    }
+
+    .formulario {
+        gap: 1.5rem;
+        width: 100%;
+        
+        & .formulario_nombre, .formulario_email {
+            gap: .8rem;
+            width: 100%;
+
+            & input {
+                height: 3.5rem;
+                border: 1px solid #ecf0f1;
+                border-radius: 10px;
+                padding: 0 .7rem;
+            }
+        }
+
+        & .formulario_btnEnviar {
+            margin-top: .5rem;
+
+            & button {
+                width: 13rem;
+                height: 4rem;
+                letter-spacing: 1px;
+                border-radius: 10px;
+                font-size: 20px;
+
+                &::before {
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+
+    /* FOOTER - RESPONSIVE */
+    #pieDePagina {
+        padding: 2rem;
+        column-gap: 2rem;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: repeat(10, auto);
+        grid-template-areas:    "infoWebsite atajos recursos"
+                                "infoWebsite atajos recursos"
+                                "infoWebsite atajos recursos"
+                                "infoWebsite descargar descargar"
+                                "infoWebsite descargar descargar"
+                                "infoWebsite descargar descargar"
+                                "redesSociales redesSociales redesSociales"
+                                "redesSociales redesSociales redesSociales"
+                                "copyright copyright copyright"
+                                "copyright copyright copyright";
+        
+        & .infoWebsite {
+            gap: 1.5rem;
+            width: 26rem;
+
+            & .infoWebsite_encabezado-img {
+                width: 7rem;
+                height: 7rem;
+                border-radius: 12px;
+            }
+
+            & .infoWebsite_encabezado-titulo {
+                letter-spacing: 1px;
+                font-size: 36px;
+                user-select: none;
+                cursor: text;
+            }
+
+            & .infoWebsite_principal {
+                margin-bottom: 2rem;
+            }
+        }
+
+        & .atajos {
+            gap: 1rem;
+
+            & .atajos_titulo {
+                font-size: 26px;
+            }
+
+            & .atajos_lista {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "inicio precios"
+                                        "inicio precios"
+                                        "acercaDe contacto"
+                                        "acercaDe contacto";
+                
+                & .atajos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 24px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: inicio;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: precios;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: acercaDe;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: contacto;
+                    }
+                }
+            }
+        }
+
+        & .recursos {
+            gap: 1rem;
+            justify-self: flex-start !important;
+            
+
+            & .recursos_titulo {
+                font-size: 26px;
+            }
+
+            & .recursos_lista {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "tutorial blog"
+                                        "tutorial blog"
+                                        "soporte versiones"
+                                        "soporte versiones";
+
+                & .recursos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 24px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: tutorial;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: blog;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: soporte;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: versiones;
+                    }
+                }
+            }
+        }
+
+        & .descargar {
+            margin: 2.75rem 0;
+            margin-bottom: 8rem;
+            gap: 1rem;
+            grid-template-columns: auto auto;
+            grid-template-rows: repeat(12, auto);
+            grid-template-areas:    "titulo titulo"
+                                    "titulo titulo"
+                                    "titulo titulo"
+                                    "android ios"
+                                    "android ios"
+                                    "android ios"
+                                    "windows linux"
+                                    "windows linux"
+                                    "windows linux"
+                                    "appweb appweb"
+                                    "appweb appweb"
+                                    "appweb appweb";
+
+            & .descargar_titulo {
+                font-size: 26px;
+                padding-bottom: .6rem;
+            }
+
+            & .descargar_app {
+                width: 100%;
+                height: 4rem;
+                font-weight: 500;
+                border-radius: .5rem;
+                font-size: 18px;
+                user-select: none;
+            }
+        }
+
+        & .copyright {
+            margin: 1rem .6rem;
+            text-align: center;
+        }
+
+        & .redesSociales {
+            grid-template-columns: repeat(5, auto);
+            grid-template-rows: auto;
+            grid-template-areas: "facebook instagram twitter github youtube";
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
     }
 }
 
@@ -1836,19 +3188,7 @@ body {
 @media (min-width:1329px) and (max-width: 1500px) {
     body {
         font-size: 22px;
-    }
-
-    .mn_lista-item {
-        margin-right: 2.5rem;
-    }
-
-    .mn_lista-item:last-child {
-        margin: 0;
-    }
-
-    .mn_lista-item a:hover {
-        font-size: calc(22px + 2.45px);
-    }
+    }    
 
     #encabezado, .videoFondo {
         height: 54rem;
@@ -1856,44 +3196,404 @@ body {
 
     .menu {
         padding: 1rem 2rem;
-    }
 
-    .menu_titulo {
-        font-size: 44px;
-        letter-spacing: 1.62px;
+        & .menu_navbar {
+            display: flex !important;
+            
+            & .mn_lista {
+                display: flex;
+                align-items: center;
+                font-size: 28px;
+
+                & .mn_lista-item {
+                    margin-right: 2.5rem;
+
+                    &:last-child {
+                        margin: 0;
+                    }
+
+                    & a {
+                        &:hover {
+                            font-size: calc(22px + 2.45px);
+                        }
+                    }
+                }
+            }
+        }
+
+        & .menu_titulo {
+            font-size: 48px;
+            letter-spacing: 1.62px;
+        }
     }
 
     .infoHeader {
         padding: 0 1.5rem 1.75rem 2.5rem;
         margin-right: 28rem;
+
+        & .infoHeader_titulo {
+            font-size: 46px;
+            margin-bottom: .85rem;
+            letter-spacing: 1.4px;
+        }
+
+        & .infoHeader_parrafo {
+            line-height: 1.4em;
+            letter-spacing: .75px;
+            margin-bottom: 2.5rem;
+        }
+
+        & .infoHeader_btn {
+            font-size: 26px;
+            padding: 1.75rem 4rem;
+            border-radius: 1.125rem;
+            box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+
+            & a {
+                letter-spacing: 2px;
+            }
+
+            &::after {
+                border-radius: 1.125rem;
+                letter-spacing: 2px;
+            }
+        }
     }
 
-    .infoHeader_titulo {
-        font-size: 44px;
-        margin-bottom: .3rem;
-        letter-spacing: 1.4px;
+
+    /* MAIN - RESPONSIVE */
+    #principal {
+        padding: 2.25rem;
     }
 
-    .infoHeader_parrafo {
-        line-height: 1.4em;
-        letter-spacing: .75px;
-        margin-bottom: 2.5rem;
+    .info {
+        row-gap: 1.5rem;
+        column-gap: .8rem;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: repeat(9, auto);
+        grid-template-areas:    "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3";
     }
 
-    .infoHeader_btn {
-        font-size: 24px;
-        padding: 1.25rem 2.5rem;
-        border-radius: 1rem;
-        box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+    .articulo1 {
+        grid-area: articulo1;
     }
 
-    .infoHeader_btn a {
-        letter-spacing: 1px;
+    .articulo2 {
+        grid-area: articulo2;
     }
 
-    .infoHeader_btn::after {
-        border-radius: 1rem;
-        letter-spacing: 1px;
+    .articulo3 {
+        grid-area: articulo3;
+    }
+
+    .articulo1, .articulo2, .articulo3 {
+        border-radius: 14px;
+
+        & .articulo_titulo {
+            font-size: 32px;
+            padding: 1rem;
+        }
+    
+        & .articulo_parrafo {
+            padding: 0 1rem;
+        }
+
+        & .articulo_btnLeerMas {
+            display: var(--flexbox);
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+            height: 4.5rem;
+            margin: 2.25rem auto;
+            margin-bottom: 1.5rem;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(100deg, #90cbff, #368cfb);
+            color: #152856;
+            cursor: pointer;
+            position: relative;
+            font-size: 24px;
+            letter-spacing: 2px;
+
+            &::before {
+                content: "Leer más";
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(100deg, #bddfff, #5caefe);
+                box-shadow: 0 0 8px rgba(255, 255, 255, .35);
+                border-radius: 14px;
+                opacity: 0;
+                transition: all .2s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:active {
+                background: linear-gradient(100deg, #5caefe, #1f6df1);
+
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .suscribirse {
+        flex-direction: row !important;
+        margin: 7rem 0;
+        gap: 3rem;
+        padding: 2.5rem;
+        border-radius: 12px;
+
+        & .suscribirse_izquierda {
+            gap: .75rem;
+            width: 50%;
+    
+            & h3 {
+                font-size: 180%;
+                letter-spacing: .75px;
+            }
+        }
+
+        & .suscribirse_derecha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+    }
+
+    .formulario {
+        gap: 2rem;
+        width: 100%;
+        
+        & .formulario_nombre, .formulario_email {
+            gap: 1.25rem;
+            width: 100%;
+
+            & input {
+                height: 4.25rem;
+                border: 1px solid #ecf0f1;
+                border-radius: 10px;
+                padding: 0 .7rem;
+            }
+
+            & label {
+                font-size: 24px;
+                letter-spacing: 3px !important;
+            }
+        }
+
+        & .formulario_btnEnviar {
+            margin-top: .325rem;
+
+            & button {
+                width: 15rem;
+                height: 4.5rem;
+                letter-spacing: 2px;
+                border-radius: 12px;
+                font-size: 22px;
+
+                &::before {
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+
+    /* FOOTER - RESPONSIVE */
+    #pieDePagina {
+        padding: 2rem;
+        column-gap: 2rem;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: repeat(10, auto);
+        grid-template-areas:    "infoWebsite atajos recursos"
+                                "infoWebsite atajos recursos"
+                                "infoWebsite atajos recursos"
+                                "infoWebsite descargar descargar"
+                                "infoWebsite descargar descargar"
+                                "infoWebsite descargar descargar"
+                                "redesSociales redesSociales redesSociales"
+                                "redesSociales redesSociales redesSociales"
+                                "copyright copyright copyright"
+                                "copyright copyright copyright";
+        
+        & .infoWebsite {
+            gap: 1.5rem;
+            width: 26rem;
+
+            & .infoWebsite_encabezado-img {
+                width: 7rem;
+                height: 7rem;
+                border-radius: 12px;
+            }
+
+            & .infoWebsite_encabezado-titulo {
+                letter-spacing: 1px;
+                font-size: 36px;
+                user-select: none;
+                cursor: text;
+            }
+
+            & .infoWebsite_principal {
+                margin-bottom: 2rem;
+            }
+        }
+
+        & .atajos {
+            gap: 1rem;
+
+            & .atajos_titulo {
+                font-size: 26px;
+            }
+
+            & .atajos_lista {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "inicio precios"
+                                        "inicio precios"
+                                        "acercaDe contacto"
+                                        "acercaDe contacto";
+                
+                & .atajos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 24px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: inicio;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: precios;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: acercaDe;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: contacto;
+                    }
+                }
+            }
+        }
+
+        & .recursos {
+            gap: 1rem;
+            justify-self: flex-start !important;
+            
+
+            & .recursos_titulo {
+                font-size: 26px;
+            }
+
+            & .recursos_lista {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "tutorial blog"
+                                        "tutorial blog"
+                                        "soporte versiones"
+                                        "soporte versiones";
+
+                & .recursos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 24px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: tutorial;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: blog;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: soporte;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: versiones;
+                    }
+                }
+            }
+        }
+
+        & .descargar {
+            margin: 2.75rem 0;
+            margin-bottom: 8rem;
+            gap: 1rem;
+            grid-template-columns: auto auto;
+            grid-template-rows: repeat(12, auto);
+            grid-template-areas:    "titulo titulo"
+                                    "titulo titulo"
+                                    "titulo titulo"
+                                    "android ios"
+                                    "android ios"
+                                    "android ios"
+                                    "windows linux"
+                                    "windows linux"
+                                    "windows linux"
+                                    "appweb appweb"
+                                    "appweb appweb"
+                                    "appweb appweb";
+
+            & .descargar_titulo {
+                font-size: 26px;
+                padding-bottom: .6rem;
+            }
+
+            & .descargar_app {
+                width: 100%;
+                height: 4rem;
+                font-weight: 500;
+                border-radius: .5rem;
+                font-size: 18px;
+                user-select: none;
+            }
+        }
+
+        & .copyright {
+            margin: 1rem .6rem;
+            text-align: center;
+        }
+
+        & .redesSociales {
+            grid-template-columns: repeat(5, auto);
+            grid-template-rows: auto;
+            grid-template-areas: "facebook instagram twitter github youtube";
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
     }
 }
 
