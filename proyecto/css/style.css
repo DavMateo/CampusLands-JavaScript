@@ -3616,7 +3616,7 @@ body {
             & .mn_lista {
                 display: flex;
                 align-items: center;
-                font-size: 30px;
+                font-size: 32px;
 
                 & .mn_lista-item {
                     margin-right: 3.5rem;
@@ -3627,7 +3627,7 @@ body {
 
                     & a {
                         &:hover {
-                            font-size: calc(30px + 2.45px);
+                            font-size: calc(32px + 2.45px);
                         }
                     }
                 }
@@ -3969,14 +3969,16 @@ body {
                                     "android ios"
                                     "windows linux"
                                     "appweb appweb";
+            width: 30rem;
 
             & .descargar_titulo {
-                font-size: 26px;
+                font-size: 32px;
+                padding-bottom: 3rem;
             }
 
             & .descargar_app {
                 width: 100%;
-                height: 4rem;
+                height: 4.5rem;
                 font-weight: 500;
                 border-radius: .5rem;
                 font-size: 18px;
@@ -3995,7 +3997,7 @@ body {
             grid-template-areas: "facebook instagram twitter github youtube";
             justify-content: center;
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 4.25rem;
 
             & svg {
                 width: 60px;
@@ -4008,64 +4010,418 @@ body {
 /* RESPONSIVE >1920 -> FullHD+ a 4k */
 @media (min-width: 1921px) {
     body {
-        font-size: 24px;
-    }
-
-    .mn_lista-item {
-        margin-right: 3.5rem;
-    }
-
-    .mn_lista-item:last-child {
-        margin: 0;
-    }
-
-    .mn_lista-item a:hover {
-        font-size: calc(22px + 2.45px);
+        font-size: 28px;
     }
 
     #encabezado, .videoFondo {
-        height: 68.5rem;
+        height: 100.5rem;
     }
 
     .menu {
-        padding: 0 2rem;
-    }
+        padding: 0 4rem;
 
-    .menu_titulo {
-        font-size: 48px;
-        letter-spacing: 1.62px;
+        & .menu_navbar {
+            display: flex !important;
+
+            & .mn_lista {
+                display: flex;
+                align-items: center;
+                font-size: 36px;
+
+                & .mn_lista-item {
+                    margin-right: 3.5rem;
+
+                    &:last-child {
+                        margin: 0;
+                    }
+
+                    & a {
+                        &:hover {
+                            font-size: calc(36px + 2.45px);
+                        }
+                    }
+                }
+            }
+        }
+
+        & .menu_titulo {
+            font-size: 60px;
+            letter-spacing: 2.5px;
+        }
     }
 
     .infoHeader {
         padding: 0 1.5rem 1.75rem 2.5rem;
         margin-right: 75rem;
+
+        & .infoHeader_titulo {
+            font-size: 60px;
+            margin-bottom: 1.25rem;
+            letter-spacing: 2.5px;
+        }
+
+        & .infoHeader_parrafo {
+            line-height: 1.6em;
+            letter-spacing: .75px;
+            margin-bottom: 3rem;
+        }
+
+        & .infoHeader_btn {
+            font-size: 38px;
+            padding: 2.5rem 5.75rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+
+            & a {
+                letter-spacing: 1px;
+            }
+
+            &::after {
+                border-radius: 1rem;
+                letter-spacing: 1px;
+            }
+        }
     }
 
-    .infoHeader_titulo {
-        font-size: 48px;
-        margin-bottom: .3rem;
-        letter-spacing: 1.4px;
+
+    /* MAIN - RESPONSIVE */
+    #principal {
+        padding: 3.25rem;
     }
 
-    .infoHeader_parrafo {
-        line-height: 1.4em;
-        letter-spacing: .75px;
-        margin-bottom: 3rem;
+    .info {
+        row-gap: 4rem;
+        column-gap: 2rem;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: repeat(9, auto);
+        grid-template-areas:    "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3"
+                                "articulo1 articulo2 articulo3";
     }
 
-    .infoHeader_btn {
-        font-size: 28px;
-        padding: 1.5rem 2.75rem;
-        border-radius: 1rem;
-        box-shadow: 0 0 6px rgba(255, 255, 255, .45);
+    .articulo1 {
+        grid-area: articulo1;
     }
 
-    .infoHeader_btn a {
-        letter-spacing: 1px;
+    .articulo2 {
+        grid-area: articulo2;
     }
 
-    .infoHeader_btn::after {
-        border-radius: 1rem;
-        letter-spacing: 1px;
+    .articulo3 {
+        grid-area: articulo3;
+    }
+
+    .articulo1, .articulo2, .articulo3 {
+        border-radius: 22px;
+
+        & .articulo_titulo {
+            font-size: 50px;
+            padding: 1.75rem 2.5rem;
+        }
+    
+        & .articulo_parrafo {
+            padding: 0 2.5rem;
+        }
+
+        & .articulo_btnLeerMas {
+            display: var(--flexbox);
+            justify-content: center;
+            align-items: center;
+            width: 75%;
+            height: 6.75rem;
+            margin: 2.5rem auto;
+            margin-bottom: 1.5rem;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(100deg, #90cbff, #368cfb);
+            color: #152856;
+            cursor: pointer;
+            position: relative;
+            font-size: 36px;
+            font-weight: 600;
+            letter-spacing: 2.25px;
+
+            &::before {
+                content: "Leer más";
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(100deg, #bddfff, #5caefe);
+                box-shadow: 0 0 8px rgba(255, 255, 255, .35);
+                border-radius: 20px;
+                opacity: 0;
+                transition: all .2s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+
+            &:active {
+                background: linear-gradient(100deg, #5caefe, #1f6df1);
+
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .suscribirse {
+        flex-direction: row !important;
+        margin: 7rem 0;
+        gap: 6rem;
+        padding: 3.5rem;
+        border-radius: 24px;
+
+        & .suscribirse_izquierda {
+            gap: 1.25rem;
+            width: 50%;
+    
+            & h3 {
+                font-size: 200%;
+                letter-spacing: 1.5px;
+            }
+
+            & p {
+                line-height: 3rem;
+            }
+        }
+
+        & .suscribirse_derecha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+    }
+
+    .formulario {
+        gap: 2.75rem;
+        width: 100%;
+        
+        & .formulario_nombre, .formulario_email {
+            gap: 1.5rem;
+            width: 100%;
+
+            & input {
+                height: 5.45rem;
+                border: 2px solid #ecf0f1;
+                border-radius: 20px;
+                padding: 0 1.75rem;
+            }
+
+            & label {
+                font-size: 30px;
+                letter-spacing: 3px !important;
+            }
+        }
+
+        & .formulario_btnEnviar {
+            margin-top: .5rem;
+
+            & button {
+                width: 20rem;
+                height: 6rem;
+                letter-spacing: 2px;
+                border-radius: 18px;
+                font-size: 30px;
+
+                &::before {
+                    border-radius: 18px;
+                }
+            }
+        }
+    }
+
+
+    /* FOOTER - RESPONSIVE */
+    #pieDePagina {
+        padding: 4.5rem;
+        column-gap: 2rem;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: repeat(10, auto);
+        grid-template-areas:    "infoWebsite atajos recursos descargar"
+                                "infoWebsite atajos recursos descargar"
+                                "infoWebsite atajos recursos descargar"
+                                "infoWebsite atajos recursos descargar"
+                                "infoWebsite atajos recursos descargar"
+                                "infoWebsite atajos recursos descargar"
+                                "redesSociales redesSociales redesSociales redesSociales"
+                                "redesSociales redesSociales redesSociales redesSociales"
+                                "copyright copyright copyright copyright"
+                                "copyright copyright copyright copyright";
+        
+        & .infoWebsite {
+            gap: 1.5rem;
+            width: 26rem;
+
+            & .infoWebsite_encabezado-img {
+                width: 10rem;
+                height: 10rem;
+                border-radius: 18px;
+            }
+
+            & .infoWebsite_encabezado-titulo {
+                letter-spacing: 1px;
+                font-size: 50px;
+                user-select: none;
+                cursor: text;
+                text-align: center;
+            }
+
+            & .infoWebsite_principal {
+                margin-bottom: 2rem;
+            }
+        }
+
+        & .atajos {
+            margin-top: .5rem;
+            gap: 1.5rem;
+
+            & .atajos_titulo {
+                font-size: 40px;
+            }
+
+            & .atajos_lista {
+                display: grid;
+                gap: 1.75rem;
+                grid-template-columns: auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "inicio "
+                                        "precios"
+                                        "acercaDe"
+                                        "contacto";
+                
+                & .atajos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 32px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: inicio;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: precios;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: acercaDe;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: contacto;
+                    }
+                }
+            }
+        }
+
+        & .recursos {
+            margin-top: .5rem;
+            gap: 1.5rem;
+            justify-self: flex-start !important;
+            
+
+            & .recursos_titulo {
+                font-size: 40px;
+            }
+
+            & .recursos_lista {
+                display: grid;
+                gap: 1.75rem;
+                grid-template-columns: auto auto;
+                grid-template-rows: repeat(4, auto);
+                grid-template-areas:    "tutorial"
+                                        "blog"
+                                        "soporte"
+                                        "versiones";
+
+                & .recursos_lista-item {
+                    & a {
+                        &:hover {
+                            font-size: 32px;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        grid-area: tutorial;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: blog;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: soporte;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: versiones;
+                    }
+                }
+            }
+        }
+
+        & .descargar {
+            margin-top: .5rem;
+            gap: 1.5rem;
+            grid-template-columns: auto auto;
+            grid-template-rows: repeat(4, .08fr);
+            grid-template-areas:    "titulo titulo"
+                                    "android ios"
+                                    "windows linux"
+                                    "appweb appweb";
+            width: 45rem;
+
+            & .descargar_titulo {
+                font-size: 40px;
+                padding-bottom: 4.3rem;
+                overflow: hidden;
+            }
+
+            & .descargar_app {
+                width: 100%;
+                height: 5.5rem;
+                font-weight: 600;
+                border-radius: .8rem;
+                font-size: 26px;
+                user-select: none;
+            }
+        }
+
+        & .copyright {
+            margin: 2.5rem .6rem;
+            text-align: center;
+        }
+
+        & .redesSociales {
+            grid-template-columns: repeat(5, auto);
+            grid-template-rows: auto;
+            grid-template-areas: "facebook instagram twitter github youtube";
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 10rem;
+
+            & svg {
+                width: 80px;
+                height: 80px;
+            }
+        }
     }
 }
