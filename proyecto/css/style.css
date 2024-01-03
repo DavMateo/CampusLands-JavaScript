@@ -1,7 +1,5 @@
 @import url("./variables.css");
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'); /* TÍTULOS */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap'); /* SUBTITULOS - RESALTAR */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap'); /* TEXTO */
+@import url("./tipografia.css");
 
 
 * {
@@ -863,6 +861,7 @@ body {
             & .descargar_titulo {
                 font-size: 16px;
                 padding-bottom: .6rem;
+                overflow: hidden;
             }
 
             & .descargar_app {
@@ -1191,6 +1190,7 @@ body {
             & .descargar_titulo {
                 font-size: 18px;
                 padding-bottom: .6rem;
+                overflow: hidden;
             }
 
             & .descargar_app {
@@ -1520,6 +1520,7 @@ body {
             & .descargar_titulo {
                 font-size: 18px;
                 padding-bottom: .6rem;
+                overflow: hidden;
             }
 
             & .descargar_app {
@@ -1909,6 +1910,7 @@ body {
             & .descargar_titulo {
                 font-size: 21px;
                 padding-bottom: .6rem;
+                overflow: hidden;
             }
 
             & .descargar_app {
@@ -2323,6 +2325,7 @@ body {
             & .descargar_titulo {
                 font-size: 23px;
                 padding-bottom: .6rem;
+                overflow: hidden;
             }
 
             & .descargar_app {
@@ -2746,6 +2749,7 @@ body {
             & .descargar_titulo {
                 font-size: 23px;
                 padding-bottom: .6rem;
+                overflow: hidden;
             }
 
             & .descargar_app {
@@ -3156,6 +3160,7 @@ body {
             & .descargar_titulo {
                 font-size: 26px;
                 padding-bottom: .6rem;
+                overflow: hidden;
             }
 
             & .descargar_app {
@@ -3569,6 +3574,7 @@ body {
             & .descargar_titulo {
                 font-size: 26px;
                 padding-bottom: .6rem;
+                overflow: hidden;
             }
 
             & .descargar_app {
@@ -3974,6 +3980,7 @@ body {
             & .descargar_titulo {
                 font-size: 32px;
                 padding-bottom: 3rem;
+                overflow: hidden;
             }
 
             & .descargar_app {
