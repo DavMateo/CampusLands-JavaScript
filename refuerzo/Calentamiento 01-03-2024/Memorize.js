@@ -2,7 +2,7 @@
 let count = 0, fnNameCopy, valuesCopy, strAnalizar = [];
 
 // DECLARANDO LAS FUNCIONES PRINCIPALES
-function memoized(fnName, values, arrTest) {
+function memoized(fnName, values) {
     fnNameCopy = fnName;
     const strArrayAnalizar = JSON.stringify(strAnalizar);
     const strValues = JSON.stringify(values);
@@ -19,8 +19,7 @@ function iniciarPrograma() {
     let arrResultado = [];
 
     for (let i = 0; i < arrTest.length; i++) {
-        arrTest[i].length === 0 ? arrResultado.push(count) : arrResultado.push(memoized("sum", arrTest[i], arrTest));
-        //strAnalizar = [];
+        arrTest[i].length === 0 ? arrResultado.push(count) : arrResultado.push(memoized("sum", arrTest[i]));
     }
     console.log(arrResultado);
 }
