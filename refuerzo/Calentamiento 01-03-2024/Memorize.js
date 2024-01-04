@@ -15,7 +15,7 @@ function memoized(fnName, values) {
 
 // DECLARANDO LA FUNCIÓN INICIALIZADORA
 function iniciarPrograma() {
-    const arrTest = [[2,2], [2,2], [], [1,2], [], [3,4], [2,2], [1,3], [], [2,1], []];
+    const arrTest = [[2,2], [2,2], [], [1,2], []];
     let arrResultado = [];
 
     for (let i = 0; i < arrTest.length; i++) {
