@@ -12,9 +12,79 @@
     </head>
 
     <body>
-        <header id="encabezado"></header>
+        <header id="encabezado">
+            <h1 class="encabezado_titulo">Principal</h1>
+            <img class="encabezado_imagen" src="./../img/img_articulo2.jpg" alt="img_profile" />
+        </header>
 
-        <main id="principal"></main>
+        <main id="principal">
+            <section class="agregarTarea">
+                <h3 class="agregarTarea_titulo">Agregar Tarea</h3>
+                
+                <form class="formulario" id="formulario" action="">
+                    <div class="formulario_nombre">
+                        <label for="nombreTarea">Nombre de la Tarea</label>
+                        <input type="text" name="nombreTarea" id="nombreTarea" placeholder="Escriba su nombre aquí. "/>
+                    </div>
+
+                    <div class="formulario_descripcion">
+                        <label for="descripcion">Descripción</label>
+                        <textarea name="de" id="" cols="30" rows="10" placeholder="Ingrese algo de texto aquí"></textarea>
+                    </div>
+
+                    <div class="formulario_fecha">
+                        <label for="fecha">Fecha límite</label>
+                        <input type="date" name="fecha" id="fecha" />
+                        <input type="time" name="fecha" id="fecha" min="2024-01-04" max="2024-12-31" step="1" />
+                    </div>
+
+                    <div class="formulario_opciones">
+                        <label for="prioridad">Prioridad</label>
+                        <select name="opcion" id="prioridad">
+                            <option value="1">Prioridad 1</option>
+                            <option value="2">Prioridad 2</option>
+                            <option value="3">Prioridad 3</option>
+                            <option value="4">Prioridad 4</option>
+                        </select>
+                    </div>
+
+                    <div class="formulario_categoria">
+                        <label for="categoria">Categoría</label>
+                        <select name="cat" id="categoria">
+                            <option value="prueba">Prueba</option>
+                            <option value="bienvenida">Bienvenida</option>
+                        </select>
+                    </div>
+                </form>
+            </section>
+
+            <section class="resumen">
+                <h3 class="resumen_titulo">Resumen</h3>
+
+                <div class="elegirEstado">
+                    <div class="elegirEstado_pendiente">
+                        <div class="elegirEstado_circulo elegirEstado_circulo--morado"></div>
+                        <span class="elegirEstado_texto">Pendiente</span>
+                    </div>
+                    
+                    <div class="elegirEstado_progreso">
+                        <div class="elegirEstado_circulo elegirEstado_circulo--naranja"></div>
+                        <span class="elegirEstado_texto">En Progreso</span>
+                    </div>
+
+                    <div class="elegirEstado_completado">
+                        <div class="elegirEstado_circulo elegirEstado_circulo--azul"></div>
+                        <span class="elegirEstado_texto">Completada</span>
+                    </div>
+                </div>
+                
+                <div class="pendiente"></div>
+
+                <div class="progreso"></div>
+                
+                <div class="completado"></div>
+            </section>
+        </main>
 
         <footer id="pieDePagina"></footer>
     </body>
