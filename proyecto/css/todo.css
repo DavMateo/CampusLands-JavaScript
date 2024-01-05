@@ -17,7 +17,7 @@ body {
 
 
 #encabezado {
-    display: flex;
+    display: var(--flexbox);
     justify-content: space-between;
     align-items: center;
     position: fixed;
@@ -40,10 +40,17 @@ body {
 }
 
 #principal {
-    display: flex;
+    display: var(--flexbox);
     flex-direction: column;
     padding: 1rem;
     border: 1px solid #000;
+
+    & .agregarTarea {
+        display: var(--flexbox);
+        flex-direction: column;
+        gap: 1.5rem;
+        border: 1px solid #000;
+    }
 }
 
 
