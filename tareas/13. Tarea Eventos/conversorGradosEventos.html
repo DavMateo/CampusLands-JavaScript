@@ -8,7 +8,19 @@
         <meta name="viewport" content="width=device-width, initiañ-scale=1.0" />
         <title>Conversor temperaturas | JS - Eventos</title>
 
-        <style></style>
+        <style>
+            .recibirConversion {
+                background-color: #71ff74;
+            }
+
+            .cajaActivo {
+                background-color: #feff64;
+            }
+
+            .cajaResultado {
+                background-color: #9dd2fd;
+            }
+        </style>
     </head>
 
     <body>
@@ -37,22 +49,54 @@
             const btnEnviar = document.getElementById("btnEnviar");
             const centigrados = document.getElementById("centigrados");
             const farenheit = document.getElementById("farenheit");
-            
-            btnEnviar.addEventListener("click", (e) => {
-                const formData = new FormData(formulario);
 
-                centigrados.value = "";
-                farenheit.value = "";
-                
-                if (formData.get("centigrados") !== "") {
-                    let centigradosToFarenheit = (formData.get("centigrados") * 9/5) + 32;
+
+            btnEnviar.addEventListener("click", () => {
+                const formData = new FormData(formulario);
+                const infoCentigrados = formData.get("centigrados");
+                const infoFarenheit = formData.get("farenheit");
+
+                if (infoCentigrados !== "") {
+                    let centigradosToFarenheit = (infoCentigrados * (9/5)) + 32;
+                    farenheit.value = centigradosToFarenheit.toFixed(2);
+                    farenheit.classList.add("recibirConversion");
+                    centigrados.classList.remove("recibirConversion");
+
+                } else if (infoFarenheit !== "") {
+                    let farenheitToCentigrados = (infoFarenheit - 32) * (5/9);
+                    centigrados.value = farenheitToCentigrados.toFixed(2);
+                    centigrados.classList.add("recibirConversion");
+                    farenheit.classList.remove("recibirConversion");
+                }
+
+
+
+                centigrados.addEventListener("keyup", (e) => {
+                    let centigradosToFarenheit = (centigrados.value * (9/5)) + 32;
                     farenheit.value = centigradosToFarenheit.toFixed(2);
 
-                } else if (formData.get("farenheit") !== "") {
-                    let farenheitToCentigrados = (formData.get("farenheit") - 32) * 5/9;
+                    centigrados.classList.add("cajaActivo");
+                    centigrados.classList.remove("cajaResultado");
+                    farenheit.classList.remove("cajaActivo");
+                    farenheit.classList.add("cajaResultado");
+                });
+
+                farenheit.addEventListener("keyup", (e) => {
+                    let farenheitToCentigrados = (farenheit.value - 32) * (5/9);
                     centigrados.value = farenheitToCentigrados.toFixed(2);
-                }
+
+                    farenheit.classList.add("cajaActivo");
+                    farenheit.classList.remove("cajaResultado");
+                    centigrados.classList.remove("cajaActivo");
+                    centigrados.classList.add("cajaResultado");
+                });
             });
+
+
+            window.onload = function() {
+                centigrados.value = "";
+                farenheit.value = "";
+            }
         </script>
     </body>
 
