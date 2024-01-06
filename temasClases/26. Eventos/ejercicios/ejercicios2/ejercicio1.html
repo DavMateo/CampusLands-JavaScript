@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <style>
+        .boton{display:block; width:100px;cursor:pointer;margin: 10px;border:1px
+        solid black}
+        </style>
+    </head>
+
+    <body>
+        <div id="boton1" class="boton">Pulsar aquí</div>
+        <div id="boton2" class="boton">Pulsar aquí</div>
+
+
+        <script>
+            function pulsar(e) { 
+                alert(e.target.id);
+            }
+            document.querySelector("body").addEventListener("click", (e) => pulsar(e));
+        </script>
+    </body>
+
+</html>

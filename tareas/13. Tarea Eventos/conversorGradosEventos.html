@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initiañ-scale=1.0" />
+        <title>Conversor temperaturas | JS - Eventos</title>
+
+        <style></style>
+    </head>
+
+    <body>
+        <header id="encabezado">
+            <h1>Conversor de Temperaturas</h1>
+        </header>
+
+        <main id="principal">
+            <form id="formulario" class="formulario" action="" onsubmit="return false;">
+                <div class="formulario_centigrados">
+                    <label for="centigrados">Grados centígrados:</label>
+                    <input type="number" name="centigrados" id="centigrados" />
+                </div>
+
+                <div class="formulario_farenheit">
+                    <label for="farenheit">Grados Farenheit:</label>
+                    <input type="number" name="farenheit" id="farenheit" />
+                </div>
+            </form>
+            <button id="btnEnviar" class="btnEnviar">Calcular</button>
+        </main>
+
+        
+        <script>
+            const formulario = document.getElementById("formulario");
+            const btnEnviar = document.getElementById("btnEnviar");
+            const centigrados = document.getElementById("centigrados");
+            const farenheit = document.getElementById("farenheit");
+            
+            btnEnviar.addEventListener("click", (e) => {
+                const formData = new FormData(formulario);
+
+                centigrados.value = "";
+                farenheit.value = "";
+                
+                if (formData.get("centigrados") !== "") {
+                    let centigradosToFarenheit = (formData.get("centigrados") * 9/5) + 32;
+                    farenheit.value = centigradosToFarenheit.toFixed(2);
+
+                } else if (formData.get("farenheit") !== "") {
+                    let farenheitToCentigrados = (formData.get("farenheit") - 32) * 5/9;
+                    centigrados.value = farenheitToCentigrados.toFixed(2);
+                }
+            });
+        </script>
+    </body>
+
+</html>
