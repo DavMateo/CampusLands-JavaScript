@@ -49,10 +49,117 @@ body {
         display: var(--flexbox);
         flex-direction: column;
         gap: 1.5rem;
-        border: 1px solid #000;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90vw;
+        height: 65vh;
+        z-index: 100;
+        background-color: var(--darkMode_textoSecundario);
+        color: var(--lightMode_textoPrincipal);
+        box-shadow: 0 0 10px 0 rgba(255, 255, 255, .25),
+                    0 0 0 1000px rgba(0, 0, 0, .85),
+                    inset 0 0 8px 1px rgba(0, 0, 0, .65);
+        overflow: auto;
+        padding: 1rem;
+        border-radius: 10px;
+        scrollbar-width: var(--desabilitado);
+
+        &::-webkit-scrollbar {
+            display: var(--desabilitado);
+        }
+
+        & .agregarTarea_titulo {
+            text-align: center;
+            font-size: 18px;
+            font-variant: small-caps;
+            text-transform: capitalize;
+            height: 1.5rem;
+            font-weight: 500;
+            
+            & .animacionTitulo {
+                display: var(--flexbox);
+                justify-content: center;
+                overflow: hidden;
+                height: inherit;
+
+                & .animacionTitulo_sujeto {
+                    display: inline;
+                    float: left;
+                    margin-right: .5rem;
+                }
+
+                & .animacionTitulo_predicado {
+                    list-style: var(--desabilitado);
+                    text-align: left;
+                    animation: 10s linear 0s normal none infinite change;
+                    -webkit-animation: 10s linear 0s normal none infinite chage;
+                    -moz-animation: 10s linear 1s normal none infinite change;
+                    -o-animation: 10s linear 0s normal none infinite change;
+                }
+            }
+        }
+
+        & .principal_separacion {
+            width: 65%;
+            align-self: center;
+            border: 1px solid rgb(161, 160, 160);
+            border-radius: 25px;
+            margin-top: -10px;
+        }
+
+        & .formulario {
+            display: var(--flexbox);
+            flex-direction: column;
+            gap: 1rem;
+
+            & .formulario_nombre {
+                & label {
+                    letter-spacing: .5px;
+                    cursor: pointer;
+                    font-weight: 500;
+                }
+
+                & input {
+                    display: var(--flexbox);
+                    margin-top: .375rem;
+                    width: 100%;
+                    height: 2.24rem;
+                    padding: 0 .4rem;
+                    border: var(--desabilitado);
+                    border-radius: 8px;
+                    background-color: #93c5fd;
+                    color: #172554;
+                    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+                    outline: var(--desabilitado);
+                    transition: .3s all ease-in-out;
+
+                    &::placeholder {
+                        color: #000;
+                    }
+
+                    &:focus {
+                        border: 2px solid #3b82f6;
+                        background-color: #60a5fa;
+                    }
+                }
+            }
+        }
     }
 }
 
+@keyframes change {
+    0% { margin-top: 0px; }
+    15% { margin-top: 0px; }
+    25% { margin-top: calc(-1 * (1.5rem + 1px)); }
+    40% { margin-top: calc(-1 * (1.5rem + 1px)); }
+    50% { margin-top: calc((-1 * (1.5rem + 1px)) * 2); }
+    65% { margin-top: calc((-1 * (1.5rem + 1px)) * 2); }
+    75% { margin-top: calc(-1 * (1.5rem + 1px)); }
+    85% { margin-top: calc(calc(-1 * (1.5rem + 1px))); }
+    100% { margin-top: calc(0px); }
+}
 
 
 @media (max-width: 280px) {
@@ -64,7 +171,7 @@ body {
         padding: 1rem;
         
         & .encabezado_titulo {
-            letter-spacing: 1px;
+            letter-spacing: .5px;
             font-weight: 600;
         }
 

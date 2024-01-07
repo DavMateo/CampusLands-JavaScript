@@ -19,23 +19,38 @@
 
         <main id="principal">
             <section class="agregarTarea">
-                <h3 class="agregarTarea_titulo">Agregar Tarea</h3>
+                <div class="agregarTarea_titulo">
+                    <div class="animacionTitulo">
+                        <p class="animacionTitulo_sujeto">Agregar</p>
+                        <ul class="animacionTitulo_predicado">
+                            <li class="item">tareas</li>
+                            <li class="item">recordatorios</li>
+                            <li class="item">orden a tu vida!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="principal_separacion"/>
                 
                 <form class="formulario" id="formulario" action="">
                     <div class="formulario_nombre">
-                        <label for="nombreTarea">Nombre de la Tarea</label>
+                        <label for="nombreTarea">Nombre de la tarea</label>
                         <input type="text" name="nombreTarea" id="nombreTarea" placeholder="Escriba su nombre aquí. "/>
                     </div>
 
                     <div class="formulario_descripcion">
                         <label for="descripcion">Descripción</label>
-                        <textarea name="de" id="" cols="30" rows="10" placeholder="Ingrese algo de texto aquí"></textarea>
+                        <textarea name="de" id="" cols="25" rows="9" placeholder="Ingrese algo de texto aquí"></textarea>
                     </div>
 
                     <div class="formulario_fecha">
-                        <label for="fecha">Fecha límite</label>
+                        <label for="fecha">Fecha</label>
                         <input type="date" name="fecha" id="fecha" />
-                        <input type="time" name="fecha" id="fecha" min="2024-01-04" max="2024-12-31" step="1" />
+                    </div>
+
+                    <div>
+                        <label for="tiempo">Hora</label>
+                        <input type="time" name="fecha" id="fecha" min="2024-01-04" step="1" />
                     </div>
 
                     <div class="formulario_opciones">
