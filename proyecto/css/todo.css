@@ -320,6 +320,7 @@ body {
                 display: var(--flexbox);
                 flex-direction: column;
                 width: 70%;
+                color: #1e40af;
 
                 & label {
                     font-weight: 500;
