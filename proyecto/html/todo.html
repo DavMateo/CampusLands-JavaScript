@@ -13,8 +13,16 @@
 
     <body>
         <header id="encabezado">
-            <h1 class="encabezado_titulo">Principal</h1>
-            <img class="encabezado_imagen" src="./../img/img_articulo2.jpg" alt="img_profile" />
+            <div class="encabezado_fondo"></div>
+            
+            <div class="encabezado_contenedor">
+                <div class="encabezado_info">
+                    <h2>¡Hola David!</h2>
+                    <span>Tienes 10 tareas pendientes para hoy</span>
+                </div>
+    
+                <img class="encabezado_imagen" src="./../img/img_articulo2.jpg" alt="img_profile" />
+            </div>
         </header>
 
         <main id="principal">
@@ -99,23 +107,30 @@
                 <h3 class="resumen_titulo">Resumen</h3>
 
                 <div class="elegirEstado">
-                    <div class="elegirEstado_pendiente">
+                    <div class="elegirEstado_global elegirEstado_pendiente">
                         <div class="elegirEstado_circulo elegirEstado_circulo--morado"></div>
                         <span class="elegirEstado_texto">Pendiente</span>
                     </div>
                     
-                    <div class="elegirEstado_progreso">
+                    <div class="elegirEstado_global elegirEstado_progreso">
                         <div class="elegirEstado_circulo elegirEstado_circulo--naranja"></div>
                         <span class="elegirEstado_texto">En Progreso</span>
                     </div>
 
-                    <div class="elegirEstado_completado">
+                    <div class="elegirEstado_global elegirEstado_completado">
                         <div class="elegirEstado_circulo elegirEstado_circulo--azul"></div>
                         <span class="elegirEstado_texto">Completada</span>
                     </div>
                 </div>
                 
-                <div class="pendiente"></div>
+                <div class="pendiente">
+                    <!-- La clase TARJETA se pone de manera temporal, sin embargo, en el momento no tiene un uso -->
+                    <div class="tareaPendiente tarjeta" data-tarea="1">
+                        <div class="tarjeta_encabezado">
+                            <h3>Terminar proyecto JS</h3>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="progreso"></div>
                 
