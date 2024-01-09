@@ -531,6 +531,11 @@ body {
             }
         }
     }
+
+    & .resumen {
+        display: var(--flexbox);
+        flex-direction: column;
+    }
 }
 
 @keyframes change {
