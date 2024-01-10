@@ -1,0 +1,150 @@
+@import url(https://fonts.googleapis.com/css?family=Oxygen:300,regular,700);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: skyblue;
+    font-family: 'Oxygen', Arial, Helvetica, sans-serif, serif;
+}
+
+.calculadora {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 20rem;
+    border-collapse: collapse;
+    border-radius: 1rem;
+
+    & .resultado {
+        width: 100%;
+
+        & tr, th {
+            display: flex;
+            width: 100%;
+        }
+
+        & th {
+            border-radius: 1rem 1rem 0 0;
+            background-color: #2b2422;
+            color: #f4f6f7;
+            height: 6rem;
+            padding: .75rem 1rem;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 28px;
+            overflow: hidden;
+        }
+    }
+
+    & .teclas {
+        display: flex;
+        flex-direction: column;
+
+        & .operaciones {
+            display: flex;
+            width: 100%;
+
+            & td {
+                display: inline-flex;
+                width: 100%;
+
+                & button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: calc(100% / 4);
+                    height: 4.25rem;
+                    font-size: 24px;
+                    background-color: #e8e8e7;
+                    border: 1px solid #babebc;
+
+                    &:active {
+                        background-color: #c6c6c9;
+                    }
+                }
+
+                & .sumar {
+                    border-left: 0;
+                }
+
+                & .dividir {
+                    border-right: 0;
+                }
+            }
+        }
+
+        & .padNumerico {
+            display: flex;
+            width: 100%;
+            
+            & .padNumerico_numFila {
+                display: flex;
+                flex-direction: column;
+                width: 75%;
+
+                & .numFila1, .numFila2, .numFila3, .numFila4 {
+                    display: flex;
+                    width: 100%;
+
+                    & button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: calc(100% / 3);
+                        height: 4.25rem;
+                        background-color: #fff;
+                        border: 1px solid #babebc;
+                        font-size: 16px;
+
+                        &:active {
+                            background-color: #ecebeb;
+                        }
+                    }
+
+                    & .siete, .cuatro, .uno, .cero {
+                        border-left: 0;
+                    }
+
+                    & .cero, .decimal, .clear-allClear {
+                        border-bottom: 0;
+                    }
+
+                    & .cero {
+                        border-radius: 0 0 0 1rem;
+                    }
+                }
+            }
+
+            & .btnIgual {
+                display: flex;
+                width: 25%;
+                
+                & button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    font-weight: 200;
+                    background-color: #f28557;
+                    border: none;
+                    border-top: 1px solid #babebc;
+                    font-size: 44px;
+                    border-radius: 0 0 1rem 0;
+
+                    &:active {
+                        background-color: #d8744a;
+                    }
+                }
+            }
+        }
+    }
+}
