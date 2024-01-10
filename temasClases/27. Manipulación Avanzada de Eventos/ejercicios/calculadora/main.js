@@ -9,13 +9,13 @@ const btnIgual = document.getElementById("btnIgual");
 // Definiendo los eventos de escucha necesarios
 btnOperaciones.forEach((btnOperacion) => {
     btnOperacion.addEventListener("click", (e) => {
-        console.log(e);
+        console.log(e.target.dataset.operador);
     });
 });
 
 padNumerico.forEach((btnNum) => {
     btnNum.addEventListener("click", (e) => {
-        console.log(e);
+        console.log(e.target.dataset.numero);
     });
 });
 

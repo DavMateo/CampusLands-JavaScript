@@ -15,44 +15,44 @@
         <table id="calculadora" class="calculadora">
             <thead class="resultado">
                 <tr>
-                    <th id="respuesta">1</th>
+                    <th id="respuesta"></th>
                 </tr>
             </thead>
 
             <tbody class="teclas">
                 <tr id="operaciones" class="operaciones">
                     <td>
-                        <button class="sumar">+</button>
-                        <button class="restar">-</button>
-                        <button class="multiplicar">x</button>
-                        <button class="dividir">/</button>
+                        <button class="sumar" data-operador="sumar">+</button>
+                        <button class="restar" data-operador="restar">-</button>
+                        <button class="multiplicar" data-operador="multiplicar">x</button>
+                        <button class="dividir" data-operador="dividir">/</button>
                     </td>
                 </tr>
 
                 <tr class="padNumerico">
                     <td id="padNumerico" class="padNumerico_numFila">
                         <div class="numFila1">
-                            <button class="siete">7</button>
-                            <button class="ocho">8</button>
-                            <button class="nueve">9</button>
+                            <button class="siete" data-numero="7">7</button>
+                            <button class="ocho" data-numero="8">8</button>
+                            <button class="nueve" data-numero="9">9</button>
                         </div>
     
                         <div class="numFila2">
-                            <button class="cuatro">4</button>
-                            <button class="cinco">5</button>
-                            <button class="seis">6</button>
+                            <button class="cuatro" data-numero="4">4</button>
+                            <button class="cinco" data-numero="5">5</button>
+                            <button class="seis" data-numero="6">6</button>
                         </div>
     
                         <div class="numFila3">
-                            <button class="uno">1</button>
-                            <button class="dos">2</button>
-                            <button class="tres">3</button>
+                            <button class="uno" data-numero="1">1</button>
+                            <button class="dos" data-numero="2">2</button>
+                            <button class="tres" data-numero="3">3</button>
                         </div>
     
                         <div class="numFila4">
-                            <button class="cero">0</button>
-                            <button class="decimal">.</button>
-                            <button class="clear-allClear">C</button>
+                            <button class="cero" data-numero="0">0</button>
+                            <button class="decimal" data-numero="decimal">.</button>
+                            <button class="clear-allClear" data-numero="clear">C</button>
                         </div>
                     </td>
 
