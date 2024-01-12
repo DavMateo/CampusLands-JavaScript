@@ -8,11 +8,15 @@
     box-sizing: border-box;
 }
 
+html {
+    position: relative;
+    height: 100vh;
+}
+
 body {
     font-size: 16px;
     font-family: var(--tipografia_texto);
     background-color: #f2f4f4;
-    position: relative;
 }
 
 
@@ -24,6 +28,7 @@ body {
     left: 0;
     width: 100vw;
     color: var(--darkMode_textoSecundario);
+    z-index: 10;
 
     & .encabezado_fondo {
         position: absolute;
@@ -74,6 +79,7 @@ body {
         }
     }
 }
+
 
 #principal {
     display: var(--flexbox);
@@ -643,26 +649,46 @@ body {
         }
 
         & .pendiente {
+            background-color: #58d68d;
+
+            & .pendiente_encabezado, .tarjeta {
+                background-color: #d0f4de;
+            }
+        }
+
+        & .progreso {
+            background-color: #f4d03f;
+
+            & .pendiente_encabezado, .tarjeta {
+                background-color: #f4efd0;
+            }
+        }
+
+        & .completado {
+            background-color: #5dade2;
+
+            & .pendiente_encabezado, .tarjeta {
+                background-color: #d0ddf4;
+            }
+        }
+
+        & .pendiente, .progreso, .completado {
             display: var(--flexbox);
             flex-direction: column;
             margin-top: 2rem;
-            background-color: #58d68d;
             margin: 2rem 1rem;
             border-radius: 8px;
             font-family: var(--tipografia_texto);
-            z-index: -10;
 
             & .pendiente_encabezado {
                 display: var(--flexbox);
-                margin-bottom: 1rem;
+                margin-bottom: .5rem;
                 justify-content: space-between;
-                background-color: #d0f4de;
                 padding: .75rem;
                 border-radius: 8px;
                 font-family: var(--tipografia_subtitulo);
                 user-select: none;
-                z-index: -100;
-                
+
                 & .cantTareas {
                     display: var(--flexbox);
                     align-items: center;
@@ -745,13 +771,27 @@ body {
             }
 
             & .tarjeta {
-                background-color: rgba(255, 255, 255, .8);
                 padding: .5rem;
-                margin: .5rem;
+                margin: 1rem;
                 border-radius: 6px;
 
                 & .tarjeta_encabezado {
                     text-align: center;
+
+                    & div {
+                        display: var(--flexbox);
+                        width: 100%;
+                        align-items: center;
+
+                        & span {
+                            width: 10%;
+                        }
+
+                        & h3 {
+                            text-align: center;
+                            width: 90%;
+                        }
+                    }
                     
                     & hr {
                         width: 45%;
@@ -824,8 +864,7 @@ body {
                             }
                         }
 
-                        &:nth-child(3) {
-                            background-color: #e63946;
+                        &[data-prioridad] {
                             width: 2rem;
                             border-radius: 4px;
                             text-align: right;
@@ -840,10 +879,41 @@ body {
                                 transform: translateY(-50%);
                                 width: 8px;
                                 height: 8px;
-                                background-image: url(./../img/icons/redFlag_15x15.png);
                                 background-position: center;
                                 background-repeat: no-repeat;
                                 background-size: contain;
+                            }
+                        }
+
+                        &[data-prioridad="1"] {
+                            background-color: #e63946; /*5c8001*/
+    
+                            &::before {
+                                background-image: url(./../img/icons/redFlag_15x15.png);
+                            }
+                        }
+    
+                        &[data-prioridad="2"] {
+                            background-color: #fb8500;
+    
+                            &::before {
+                                background-image: url(./../img/icons/orangeFlag_15x15.png);
+                            }
+                        }
+    
+                        &[data-prioridad="3"] {
+                            background-color: #5c8001;
+    
+                            &::before {
+                                background-image: url(./../img/icons/greenFlag_15x15.png);
+                            }
+                        }
+    
+                        &[data-prioridad="4"] {
+                            background-color: #6b705c;
+    
+                            &::before {
+                                background-image: url(./../img/icons/whiteFlag_15x15.png);
                             }
                         }
                     }
@@ -851,6 +921,21 @@ body {
             }
         }
     }
+}
+
+
+#pieDePagina {
+    display: var(--flexbox);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    border-radius: 12px 12px 0 0;
+    background-color: #082f49;
+    color: var(--darkMode_titulos);
+    padding: 1rem;
 }
 
 
