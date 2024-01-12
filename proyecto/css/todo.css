@@ -616,7 +616,7 @@ body {
                 padding: .35rem;
                 border-radius: 4px;
 
-                & .elegirEstado_circulo--morado {
+                & .elegirEstado_circulo--verde {
                     background-color: #1e8449;
                 }
             }
@@ -645,11 +645,214 @@ body {
         & .pendiente {
             display: var(--flexbox);
             flex-direction: column;
-            width: 100%;
-            padding: 1rem;
+            margin-top: 2rem;
+            background-color: #58d68d;
+            margin: 2rem 1rem;
+            border-radius: 8px;
+            font-family: var(--tipografia_texto);
+            z-index: -10;
+
+            & .pendiente_encabezado {
+                display: var(--flexbox);
+                margin-bottom: 1rem;
+                justify-content: space-between;
+                background-color: #d0f4de;
+                padding: .75rem;
+                border-radius: 8px;
+                font-family: var(--tipografia_subtitulo);
+                user-select: none;
+                z-index: -100;
+                
+                & .cantTareas {
+                    display: var(--flexbox);
+                    align-items: center;
+                    font-size: 11px;
+                    width: calc((100% / 2) - (4px + 1rem));
+
+                    & .cantTareas_parrafo {
+                        font-weight: 600;
+                        
+                        & span {
+                            font-weight: normal;
+                        }
+                    }
+                }
+
+                & .cantTareasClasificadas {
+                    display: var(--flexbox);
+                    justify-content: space-between;
+                    font-weight: 500;
+                    width: calc(((100% / 2) - 4px) + 1rem);
+                    gap: .25rem;
+
+                    & span {
+                        position: relative;
+                        width: calc(100%/ 4);
+                        text-align: right;
+                        padding-right: 2px;
+                        border-radius: 4px;
+                        color: var(--darkMode_textoSecundario);
+                        font-size: 11px;
+                        font-weight: 800;
+                        cursor: help;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                                top: 50%;
+                                left: 4px;
+                                transform: translateY(-50%);
+                                width: 10px;
+                                height: 10px;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                        }
+
+                        &:nth-child(1) {
+                            background-color: #e63946;
+    
+                            &::before {
+                                background-image: url(./../img/icons/redFlag_15x15.png);
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            background-color: #fb8500;
+
+                            &::before {
+                                background-image: url(./../img/icons/orangeFlag_15x15.png);
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            background-color: #5c8001;
+
+                            &::before {
+                                background-image: url(./../img/icons/greenFlag_15x15.png);
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            background-color: #6b705c;
+
+                            &::before {
+                                background-image: url(./../img/icons/whiteFlag_15x15.png);
+                            }
+                        }
+                    }
+                }
+            }
+
+            & .tarjeta {
+                background-color: rgba(255, 255, 255, .8);
+                padding: .5rem;
+                margin: .5rem;
+                border-radius: 6px;
+
+                & .tarjeta_encabezado {
+                    text-align: center;
+                    
+                    & hr {
+                        width: 45%;
+                        margin: .85rem auto 1.125rem auto;
+                        border: 0;
+                        height: 1px;
+                        background-color: #a0a1a1;
+                    }
+                }
+
+                & .tarjeta_principal {
+                    margin-bottom: 1rem;
+
+                    & .descripcion {
+                        color: var(--lightMode_textoPrincipal);
+                        margin-bottom: .3rem;
+                    }
+
+                    & span {
+                        display: inline-block;
+                        font-weight: 600;
+                        font-family: var(--tipografia_subtitulo);
+                        position: relative;
+                        width: 1.65rem;
+                        text-align: right;
+                        user-select: none;
+                        cursor: pointer;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            transform: translateY(-50%);
+                            width: 15px;
+                            height: 15px;
+                            background-image: url(./../img/icons/subtarea_15x15.png);
+                        }
+                    }
+                }
+
+                & .tarjeta_footer {
+                    display: var(--flexbox);
+                    justify-content: space-between;
+                    font-size: 10px;
+
+                    & span {
+                        position: relative;
+                        font-family: var(--tipografia_subtitulo);
+                        font-weight: 600;
+                        user-select: none;
+
+                        &:nth-child(1) {
+                            text-align: right;
+                            width: 5.5rem;
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                left: 0px;
+                                transform: translateY(-50%);
+                                width: 1.125rem;
+                                height: 1.125rem;
+                                background-image: url(./../img/task_category/laptop.jpg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                border-radius: 50%;
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            background-color: #e63946;
+                            width: 2rem;
+                            border-radius: 4px;
+                            text-align: right;
+                            color: var(--darkMode_textoPrincipal);
+                            padding: 0 4px;
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                left: 5px;
+                                transform: translateY(-50%);
+                                width: 8px;
+                                height: 8px;
+                                background-image: url(./../img/icons/redFlag_15x15.png);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
+
 
 @keyframes change {
     0% { margin-top: 0px; }
