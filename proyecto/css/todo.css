@@ -926,16 +926,55 @@ body {
 
 #pieDePagina {
     display: var(--flexbox);
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    height: 3rem;
+    height: 3.5rem;
     border-radius: 12px 12px 0 0;
     background-color: #082f49;
     color: var(--darkMode_titulos);
     padding: 1rem;
+    font-family: var(--tipografia_texto);
+
+    & .home, .category {
+        display: var(--flexbox);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .25rem;
+        cursor: pointer;
+
+        & span:nth-child(2) {
+            font-weight: 600;
+            font-family: var(--tipografia_subtitulo);
+            letter-spacing: 1px;
+        }
+
+        &:hover {
+            animation: sacudida .3s ease-in-out 0s 1 alternate forwards;
+        }
+    }
+
+    & .add {
+        display: var(--flexbox);
+        justify-content: center;
+        align-items: center;
+        background-color: #082f49;
+        border: 6px solid var(--lightMode_fondo);
+        width: 3.25rem;
+        height: 3.25rem;
+        border-radius: 50%;
+        position: relative;
+        top: -28px;
+        transition: all .35s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            transform: rotate(228deg);
+        }
+    }
 }
 
 
@@ -958,6 +997,22 @@ body {
 
 @keyframes blink {
     50% { border-color: transparent }
+}
+
+@keyframes sacudida {
+    0%, 
+    100% {
+        transform: translate(0, 0);
+
+    } 
+    25%, 
+    75% {
+        transform: translate(10px, 0);
+
+    } 
+    50% {
+        transform: translate(-10px, 0);
+    }
 }
 
 
