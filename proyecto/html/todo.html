@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./../css/todo.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-        <script src="./../js/todo.js"></script>
+        <script src="./../js/todo.js" defer></script>
         <title>Inicio | To-Do</title>
     </head>
 
@@ -22,7 +22,7 @@
                     <span>Tienes 10 tareas pendientes para hoy</span>
                 </div>
     
-                <img class="encabezado_imagen" src="./../img/img_articulo2.jpg" alt="img_profile" />
+                <img id="encabezadoImagen" class="encabezado_imagen" src="./../img/img_articulo2.jpg" alt="img_profile" />
             </div>
         </header>
 
@@ -104,27 +104,27 @@
                 </form>
             </section>
 
-            <section class="resumen">
+            <section id="resumen" class="resumen">
                 <h3 class="resumen_titulo">Resumen</h3>
 
-                <div class="elegirEstado">
-                    <div class="elegirEstado_global elegirEstado_pendiente">
+                <div id="elegirEstado" class="elegirEstado">
+                    <div class="elegirEstado_global elegirEstado_pendiente" data-estado="pendiente">
                         <div class="elegirEstado_circulo elegirEstado_circulo--verde"></div>
                         <span class="elegirEstado_texto">Pendiente</span>
                     </div>
                     
-                    <div class="elegirEstado_global elegirEstado_progreso">
+                    <div class="elegirEstado_global elegirEstado_progreso" data-estado="progreso">
                         <div class="elegirEstado_circulo elegirEstado_circulo--naranja"></div>
                         <span class="elegirEstado_texto">En Progreso</span>
                     </div>
 
-                    <div class="elegirEstado_global elegirEstado_completado">
+                    <div class="elegirEstado_global elegirEstado_completado" data-estado="completado">
                         <div class="elegirEstado_circulo elegirEstado_circulo--azul"></div>
-                        <span class="elegirEstado_texto">Completada</span>
+                        <span class="elegirEstado_texto">Completado</span>
                     </div>
                 </div>
                 
-                <div class="pendiente" style="display: none;">
+                <div class="pendiente oculto">
                     <div class="pendiente_encabezado">
                         <div class="cantTareas">
                             <p class="cantTareas_parrafo">Pendientes: <span>4</span></p>
@@ -225,7 +225,7 @@
                     </div>
                 </div>
 
-                <div class="progreso" style="display: none;">
+                <div class="progreso oculto">
                     <div class="pendiente_encabezado">
                         <div class="cantTareas">
                             <p class="cantTareas_parrafo">En curso: <span>1</span></p>
@@ -270,7 +270,7 @@
                     </div>
                 </div>
                 
-                <div class="completado" style="display: none;">
+                <div class="completado oculto">
                     <div class="pendiente_encabezado">
                         <div class="cantTareas">
                             <p class="cantTareas_parrafo">Completadas: <span>3</span></p>
