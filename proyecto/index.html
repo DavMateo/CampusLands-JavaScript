@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <script src="./js/main.js" defer></script>
+        <title>To-Do List</title>
+    </head>
+
+    <body>
+        <header id="encabezado">
+            <video class="videoFondo" autoplay="autoplay" loop="loop" volume="0">
+                <source src="./video/headerVideo.mp4" type="video/mp4" />
+            </video>
+
+            <div class="menu">
+                <div class="sidebar">
+                    <button class="sidebar_btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                            <path d="M5 7.5H25M5 15H25M5 22.5H25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div class="sbMenu">
+                        
+                    </div>
+                </div>
+
+                <h1 class="menu_titulo">To-Do List</h1>
+
+                <div class="menu_icon"></div>
+
+                <nav class="menu_navbar">
+                    <ul class="mn_lista">
+                        <li class="mn_lista-item"> <a href="#" title="Atajo: alt+shift+i" accesskey="i" target="_blank">Inicio</a> </li>
+                        <li class="mn_lista-item"> <a href="#" title="Atajo: alt+shift+p" accesskey="p" target="_blank">Precio</a> </li>
+                        <li class="mn_lista-item"> <a href="#" title="Atajo: alt+shift+a" accesskey="a" target="_blank">Acerca De</a> </li>
+                        <li class="mn_lista-item"> <a href="#" title="Atajo: alt+shift+c" accesskey="c" target="_blank">Contacto</a> </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="infoHeader">
+                <h2 class="infoHeader_titulo">Título aquí</h2>
+                <p class="infoHeader_parrafo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum repellat ipsa assumenda voluptate quis, beatae voluptates vitae voluptatum, tempore, adipisci impedit unde pariatur? Consequatur ullam omnis blanditiis ex deserunt esse.</p>
+                <button class="infoHeader_btn">
+                    <a class="infoHeader_btn-signUp" href="./html/todo.html" title="Atajo: alt+shift+r" accesskey="r" target="_blank">Registrarse</a>
+                </button>
+            </div>
+        </header>
+
+        <main id="principal">
+            <section class="info">
+                <article class="articulo1">
+                    <img class="articulo_img" src="./img/img_articulo1.jpg" alt="image1" />
+                    <h3 class="articulo_titulo">Subtítulo aquí</h3>
+                    <p class="articulo_parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores reiciendis, ex voluptatibus ullam facere obcaecati sed, aliquid voluptas eos optio repellat eligendi non asperiores commodi minima assumenda, nesciunt similique nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat commodi, est praesentium qui laborum veritatis quam sit voluptatum rem quibusdam laboriosam quidem eveniet sapiente quo maxime debitis recusandae et aspernatur.</p>
+                    <button class="articulo_btnLeerMas">Leer más</button>
+                </article>
+
+                <article class="articulo2">
+                    <img class="articulo_img" src="./img/img_articulo2.jpg" alt="image1" />
+                    <h3 class="articulo_titulo">Subtítulo aquí</h3>
+                    <p class="articulo_parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores reiciendis, ex voluptatibus ullam facere obcaecati sed, aliquid voluptas eos optio repellat eligendi non asperiores commodi minima assumenda, nesciunt similique nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat commodi, est praesentium qui laborum veritatis quam sit voluptatum rem quibusdam laboriosam quidem eveniet sapiente quo maxime debitis recusandae et aspernatur.</p>
+                    <button class="articulo_btnLeerMas">Leer más</button>
+                </article>
+                
+                <article class="articulo3">
+                    <img class="articulo_img" src="./img/img_articulo3.png" alt="image1" />
+                    <h3 class="articulo_titulo">Subtítulo aquí</h3>
+                    <p class="articulo_parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores reiciendis, ex voluptatibus ullam facere obcaecati sed, aliquid voluptas eos optio repellat eligendi non asperiores commodi minima assumenda, nesciunt similique nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat commodi, est praesentium qui laborum veritatis quam sit voluptatum rem quibusdam laboriosam quidem eveniet sapiente quo maxime debitis recusandae et aspernatur.</p>
+                    <button class="articulo_btnLeerMas">Leer más</button>
+                </article>
+            </section>
+
+            <section class="suscribirse">
+                <div class="suscribirse_izquierda">
+                    <h3>Subtitulo aquí</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur commodi voluptates eum facere aliquid doloremque corporis quam. Quo obcaecati cumque molestiae ipsam quod quibusdam voluptates, eum ullam odio possimus molestias. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur commodi voluptates eum facere aliquid doloremque corporis quam.</p>
+                </div>
+
+                <div class="suscribirse_derecha">
+                    <form class="formulario" action="#" method="post" onsubmit="return false;">
+                        <div class="formulario_nombre">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" name="nombre" id="nombre" placeholder="Ej: David Carreño" />
+                        </div>
+
+                        <div class="formulario_email">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Ej: micorreo@dominio.com" />
+                        </div>
+
+                        <div class="formulario_btnEnviar">
+                            <button id="enviar" type="submit">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer id="pieDePagina">
+            <div class="infoWebsite">
+                <div class="infoWebsite_encabezado">
+                    <img class="infoWebsite_encabezado-img" src="./img/icon.jpeg" alt="logo" />
+                    <h2 class="infoWebsite_encabezado-titulo">To-Do List</h2>
+                </div>
+
+                <div class="infoWebsite_principal">
+                    <p class="infoWebsite_principal-parrafo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde sequi suscipit accusantium. Perspiciatis nemo quos ut quod! Ad cupiditate corrupti laborum soluta. Rerum corrupti ratione eos ipsum! Rerum, impedit minus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos rem incidunt voluptatum quae totam commodi unde explicabo dolores necessitatibus cum molestias perferendis obcaecati harum, aperiam odio sit doloribus laudantium aspernatur. Aperiam odio sit doloribus laudantium aspernatur</p>
+                </div>
+            </div>
+
+            <div class="atajos">
+                <h4 class="atajos_titulo">Atajos</h4>
+                <ul class="atajos_lista">
+                    <li class="atajos_lista-item"><a href="#">Inicio</a></li>
+                    <li class="atajos_lista-item"><a href="#">Precios</a></li>
+                    <li class="atajos_lista-item"><a href="#">Acerca De</a></li>
+                    <li class="atajos_lista-item"><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="recursos">
+                <h4 class="recursos_titulo">Recursos</h4>
+                <ul class="recursos_lista">
+                    <li class="recursos_lista-item"><a href="#">Tutorial</a></li>
+                    <li class="recursos_lista-item"><a href="#">Blog</a></li>
+                    <li class="recursos_lista-item"><a href="#">Soporte</a></li>
+                    <li class="recursos_lista-item"><a href="#">Versiones</a></li>
+                </ul>
+            </div>
+
+            <div class="descargar">
+                <h4 class="descargar_titulo">Descargar</h4>
+                <a class="descargar_app descargar_app--android" id="descargarAndroid" href="#">Android</a>
+
+                <a class="descargar_app descargar_app--ios" id="descargarIos" href="#">iOS</a>
+
+                <a class="descargar_app descargar_app--windows" id="descargarWindows" href="#">Windows</a>
+
+                <a class="descargar_app descargar_app--linux" id="descargarLinux" href="#">Linux</a>
+
+                <a class="descargar_app descargar_app--appweb" id="appWeb" href="#">Aplicación Web</a>
+            </div>
+
+            <div class="copyright">
+                <span class="copyright_aviso">© To-Do List. All rights reserved</span>
+            </div>
+
+            <div class="redesSociales">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M11.6667 16.6667V23.3333H16.6667V35H23.3334V23.3333H28.3334L30 16.6667H23.3334V13.3333C23.3334 12.8913 23.5089 12.4674 23.8215 12.1548C24.1341 11.8423 24.558 11.6667 25 11.6667H30V5H25C22.7899 5 20.6703 5.87797 19.1075 7.44078C17.5447 9.00358 16.6667 11.1232 16.6667 13.3333V16.6667H11.6667Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M27.5 12.5001V12.5167M6.66669 13.3334C6.66669 11.5653 7.36907 9.86961 8.61931 8.61937C9.86955 7.36913 11.5652 6.66675 13.3334 6.66675H26.6667C28.4348 6.66675 30.1305 7.36913 31.3807 8.61937C32.631 9.86961 33.3334 11.5653 33.3334 13.3334V26.6667C33.3334 28.4349 32.631 30.1305 31.3807 31.3808C30.1305 32.631 28.4348 33.3334 26.6667 33.3334H13.3334C11.5652 33.3334 9.86955 32.631 8.61931 31.3808C7.36907 30.1305 6.66669 28.4349 6.66669 26.6667V13.3334ZM15 20.0001C15 21.3262 15.5268 22.5979 16.4645 23.5356C17.4022 24.4733 18.6739 25.0001 20 25.0001C21.3261 25.0001 22.5979 24.4733 23.5356 23.5356C24.4732 22.5979 25 21.3262 25 20.0001C25 18.674 24.4732 17.4022 23.5356 16.4645C22.5979 15.5269 21.3261 15.0001 20 15.0001C18.6739 15.0001 17.4022 15.5269 16.4645 16.4645C15.5268 17.4022 15 18.674 15 20.0001Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M6.66669 33.3334L17.9467 22.0534M22.0467 17.9534L33.3334 6.66675M6.66669 6.66675L26.2217 33.3334H33.3334L13.7784 6.66675H6.66669Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M15 31.6666C7.83333 33.9999 7.83333 27.4999 5 26.6666M25 34.9999V29.1666C25 27.4999 25.1667 26.8333 24.1667 25.8333C28.8333 25.3333 33.3333 23.4999 33.3333 15.8333C33.3313 13.8415 32.5542 11.9288 31.1667 10.4999C31.8174 8.76986 31.7575 6.85263 31 5.16658C31 5.16658 29.1667 4.66658 25.1667 7.33325C21.7787 6.4509 18.2213 6.4509 14.8333 7.33325C10.8333 4.66658 9 5.16658 9 5.16658C8.24247 6.85263 8.18256 8.76986 8.83333 10.4999C7.44576 11.9288 6.6687 13.8415 6.66667 15.8333C6.66667 23.4999 11.1667 25.3333 15.8333 25.8333C14.8333 26.8333 14.8333 27.8333 15 29.1666V34.9999" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M3.33331 13.3334C3.33331 11.5653 4.03569 9.86961 5.28593 8.61937C6.53618 7.36913 8.23187 6.66675 9.99998 6.66675H30C31.7681 6.66675 33.4638 7.36913 34.714 8.61937C35.9643 9.86961 36.6666 11.5653 36.6666 13.3334V26.6667C36.6666 28.4349 35.9643 30.1305 34.714 31.3808C33.4638 32.631 31.7681 33.3334 30 33.3334H9.99998C8.23187 33.3334 6.53618 32.631 5.28593 31.3808C4.03569 30.1305 3.33331 28.4349 3.33331 26.6667V13.3334Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.6666 15.0001L25 20.0001L16.6666 25.0001V15.0001Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </footer>
+    </body>
+
+</html>

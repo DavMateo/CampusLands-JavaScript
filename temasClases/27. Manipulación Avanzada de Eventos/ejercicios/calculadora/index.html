@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <script src="./main.js" defer></script>
+        <title>Calculadora | JS</title>
+    </head>
+
+    <body>
+        <table id="calculadora" class="calculadora">
+            <thead class="resultado">
+                <tr>
+                    <th id="respuesta"></th>
+                </tr>
+            </thead>
+
+            <tbody class="teclas">
+                <tr id="operaciones" class="operaciones">
+                    <td>
+                        <button class="sumar" data-operador="sumar">+</button>
+                        <button class="restar" data-operador="restar">-</button>
+                        <button class="multiplicar" data-operador="multiplicar">x</button>
+                        <button class="dividir" data-operador="dividir">/</button>
+                    </td>
+                </tr>
+
+                <tr class="padNumerico">
+                    <td id="padNumerico" class="padNumerico_numFila">
+                        <div class="numFila1">
+                            <button class="siete" data-numero="7">7</button>
+                            <button class="ocho" data-numero="8">8</button>
+                            <button class="nueve" data-numero="9">9</button>
+                        </div>
+    
+                        <div class="numFila2">
+                            <button class="cuatro" data-numero="4">4</button>
+                            <button class="cinco" data-numero="5">5</button>
+                            <button class="seis" data-numero="6">6</button>
+                        </div>
+    
+                        <div class="numFila3">
+                            <button class="uno" data-numero="1">1</button>
+                            <button class="dos" data-numero="2">2</button>
+                            <button class="tres" data-numero="3">3</button>
+                        </div>
+    
+                        <div class="numFila4">
+                            <button class="cero" data-numero="0">0</button>
+                            <button class="decimal" data-numero="decimal">.</button>
+                            <button class="clear-allClear" data-numero="clear">C</button>
+                        </div>
+                    </td>
+
+                    <td class="btnIgual">
+                        <button id="btnIgual" class="igual">=</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+
+</html>

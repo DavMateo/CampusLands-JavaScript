@@ -1,0 +1,1313 @@
+@import url("./variables.css");
+@import url("./tipografia.css");
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    height: 100vh;
+}
+
+body {
+    font-size: 16px;
+    font-family: var(--tipografia_texto);
+    background-color: #f2f4f4;
+}
+
+
+#encabezado {
+    display: var(--flexbox);
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    color: var(--darkMode_textoSecundario);
+    z-index: 10;
+
+    & .encabezado_fondo {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 135%;
+        height: 15rem;
+        background-color: #082f49;
+        z-index: -10;
+        border-radius: 0 0 50% 50%;
+    }
+
+    & .encabezado_contenedor {
+        display: var(--flexbox);
+        width: 100%;
+        padding: 1rem;
+        justify-content: flex-end;
+        align-items: center;
+
+        & .encabezado_info {
+            display: var(--flexbox);
+            flex-direction: column;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: .35rem;
+            margin-top: 2.5rem;
+    
+            & h2 {
+                font-variant: small-caps;
+                text-transform: capitalize;
+                font-family: var(--tipografia_titulo);
+                letter-spacing: 2px;
+                text-align: left;
+            }
+    
+            & span {
+               font-family: var(--tipografia_texto);
+               text-align: left;
+            }
+        }
+
+        & .encabezado_imagen {
+            border-radius: 50%;
+            font-family: var(--tipografia_titulo);
+            cursor: pointer;
+            margin-top: 1.25rem;
+        }
+    }
+}
+
+
+#principal {
+    display: var(--flexbox);
+    flex-direction: column;
+
+    & .agregarTarea {
+        display: var(--flexbox);
+        flex-direction: column;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        background-color: var(--darkMode_textoSecundario);
+        color: var(--lightMode_textoPrincipal);
+        box-shadow: 0 0 10px 0 rgba(255, 255, 255, .25),
+                    0 0 0 1000px rgba(0, 0, 0, .85),
+                    inset 0 0 8px 1px rgba(0, 0, 0, .65);
+        overflow: auto;
+        overflow-x: hidden;
+        scrollbar-width: var(--desabilitado);
+
+        &::-webkit-scrollbar {
+            display: var(--desabilitado);
+        }
+
+        & .agregarTarea_titulo {
+            text-align: center;
+            font-variant: small-caps;
+            text-transform: capitalize;
+            
+            & .animacionTitulo {
+                display: var(--flexbox);
+                justify-content: center;
+                overflow: hidden;
+                height: inherit;
+
+                & .animacionTitulo_sujeto {
+                    display: inline;
+                    float: left;
+                    font-family: var(--tipografia_titulo);
+                }
+
+                & .animacionTitulo_predicado {
+                    list-style: var(--desabilitado);
+                    text-align: left;
+                    animation: 10s linear 0s normal none infinite change;
+                    -webkit-animation: 10s linear 0s normal none infinite chage;
+                    -moz-animation: 10s linear 1s normal none infinite change;
+                    -o-animation: 10s linear 0s normal none infinite change;
+                    font-family: var(--tipografia_titulo);
+                }
+            }
+        }
+
+        & .principal_separacion {
+            align-self: center;
+            border: 1px solid rgb(161, 160, 160);
+        }
+
+        & .formulario {
+            display: var(--flexbox);
+            flex-direction: column;
+            user-select: var(--desabilitado);
+
+            & label {
+                font-family: var(--tipografia_subtitulo);
+            }
+
+            & .formulario_nombre {
+                & label {
+                    cursor: pointer;
+                }
+
+                & input {
+                    display: var(--flexbox);
+                    width: 100%;
+                    border: var(--desabilitado);
+                    background-color: #93c5fd;
+                    color: #172554;
+                    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+                    outline: var(--desabilitado);
+                    transition: .3s all ease-in-out;
+
+                    &::placeholder {
+                        color: #000;
+                    }
+
+                    &:focus {
+                        background-color: #60a5fa;
+                    }
+                }
+            }
+
+            & .formulario_descripcion {
+                & label {
+                    cursor: pointer;
+                }
+
+                & textarea {
+                    width: 100%;
+                    background-color: #93c5fd;
+                    border: var(--desabilitado);
+                    resize: none;
+                    color: #172554;
+                    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+                    outline: var(--desabilitado);
+                    transition: .3s all ease-in-out;
+
+                    &::placeholder {
+                        color: #000;
+                    }
+
+                    &:focus {
+                        background-color: #60a5fa;
+                    }
+                }
+            }
+
+            & .formulario_fecha {
+                display: var(--flexbox);
+                flex-direction: column;
+
+                & label {
+                    cursor: pointer;
+                }
+
+                & input {
+                    display: inline-block;
+                    appearance: var(--desabilitado);
+                    border: var(--desabilitado);
+                    width: 100%;
+                    cursor: pointer;
+                    background-color: #c4b5fd;
+                    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+                    color: #2e1065;
+                    outline: var(--desabilitado);
+
+                    &:focus {
+                        background-color: #a78bfa;
+                    }
+
+                    &::-webkit-calendar-picker-indicator {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        color: transparent;
+                        background: 0 0;
+                        margin: 0;
+                        opacity: 0;
+                        pointer-events: auto;
+                    }
+                }
+            }
+
+            & .formulario_tiempo {
+                display: var(--flexbox);
+                flex-direction: column;
+                position: relative;
+
+                & label {
+                    cursor: pointer;
+                }
+
+                & input {
+                    width: 100%;
+                    border: var(--desabilitado);
+                    background-color: #c4b5fd;
+                    box-shadow: inset 0 0 8px rgba(0, 0, 0, .3);
+                    color: #2e1065;
+                    transition: all .25s ease-in-out;
+                    outline: var(--desabilitado);
+
+                    &:focus {
+                        background-color: #a78bfa;
+                    }
+
+                    &::-webkit-calendar-picker-indicator {
+                        background: none;
+                    }
+
+                    &:invalid {
+                        background-color: #f87171;
+                        color: #450a0a;
+
+                        &::after {
+                            content: "";
+                            background-image: url('./../img/alert.png') !important;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+
+                        &::before {
+                            content: 'Error: Ingrese una hora válida.';
+                            position: absolute;
+                        }
+                    }
+                }
+            }
+
+            & .formulario_opciones, .formulario_categoria {
+                display: var(--flexbox);
+                flex-direction: column;
+                position: relative;
+                background-color: #2d3f50;
+                color: #eaecee;
+                font-family: var(--tipografia_texto);
+
+                &::after {
+                    content: url('./../img/icons/showOptions_25x25.png');
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-color: #455c70;
+                    cursor: pointer;
+                }
+
+                & .formOpc_titulo, .formCat_titulo {
+                    font-family: var(--tipografia_subtitulo);
+                    text-align: left;
+                }
+
+                & .formOpc_objetos, .formCat_objetos {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #243341;
+                    overflow: hidden;
+                    max-height: 0;
+
+                    & input[type=radio]:checked ~ span::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        z-index: -10;
+                    }
+
+                    & input {
+                        appearance: var(--desabilitado);
+                    }
+
+                    & label {
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        z-index: 100;
+                        cursor: pointer;
+                        background-color: transparent;
+                        transition: all .25s ease-in-out;
+
+                        & span {
+                            &::after {
+                                content: '';
+                                background-color: transparent;
+                                transition: all .3s ease-in-out;
+                            }
+                        }
+                    }
+                }
+
+                & .formOpc_objetos {
+                    & label {
+                        & span::before {
+                            content: '';
+                            display: var(--flexbox);
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+
+                        &:nth-child(1) {
+                            &:hover {
+                                background-color: #e63946;
+                            }
+    
+                            & span::before {
+                                content: url('./../img/icons/redFlag_15x15.png');
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            &:hover {
+                                background-color: #fb8500;
+                            }
+    
+                            & span::before {
+                                content: url('./../img/icons/orangeFlag_15x15.png');
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            &:hover {
+                                background-color: #5c8001;
+                            }
+    
+                            & span::before {
+                                content: url('./../img/icons/greenFlag_15x15.png');
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            &:hover {
+                                background-color: #6b705c;
+                            }
+    
+                            & span::before {
+                                content: url('./../img/icons/whiteFlag_15x15.png');
+                            }
+                        }
+
+
+                        &:nth-child(1) input[type=radio]:checked ~ span::after {
+                            content: '';
+                            background-color: #e63946;
+                        }
+
+                        &:nth-child(2) input[type=radio]:checked ~ span::after {
+                            content: '';
+                            background-color: #fb8500;
+                        }
+
+                        &:nth-child(3) input[type=radio]:checked ~ span::after {
+                            content: '';
+                            background-color: #5c8001;
+                        }
+
+                        &:nth-child(4) input[type=radio]:checked ~ span::after {
+                            content: '';
+                            background-color: #6b705c;
+                        }
+                    }
+                }
+
+                &:hover .formCat_objetos {
+                    max-height: fit-content;
+                }
+            }
+
+            & .formulario_categoria {
+                & .formCat_objetos {
+                    & label {
+                        & span {
+                            color: var(--lightMode_textoPrincipal);
+
+                            &::before {
+                                content: '';
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                display: var(--flexbox);
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                border-radius: 50%;
+                            }
+                        }
+
+                        &:nth-child(1) {
+                            &:hover {
+                                background-color: #fcf6bd;
+                            }
+    
+                            & span::before {
+                                content:'';
+                                background-image: url('./../img/task_category/birdIlustration.jpg');
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            &:hover {
+                                background-color: #ffadad;
+                            }
+    
+                            & span::before {
+                                content: '';
+                                background-image: url('./../img/task_category/laptop.jpg');
+                            }
+                        }
+
+                        &:nth-child(1) input[type=radio]:checked ~ span::after {
+                            content: '';
+                            background-color: #fcf6bd;
+                        }
+
+                        &:nth-child(2) input[type=radio]:checked ~ span::after {
+                            content: '';
+                            background-color: #ffadad;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .resumen {
+        display: var(--flexbox);
+        flex-direction: column;
+
+        & .resumen_titulo {
+            display: inline-block;
+            width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-family: var(--tipografia_subtitulo);
+            border-right: 2px solid var(--lightMode_textoSecundario);
+            animation:  typing 2s steps(7) 1s 1 normal both, 
+                        blink 1s steps(1) 100;
+            margin: 0 auto;
+        }
+
+        & .elegirEstado {
+            display: var(--flexbox);
+            justify-content: space-between;
+            align-items: center;
+
+            & .elegirEstado_circulo {
+                background-color: black;
+                border-radius: 50%;
+            }
+
+            & .elegirEstado_global {
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                & span {
+                    user-select: none;
+                }
+            }
+
+            & .elegirEstado_pendiente {
+                background-color: #58d68d;
+
+                & .elegirEstado_circulo--verde {
+                    background-color: #1e8449;
+                }
+            }
+
+            & .elegirEstado_progreso {
+                background-color: #f4d03f;
+
+                & .elegirEstado_circulo--naranja {
+                    background-color: #b9770e;
+                }
+            }
+            
+            & .elegirEstado_completado {
+                background-color: #5dade2;
+
+                & .elegirEstado_circulo--azul {
+                    background-color: #1f618d;
+                }
+            }
+        }
+
+        & .pendiente {
+            background-color: #58d68d;
+
+            & .pendiente_encabezado, .tarjeta {
+                background-color: #d0f4de;
+            }
+        }
+
+        & .progreso {
+            background-color: #f4d03f;
+
+            & .pendiente_encabezado, .tarjeta {
+                background-color: #f4efd0;
+            }
+        }
+
+        & .completado {
+            background-color: #5dade2;
+
+            & .pendiente_encabezado, .tarjeta {
+                background-color: #d0ddf4;
+            }
+        }
+
+        & .pendiente, .progreso, .completado {
+            display: var(--flexbox);
+            flex-direction: column;
+            font-family: var(--tipografia_texto);
+
+            & .pendiente_encabezado {
+                display: var(--flexbox);
+                justify-content: space-between;
+                font-family: var(--tipografia_subtitulo);
+                user-select: none;
+
+                & .cantTareas {
+                    display: var(--flexbox);
+                    align-items: center;
+
+                    & .cantTareas_parrafo {
+                        & span {
+                            font-weight: normal;
+                        }
+                    }
+                }
+
+                & .cantTareasClasificadas {
+                    display: var(--flexbox);
+                    justify-content: space-between;
+
+                    & span {
+                        position: relative;
+                        width: calc(100% / 4);
+                        text-align: right;
+                        color: var(--darkMode_textoSecundario);
+                        font-weight: 800;
+                        cursor: help;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                        }
+
+                        &:nth-child(1) {
+                            background-color: #e63946;
+    
+                            &::before {
+                                background-image: url(./../img/icons/redFlag_15x15.png);
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            background-color: #fb8500;
+
+                            &::before {
+                                background-image: url(./../img/icons/orangeFlag_15x15.png);
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            background-color: #5c8001;
+
+                            &::before {
+                                background-image: url(./../img/icons/greenFlag_15x15.png);
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            background-color: #6b705c;
+
+                            &::before {
+                                background-image: url(./../img/icons/whiteFlag_15x15.png);
+                            }
+                        }
+                    }
+                }
+            }
+
+            & .tarjeta {
+                & .tarjeta_encabezado {
+                    text-align: center;
+
+                    & div {
+                        display: var(--flexbox);
+                        width: 100%;
+                        align-items: center;
+
+                        & h3 {
+                            text-align: center;
+                            width: 90%;
+                        }
+                    }
+                    
+                    & hr {
+                        border: 0;
+                        background-color: #a0a1a1;
+                    }
+                }
+
+                & .tarjeta_principal {
+                    & .descripcion {
+                        color: var(--lightMode_textoPrincipal);
+                    }
+
+                    & span {
+                        display: inline-block;
+                        font-family: var(--tipografia_subtitulo);
+                        position: relative;
+                        text-align: right;
+                        user-select: none;
+                        cursor: pointer;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            transform: translateY(-50%);
+                            background-image: url(./../img/icons/subtarea_15x15.png);
+                        }
+                    }
+                }
+
+                & .tarjeta_footer {
+                    display: var(--flexbox);
+                    justify-content: space-between;
+
+                    & span {
+                        position: relative;
+                        font-family: var(--tipografia_subtitulo);
+                        user-select: none;
+
+                        &:nth-child(1) {
+                            text-align: right;
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                left: 0px;
+                                transform: translateY(-50%);
+                                background-image: url(./../img/task_category/laptop.jpg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                border-radius: 50%;
+                            }
+                        }
+
+                        &[data-prioridad] {
+                            text-align: right;
+                            color: var(--darkMode_textoPrincipal);
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                        }
+
+                        &[data-prioridad="1"] {
+                            background-color: #e63946; /*5c8001*/
+    
+                            &::before {
+                                background-image: url(./../img/icons/redFlag_15x15.png);
+                            }
+                        }
+    
+                        &[data-prioridad="2"] {
+                            background-color: #fb8500;
+    
+                            &::before {
+                                background-image: url(./../img/icons/orangeFlag_15x15.png);
+                            }
+                        }
+    
+                        &[data-prioridad="3"] {
+                            background-color: #5c8001;
+    
+                            &::before {
+                                background-image: url(./../img/icons/greenFlag_15x15.png);
+                            }
+                        }
+    
+                        &[data-prioridad="4"] {
+                            background-color: #6b705c;
+    
+                            &::before {
+                                background-image: url(./../img/icons/whiteFlag_15x15.png);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .oculto {
+        display: var(--desabilitado) !important;
+    }
+}
+
+
+#pieDePagina {
+    display: var(--flexbox);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #082f49;
+    color: var(--darkMode_titulos);
+    font-family: var(--tipografia_texto);
+
+    & .home, .category {
+        display: var(--flexbox);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        & span:nth-child(2) {
+            font-family: var(--tipografia_subtitulo);
+        }
+
+        &:hover {
+            animation: sacudida .3s ease-in-out 0s 1 alternate forwards;
+        }
+    }
+
+    & .add {
+        display: var(--flexbox);
+        justify-content: center;
+        align-items: center;
+        background-color: #082f49;
+        border-radius: 50%;
+        position: relative;
+        transition: all .35s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            transform: rotate(228deg);
+        }
+    }
+}
+
+
+@keyframes change {
+    0% { margin-top: 0px; }
+    15% { margin-top: 0px; }
+    25% { margin-top: calc(-1 * (1.5rem + 1px)); }
+    40% { margin-top: calc(-1 * (1.5rem + 1px)); }
+    50% { margin-top: calc((-1 * (1.5rem + 1px)) * 2); }
+    65% { margin-top: calc((-1 * (1.5rem + 1px)) * 2); }
+    75% { margin-top: calc(-1 * (1.5rem + 1px)); }
+    85% { margin-top: calc(calc(-1 * (1.5rem + 1px))); }
+    100% { margin-top: calc(0px); }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 124px }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+@keyframes sacudida {
+    0%, 
+    100% {
+        transform: translate(0, 0);
+
+    } 
+    25%, 
+    75% {
+        transform: translate(10px, 0);
+
+    } 
+    50% {
+        transform: translate(-10px, 0);
+    }
+}
+
+
+/* Responsive 280px: Celulares muy pequeños - Galaxy Fold */
+@media (max-width: 280px) {
+    body {
+        font-size: 12px;
+    }
+
+    #encabezado {
+        & .encabezado_info {
+            & h2 {
+                letter-spacing: .5px;
+                font-weight: 600;
+                font-size: 20px;
+            }
+        }
+
+        & .encabezado_imagen {
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+    }
+
+    #principal {
+        margin: calc(15rem + 1rem) 0 4rem 0;
+        gap: 1.5rem;
+
+        & .agregarTarea {
+            gap: 1.5rem;
+            width: 90vw;
+            height: 65vh;
+            padding: 1rem;
+            border-radius: 10px;
+
+            & .agregarTarea_titulo {
+                font-size: 18px;
+                height: 1.5rem;
+                font-weight: 500;
+
+                & .animacionTitulo {
+                    & .animacionTitulo_sujeto {
+                        margin-right: .5rem;
+                    }
+                }
+            }
+
+            & .principal_separacion {
+                width: 65%;
+                border-radius: 25px;
+                margin-top: -10px;
+            }
+
+            & .formulario {
+                gap: 1rem;
+                
+                & .formulario_nombre {
+                    & label {
+                        letter-spacing: .5px;
+                        font-weight: 500;
+                    }
+
+                    & input {
+                        margin-top: .375rem;
+                        height: 2.24rem;
+                        padding: 0 .4rem;
+                        border-radius: 8px;
+
+                        &:focus {
+                            border: 2px solid #3b82f6;
+                        }
+                    }
+                }
+
+                & .formulario_descripcion {
+                    & label {
+                        letter-spacing: .5px;
+                        font-weight: 500;
+                    }
+
+                    & textarea {
+                        margin-top: .375rem;
+                        height: 5rem;
+                        padding: .5rem .4rem;
+                        border-radius: 8px;
+
+                        &:focus {
+                            border: 2px solid #3b82f6;
+                        }
+                    }
+                }
+
+                & .formulario_fecha {
+                    padding-top: 1rem;
+                    margin-top: 1rem;
+
+                    & label {
+                        letter-spacing: .5px;
+                        font-weight: 500;
+                    }
+
+                    & input {
+                        border-radius: 8px;
+                        margin-top: .375rem;
+                        height: 2rem;
+                        padding: 0 .4rem;
+
+                        &:focus {
+                            border: 2px solid #8b5cf6;
+                        }
+                    }
+                }
+
+                & .formulario_tiempo {
+                    margin-top: .25rem;
+
+                    & label{
+                        letter-spacing: .5px;
+                        font-weight: 500;
+                    }
+
+                    & input {
+                        height: 2rem;
+                        margin-top: .375rem;
+                        padding: 0 .4rem;
+                        border-radius: 8px;
+
+                        &:focus {
+                            border: 2px solid #8b5cf6;
+                        }
+
+                        &:invalid {
+                            border: 2px solid #ef4444;
+
+                            &::after {
+                                width: 20px;
+                                height: 20px;
+                            }
+
+                            &::before {
+                                bottom: -19px;
+                                left: 5px;
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+
+                & .formulario_opciones, .formulario_categoria {
+                    width: 85%;
+                    margin-top: 2rem;
+                    font-weight: 400;
+                    border-radius: 8px;
+
+                    &::after {
+                        width: 50px;
+                        height: 52px;
+                        border-radius: 0 8px 8px 0;
+                    }
+
+                    & .formOpc_titulo, .formCat_titulo {
+                        font-weight: 600;
+                        letter-spacing: 1.2px;
+                        padding: 1rem .6rem;
+                        font-size: 16px;
+                        letter-spacing: 1.25px;
+                    }
+
+                    & .formOpc_objetos, .formCat_objetos {
+                        gap: .5rem;
+                        border-radius: 4px 4px 8px 8px;
+
+                        & label {
+                            padding: .8rem .6rem;
+                            font-weight: 500;
+
+                            & span {
+                                font-size: 13px;
+                                letter-spacing: .5px;
+                                padding-left: 1.5rem;
+                            }
+                        }
+                    }
+
+                    & .formOpc_objetos {
+                        & label {
+                            & span::before {
+                                left: 10px;
+                            }
+    
+                            &:nth-child(1) {
+                                border-radius: 4px 4px 0 0;
+                            }
+    
+                            &:nth-child(4) {
+                                border-radius: 0 0 8px 8px;
+                            }
+    
+                            &:nth-child(1) input[type=radio]:checked ~ span::after {
+                                border-radius: 4px 4px 0 0;
+                            }
+    
+                            &:nth-child(4) input[type=radio]:checked ~ span::after {
+                                border-radius: 0 0 8px 8px;
+                            }
+                        }
+                    }
+    
+                    &:hover .formOpc_objetos {
+                        max-height: 12.4rem;
+                    }
+                }
+
+                & .formulario_categoria {
+                    & .formCat_objetos {
+                        & label {
+                            & span {
+                                padding-left: 2.5rem;
+
+                                &::before {
+                                    width: 30px;
+                                    height: 30px;
+                                    left: 10px;
+                                }
+                            }
+
+                            &:first-child {
+                                border-radius: 4px 4px 0 0;
+                            }
+
+                            &:last-child {
+                                border-radius: 0 0 8px 8px;
+                            }
+
+                            &:first-child input[type=radio]:checked ~ span::after {
+                                border-radius: 4px 4px 0 0;
+                            }
+
+                            &:last-child input[type=radio]:checked ~ span::after {
+                                border-radius: 0 0 8px 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        & .resumen {
+            margin-top: 1rem;
+
+            & .resumen_titulo {
+                font-size: 26px;
+                letter-spacing: .8px;
+            }
+
+            & .elegirEstado {
+                margin-top: 2rem;
+                padding: 0 1rem;
+
+                & .elegirEstado_circulo {
+                    width: 7px;
+                    height: 7px;
+                }
+
+                & .elegirEstado_global {
+                    gap: .2rem;
+
+                    & span {
+                        font-size: 9px;
+                    }
+                }
+
+                & .elegirEstado_pendiente, .elegirEstado_progreso, .elegirEstado_completado {
+                    padding: .35rem;
+                    border-radius: 4px;
+                }
+            }
+
+            & .pendiente, .progreso, .completado {
+                margin-top: 2rem;
+                margin: 2rem 1rem;
+                border-radius: 8px;
+
+                & .pendiente_encabezado {
+                    margin-bottom: .5rem;
+                    padding: .75rem;
+                    border-radius: 8px;
+
+                    & .cantTareas {
+                        font-size: 11px;
+                        width: calc((100% / 2) - (4px + 1rem));
+
+                        & .cantTareas_parrafo {
+                            font-weight: 600;
+                        }
+                    }
+
+                    & .cantTareasClasificadas {
+                        font-weight: 500;
+                        width: calc(((100% / 2) - 4px) + 1rem);
+                        gap: .25rem;
+
+                        & span {
+                            padding-right: 2px;
+                            border-radius: 4px;
+                            font-size: 11px;
+
+                            &::before {
+                                left: 4px;
+                                width: 10px;
+                                height: 10px;
+                            }
+                        }
+                    }
+                }
+
+                & .tarjeta {
+                    padding: .5rem;
+                    margin: 1rem;
+                    border-radius: 6px;
+
+                    & .tarjeta_encabezado {
+                        & div {
+                            & span {
+                                width: 10%;
+                            }
+                        }
+
+                        & hr {
+                            width: 45%;
+                            margin: .85rem auto 1.125rem auto;
+                            height: 1px;
+                        }
+                    }
+
+                    & .tarjeta_principal {
+                        margin-bottom: 1rem;
+
+                        & .descripcion {
+                            margin-bottom: .3rem;
+                        }
+
+                        & span {
+                            font-weight: 600;
+                            width: 1.65rem;
+
+                            &::before {
+                                width: 15px;
+                                height: 15px;
+                            }
+                        }
+                    }
+
+                    & .tarjeta_footer {
+                        font-size: 10px;
+
+                        & span {
+                            font-weight: 600;
+
+                            &:nth-child(1) {
+                                width: 5.5rem;
+
+                                &::before {
+                                    width: 1.125rem;
+                                    height: 1.125rem;
+                                }
+                            }
+
+                            &[data-prioridad] {
+                                width: 2rem;
+                                border-radius: 4px;
+                                padding: 0 4px;
+
+                                &::before {
+                                    left: 5px;
+                                    width: 8px;
+                                    height: 8px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #pieDePagina {
+        height: 3.5rem;
+        border-radius: 12px 12px 0 0;
+        padding: 1rem;
+
+        & .home, .category {
+            gap: .25rem;
+
+            & span:nth-child(2) {
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+        }
+
+        & .add {
+            border: 6px solid var(--lightMode_fondo);
+            width: 3.25rem;
+            height: 3.25rem;
+            top: -28px;
+        }
+    }
+}
+
+/* Responsive 281px a 320px: Celulares pequeños */
+@media (min-width: 281) and (max-width: 320px) {
+
+}
+
+/* Responsive 321px a 480px: Celulares medianos */
+@media (min-width: 321px) and (max-width: 480px) {
+
+}
+
+/* Responsive 480px a 768px: Celulares grandes, tablets pequeñas */
+@media (min-width: 481px) and (max-width: 768px) {
+
+}
+
+/* Responsive 768px a 960px: Tablets medianas, otro tipo de pantallas */
+@media (min-width:769px) and (max-width: 960px) {
+
+}
+
+/* Responsive 960px a 1024px: Tablets grandes, portátiles pequeños */
+@media (min-width: 961px) and (max-width: 1024px) {
+
+}
+
+/* Responsive 1024px a 1328px: Portátiles y computadoras de escritorio medianos, monitores */
+@media (min-width: 1025px) and (max-width: 1328px) {
+
+}
+
+/* Responsive 1328px a 1500px: Portátiles grandes, monitores medianos/grandes. Resolución 1080p-1440p */
+@media (min-width: 1329px) and (max-width: 1500px) {
+
+}
+
+/* Responsive 1500px a 1920px: Monitores grandes, otro tipo de pantallas. Resolución FullHD+ a 1440p */
+@media (min-width: 1501px) and (max-width: 1920px) {
+
+}
+
+/* Responsive 1920px en adelante: TV's, otros tipos de pantalla. Resolución 1440p a 2160p */
+@media (min-width: 1921px) {
+    
+}

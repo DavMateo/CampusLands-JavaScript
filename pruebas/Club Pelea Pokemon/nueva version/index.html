@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <script src="./main.js" defer></script>
+        <title>El Club de la Pelea Pokemón</title>
+    </head>
+
+    <body>
+        <header id="encabezado">
+            <h1 class="encabezado_titulo">El Club de la Pelea Pokemón</h1>
+        </header>
+
+        <main id="principal">
+            <section class="combate">
+                <div id="miPokemon">
+                    <button class="miPokemon_btn miPokemon_btn--user" onclick="escogerPokemon('user')">Mi Pokemón</button>
+                    <div class="miPokemon_info"></div>
+                </div>
+
+                <button id="btnFigth" class="btnFigth btnFigth--disabled" data-state="disabled">Figth</button>
+                
+                <div id="cpuPokemon"></div>
+            </section>
+        </main>
+    </body>
+
+</html>

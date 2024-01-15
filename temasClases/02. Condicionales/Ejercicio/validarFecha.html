@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Validar Fecha</title>
+    </head>
+
+    <body>
+        <script>
+            let i = 0;
+
+            while (i < 5) {
+                let fecha = prompt("Ingrese la feha en el siguiente formato: DD/MM/AAAA");
+                let dia = fecha.slice(0, 2);
+                let mes = fecha.slice(3, 5);
+                let year = fecha.slice(6);
+                let isMes30dias = false;
+                let isMes31dias = false;
+                let isBisiesto = false;
+                let isDiaInvalido = false, isMesInvalido = false, isYearInvalido = false;
+                let mesSalida;
+                
+                if (dia.length !== 2 || isNaN(Number(dia))) {
+                    console.log("EL DÍA ES INVÁLIDO");
+                    isDiaInvalido = true;
+
+                } 
+                
+                if ((mes <= 1 || mes >= 12) || (isNaN(Number(mes)))) {
+                    isMesInvalido = true;
+                    console.log(isMesInvalido);
+                    
+
+                } 
+                
+                if (year.length !== 4 || isNaN(Number(year))) {
+                    console.log("EL AÑO DEBE CONTENER 4 DÍGITOS NUMÉRICOS");
+                    isYearInvalido = true;
+
+                }
+
+                if (!isMesInvalido && !isDiaInvalido && !isYearInvalido) {
+                    switch(mes) {
+                        case "01":
+                        case "03":
+                        case "05":
+                        case "07":
+                        case "08":
+                        case "10":
+                        case "12":
+                            if (dia >= 1 && dia <= 31) {
+                                mesSalida = mes;
+                            } else {
+                                console.log("EL DÍA INGRESADO NO EXISTE");
+                            }
+                            break;
+                        
+                        case "04":
+                        case "06":
+                        case "09":
+                        case "11":
+                            if (dia >= 1 && dia <= 30) {
+                                mesSalida = mes;
+                            } else {
+                                console.log("EL DÍA INGRESADO NO EXISTE");
+                            }
+                            break;
+                        
+                        case "02":
+                            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                                if (dia >= 1 && dia <= 29) {
+                                    mesSalida = mes;
+                                    isBisiesto = true;
+                                    
+                                } else {
+                                    console.log("EL DÍA INGRESADO NO EXISTE");
+                                }
+                            }
+                            break;
+                        
+                        default:
+                            console.log("XDN'T");
+                    }
+        
+                    if (isBisiesto) {
+                        alert(`EL DÍA INGRESADO ES CORRECTO!: ${dia}/${mes}/${year}`);
+                        break;
+                    } else {
+                        i++;
+                    }
+                    
+
+                } else if (isMesInvalido || isDiaInvalido || isYearInvalido) {
+                    alert("La fecha ingresada es incorrecta.")
+                    i++;
+                }
+            }
+        </script>
+    </body>
+
+</html>

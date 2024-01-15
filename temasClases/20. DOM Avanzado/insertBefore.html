@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>API appendChild | JS</title>
+        <style>
+            .textoRojo {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="parent">
+                <p>Hola a todos.</p>
+                <p class="message">Hola, soy todo un Camper.</p>
+            </div>
+        </div>
+
+        <button id="change-message" onclick="agregarElement()">Agregar div</button>
+        <button onclick="eliminarElement()">Eliminar Párrafo</button>
+        <button onclick="reemplazarElement()">Reemplazar Párrafo</button>
+        <button onclick="insertarElement()">Insertar Elemento</button>
+
+
+        <script>
+            function agregarElement() {
+                const element = document.querySelector(".container");
+                const div = document.createElement("div");
+                div.innerHTML = "<p onclick='alert(\"Código malicioso :( att el cacas\")'><span class='textoRojo'>DIV con Nuevo elemento</span><br/><br/><br/></p>";
+                element.appendChild(div);
+            }
+
+            function eliminarElement() {
+                const element = document.querySelector(".parent");
+                const parrafo = document.querySelector(".message");
+                alert(parrafo.outerHTML);
+
+                element.removeChild(parrafo);
+            }
+
+            function reemplazarElement() {
+                const element = document.querySelector(".parent");
+                //anterior
+                const parrafo = document.querySelector(".message");
+                alert(parrafo.outerHTML);
+
+                //Nuevo
+                const pNuevo = document.createElement("p");
+                pNuevo.innerHTML = "<span style='color:tomato'>Nuevo párrafo</span><br/><br/>";
+
+                //Reemplazar
+                element.replaceChild(pNuevo, parrafo);
+            }
+
+            function insertarElement() {
+                const element = document.querySelector(".container");
+
+                //Nuevo
+                const pNuevo = document.createElement("p");
+                pNuevo.innerHTML = "<span style='color:blue;'>Nuevo párrafo</span><br/><br/>";
+
+                //Insertar antes de .parent
+                //Sintaxis element.insertBefore(new, node);
+                element.insertBefore(pNuevo, element.firstChild);
+            }
+        </script>
+    </body>
+
+</html>

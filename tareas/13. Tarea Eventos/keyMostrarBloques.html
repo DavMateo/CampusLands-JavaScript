@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <style>
+            .oculto {
+                display: none;
+            }
+
+            .visible {
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="oculto" id="ficha1">
+            Hola, soy el bloque 1</div>
+        <div class="oculto" id="ficha2">
+            Hola, soy el bloque 2</div>
+        <div class="oculto" id="ficha3">
+            Hola, soy el bloque 3</div>
+
+        <script>
+            const arrElements = [document.getElementById("ficha1"), document.getElementById("ficha2"), document.getElementById("ficha3")];
+            
+            document.addEventListener("keypress", (e) => {
+                for (let i = 0; i < arrElements.length; i++)
+                    e.key === String(i+1) ? (arrElements.forEach(element => element.classList.remove("visible")), arrElements[i].classList.add("visible")) : "";
+            });
+        </script>
+    </body>
+
+</html>

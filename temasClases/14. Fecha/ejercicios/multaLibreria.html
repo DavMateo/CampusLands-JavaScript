@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Multa librería | JS</title>
+    </head>
+
+    <body>
+        <script>
+            // Declarando las funciones necesarias
+            function validarFecha(dateUser) {
+                return dateUser;
+            }
+
+            function descomponerFecha(fecha) {
+                return fecha.split("/").join("-");
+            }
+
+            function calcularDiferenciaTiempo(fechaPactadaEntrega, fechaEntregaReal) {
+                const fechaEntrega = new Date(`${descomponerFecha(fechaPactadaEntrega)}`);
+                const fechaTardia = new Date(`${descomponerFecha(fechaEntregaReal)}`);
+                let difereciaTiempoEntrega = fechaTardia.getTime() - fechaEntrega.getTime();
+
+                console.log(difereciaTiempoEntrega);
+                
+                return (difereciaTiempoEntrega) / (1000 * 60 * 60 * 24);
+            }
+            
+            function iniciarPrograma() {
+                let fechaPactadaEntrega = validarFecha(prompt("Ingrese la fecha de entrega pactada (Formato aaaa/mm/dd): "));
+                let fechaEntregaReal = validarFecha(prompt("Ingrese la fecha en la que fue devuelto el libro (Formato aaaa/mm/dd): "));
+                let diferenciaTiempo = calcularDiferenciaTiempo(fechaPactadaEntrega, fechaEntregaReal);
+                let multa, isSancion;
+
+                if (diferenciaTiempo <= 3) {
+                    multa = 7000;
+                    alert(`Alerta: Debiste haber entregado el libro hace ${diferenciaTiempo} días. El valor de la multa es de $${multa * diferenciaTiempo} COP.`);
+
+                } else if (diferenciaTiempo > 4) {
+                    multa = 10000;
+                    isSancion = true; //Este booleano podría usarse para referenciarlo en el sistema de que tiene una sanción activa.
+                    alert(`Advertencia: El libro tiene ${diferenciaTiempo} días de retrazo en su entrega. El valor de la multa es de $${multa * diferenciaTiempo} COP y tendrá una sansión de no préstamo por 6 meses.`);
+                } else {
+                    alert("¡Estás a tiempo! Vuelva pronto.");
+                }
+            }
+
+            iniciarPrograma();
+        </script>
+    </body>
+
+</html>

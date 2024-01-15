@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ejemplos de Eventos | JS</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Ejemplo de eventos</h1>
+        </header>
+
+        <main>
+            <p id="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quam ex, sunt excepturi eius tempore eos officia voluptatibus rem, reiciendis quia? Fuga debitis blanditiis deleniti earum reprehenderit eum rerum laborum!</p>
+            <p id="resultado"></p>
+        </main>
+
+
+        <script>
+            const texto = document.getElementById("texto");
+            const resultado = document.getElementById("resultado");
+            let count = 0;
+
+            texto.addEventListener("mouseenter", () => {
+                count++;
+                texto.style.display = "none";
+                resultado.style.display = "block";
+                resultado.textContent = count;
+            });
+
+            resultado.addEventListener("mouseleave", () => {
+                texto.style.display = "block";
+                resultado.style.display = "none";
+            });
+            
+        </script>
+    </body>
+
+</html>

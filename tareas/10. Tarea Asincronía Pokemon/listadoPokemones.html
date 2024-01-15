@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Listado de Pokemones | JS</title>
+
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Listado de Pokemones</h1>
+        </header>
+
+        <main>
+            <section class="mostrarPokemones">
+                <article class="mostrarPokemon1">
+                    <div id="pokemon1"></div>
+                </article>
+
+                <article class="mostrarPokemon2">
+                    <div id="pokemon2"></div>
+                </article>
+            </section>
+
+            <section>
+                <button id="btnSiguiente" onclick="clickBoton()">Siguiente</button>
+            </section>
+        </main>
+
+
+        <script>
+            const pokemon1 = document.getElementById("pokemon1");
+            const pokemon2 = document.getElementById("pokemon2");
+            let countPokemon1 = 1;
+            let countPokemon2 = 2;
+
+            async function getInfoPokemon(id) {
+                const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+                const respuesta = await fetch(url);
+                const jsonRespuesta = await respuesta.json();
+
+                return [jsonRespuesta.name, jsonRespuesta.id, jsonRespuesta.sprites.front_default];
+            }
+
+
+            async function escribirInfoPokemon() {
+
+            }
+
+
+            async function clickBoton() {
+                let infoPokemon1 = await getInfoPokemon(countPokemon1);
+                let infoPokemon2 = await getInfoPokemon(countPokemon2);
+
+                return new Promise((resolve, reject) => {
+                    if (infoPokemon1 === 1000 || infoPokemon2 === 1000) {
+                        reject({
+                            error: true,
+                            mensaje: "No puedes exceder la visualización mayor al pokemon n°1000"
+                        });
+                        
+                    } else {
+                        countPokemon1 += 2;
+                        countPokemon2 += 2;
+
+                        resolve({
+                            error: false,
+                            funciones: [escribirInfoPokemon],
+                            infoParam: [infoPokemon1, infoPokemon2]
+                        });
+                    }
+                });
+            }
+
+            
+        </script>
+    </body>
+
+</html>

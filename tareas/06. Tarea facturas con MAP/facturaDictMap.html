@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gestor de facturas con Diccionarios | JS</title>
+
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-size: 16px;
+                color: #1c2833;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #a0c4ff;
+            }
+
+            header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem 1rem;
+                background-color: #fffffc;
+            }
+
+            .titulo {
+                font-variant: small-caps;
+                text-transform: capitalize;
+                letter-spacing: 1px;
+            }
+
+            main {
+                display: flex;
+                padding: 1rem;
+            }
+
+            #resultado {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 2rem 0;
+                width: 100%;
+                row-gap: 2rem;
+            }
+
+            .resultado_tabla {
+                width: 50vw;
+                height: fit-content;
+                border-collapse: collapse
+            }
+
+            .resultado_tabla thead {
+                line-height: 4rem;
+                font-variant: small-caps;
+                text-transform: capitalize;
+                letter-spacing: 1px;
+                background-color: #d2d2cf;
+            }
+
+            .cuerpoTabla {
+                line-height: 3rem;
+                text-align: center;
+            }
+
+            .cuerpoTabla .fila:nth-child(2n+1) {
+                background-color: #f0efeb;
+            }
+
+            .cuerpoTabla .fila:nth-child(2n) {
+                background-color: #d2d2cf;
+            }
+
+            .cuerpoTabla .fila td:nth-child(3)::before, .cuerpoTabla .fila td:nth-child(4)::before{
+                content: '$';
+            }
+
+            .cuerpoTabla .fila td:nth-child(3)::after, .cuerpoTabla .fila td:nth-child(4)::after {
+                content: ' cop';
+                font-size: 11px;
+                font-variant: small-caps;
+                font-weight: 600;
+            }
+
+            .pieTabla {
+                line-height: 3rem;
+                background-color: #c6def1;
+            }
+
+            #filaPieTabla span:nth-child(1) {
+                float: left;
+                padding-left: 1rem;
+            }
+
+            #filaPieTabla span:nth-child(2) {
+                float: right;
+                padding-right: 1.55rem;
+            }
+
+            #filaPieTabla span:nth-child(2)::before {
+                content: '$';
+            }
+
+            #filaPieTabla span:nth-child(2)::after {
+                content: ' cop';
+                font-size: 11px;
+                font-variant: small-caps;
+                font-weight: 600;
+            }
+
+            #ingresarInfo {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                margin-left: 7rem;
+                background-color: rgba(255, 255, 255, .7);
+                padding: 1rem;
+                border-radius: .625rem;
+                height: fit-content;
+            }
+
+            #ingresarInfo_formulario {
+                display: flex;
+                flex-direction: column;
+                gap: .75rem;
+            }
+
+            #ingresarInfo_formulario div {
+                display: flex;
+                gap: 1rem;
+            }
+
+            #ingresarInfo_formulario div:nth-child(2) {
+                justify-content: space-between;
+            }
+
+            .ingresarInfo_btnEnviar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                background-color: #aceaa0;
+                width: 35%;
+                height: 2.25rem;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-variant: small-caps;
+                text-transform: capitalize;
+                border-radius: .4rem;
+                margin: 1rem auto 0 auto;
+                cursor: pointer;
+            }
+
+            .ingresarInfo_btnEnviar:hover {
+                background-color: #89c77c;
+                box-shadow: 0 0 10px #89c77c;
+            }
+
+            .ingresarInfo_btnEnviar:active {
+                border: 2px outset rgba(0, 0, 0, .3);
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1 class="titulo">Gestor de facturas con Diccionarios</h1>
+        </header>
+
+        <main>
+            <section id="resultado">
+                <table class="resultado_tabla" border="1">
+                    <thead>
+                        <tr>
+                            <th>Cantidad</th>
+                            <th>Artículo</th>
+                            <th>Valor Unitario</th>
+                            <th>Valor total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="cuerpoTabla"></tbody>
+
+                    <tfoot class="pieTabla"></tfoot>
+                </table>
+
+                <br/><br/>
+
+                <aside id="ingresarInfo">
+                    <form id="ingresarInfo_formulario" action="">
+                        <div>
+                            <label for="codigo">Código del artículo</label>
+                            <input type="number" name="codigo" id="codigo" min="1" max="1000000000000" />
+                        </div>
+    
+                        <div>
+                            <label for="cantidad">Cantidad: </label>
+                            <input type="number" name="cantidad" id="cantidad" min="1" max="1000000000" />
+                        </div>
+                    </form>
+                    <button class="ingresarInfo_btnEnviar" onclick="iniciarPrograma()">Enviar</button>
+                </aside>
+            </section>
+        </main>
+        
+        <script>
+            const articulos = [[1, "Lapiz"], [2, "Cuadernos"], [3, "Borrador"], [4, "Calculadora"], [5, "Escuadra"]];
+            const valores = [[1, 2500], [2, 3800], [3, 1200], [4, 35000], [5, 3700]];
+            const dictArticulos = new Map(articulos);
+            const dictValores = new Map(valores);
+            let count = 0, sumaTotal = 0;
+
+
+            // Funciones de validación
+            function validarCodigo(cod) {
+                if ((Number(cod) < 1 || Number(cod) > 1000000000000) || (isNaN(cod) && cod.length > 0)) {
+                    return false;
+                } else {
+                    return Number(cod);
+                }
+            }
+
+            function validarCantidad(cant) {
+                if ((Number(cant) < 1 || Number(cant) > 1000000000000) || (isNaN(cant) && cant.length > 0)) {
+                    return false;
+                } else {
+                    return Number(cant);
+                }
+            }
+
+
+            // Funciones constructoras
+            function construirTabla(lstInfo, contador) {
+                const cuerpoTabla = document.getElementById("resultado").querySelector(".resultado_tabla").querySelector(".cuerpoTabla");
+                const pieTabla = document.getElementById("resultado").querySelector(".resultado_tabla").querySelector(".pieTabla");
+                const filaCuerpoTabla = document.createElement("tr");
+
+                filaCuerpoTabla.setAttribute("id", `cuerpoTabla${count}`);
+                filaCuerpoTabla.classList.add("fila");
+                cuerpoTabla.appendChild(filaCuerpoTabla);
+
+                for (i = 0; i < lstInfo.length; i++) {
+                    document.getElementById(`cuerpoTabla${count}`).innerHTML += `
+                        <td>${lstInfo[i]}</td>
+                    `;
+
+                    if (i === lstInfo.length - 1) {
+                        sumaTotal += lstInfo[i];
+                        pieTabla.innerHTML = `
+                            <tr id="filaPieTabla">
+                                <td colspan="4">
+                                    <span>Precio Total:</span>
+                                    <span>${sumaTotal}</span>
+                                </td>
+                            </tr>
+                        `;
+                    }
+                }
+            }
+
+
+            // Funciones necesarias
+            function pedirInfoUsuario(formData) {
+                let lstRespuestaFuncion = [];
+                let test = formData.getAll("codigo");
+                let codigoUser = validarCodigo(formData.getAll("codigo"));
+                console.log("CODIGO USER: " + test);
+                
+                if (codigoUser === false) {
+                    alert("Error. El código ingresado no existe. Inténtelo nuevamente.");
+                    lstRespuestaFuncion[0] = false;
+                } else {
+                    lstRespuestaFuncion[0] = codigoUser;
+                }
+
+                let cantidadUser = validarCantidad(formData.getAll("cantidad"));
+
+                if (cantidadUser === false) {
+                    alert("Error. La cantidad ingresada no es válida. Inténtelo de nuevo.");
+                    lstRespuestaFuncion[1] = false;
+                } else {
+                    lstRespuestaFuncion[1] = cantidadUser;
+                }
+
+                return lstRespuestaFuncion;
+            }
+
+            function obtenerInfoDicts(cod) {
+                let article = dictArticulos.get(cod);
+                let value = dictValores.get(cod);
+                
+                return [article, value];
+            }
+
+            function iniciarPrograma() {
+                const formulario = document.getElementById("ingresarInfo_formulario");
+                const formData = new FormData(formulario);
+
+                count++;
+                let [codigo, cantidad] = pedirInfoUsuario(formData);
+                if (codigo === false || cantidad === false) {
+                    return "";
+                }
+
+                let [articulo, valor] = obtenerInfoDicts(codigo);
+                if (articulo === undefined || valor === undefined) {
+                    alert("No se ha podido encontrar el producto. Inténtelo nuevamente.");
+                    return "";
+
+                } else {
+                    construirTabla([cantidad, articulo, valor, valor * cantidad], count);
+                }
+            }
+        </script>
+    </body>
+
+</html>

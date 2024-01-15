@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #14213d;
+    color: #fff;
+}
+
+#encabezado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem;
+    color: #000;
+    background-color: rgba(255, 255, 255, .7);
+    border-radius: 0 0 10px 10px;
+}
+
+#principal {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.75rem;
+    padding: 1.25rem;
+}
+
+.solucion {
+    display: flex;
+    gap: 5rem;
+    margin-bottom: 2rem;
+}
+
+.tabla {
+    width: 50vw;
+    border-radius: 3px;
+}
+
+#resultados {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: .5rem;
+    background-color: rgba(255, 255, 255, .55);
+    padding: 1.25rem;
+    border-radius: 1rem;
+}
+
+.botones {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.botones_estilo {
+    background: transparent;
+    border: none;
+    padding: 1.25rem 3.15rem;
+    border-radius: .5rem;
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: .1rem;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.botones_estilo--agregar {
+    background-color: #7ed055;
+}
+
+.botones_estilo--agregar:hover {
+    background-color: #5aa036;
+}
+
+.botones_estilo--pagar {
+    background-color: #e63946;
+}
+
+.botones_estilo--pagar:hover {
+    background-color: #ba232f;
+}
