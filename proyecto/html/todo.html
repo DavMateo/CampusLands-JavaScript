@@ -27,7 +27,7 @@
         </header>
 
         <main id="principal">
-            <section class="agregarTarea" style="display: none">
+            <section id="agregarTarea" class="agregarTarea">
                 <div class="agregarTarea_titulo">
                     <div class="animacionTitulo">
                         <p class="animacionTitulo_sujeto">Agregar</p>
@@ -124,7 +124,7 @@
                     </div>
                 </div>
                 
-                <div class="pendiente oculto">
+                <div class="pendiente tgteas">
                     <div class="pendiente_encabezado">
                         <div class="cantTareas">
                             <p class="cantTareas_parrafo">Pendientes: <span>4</span></p>
@@ -225,7 +225,7 @@
                     </div>
                 </div>
 
-                <div class="progreso oculto">
+                <div class="progreso tgteas">
                     <div class="pendiente_encabezado">
                         <div class="cantTareas">
                             <p class="cantTareas_parrafo">En curso: <span>1</span></p>
@@ -270,7 +270,7 @@
                     </div>
                 </div>
                 
-                <div class="completado oculto">
+                <div class="completado tgteas">
                     <div class="pendiente_encabezado">
                         <div class="cantTareas">
                             <p class="cantTareas_parrafo">Completadas: <span>3</span></p>
@@ -369,16 +369,16 @@
         </main>
 
         <footer id="pieDePagina">
-            <div class="home">
+            <div class="home" data-btn="home">
                 <span class="material-symbols-outlined">home</span>
                 <span>Principal</span>
             </div>
             
-            <div class="add">
+            <div class="add" data-btn="add">
                 <span class="material-symbols-outlined">add</span>
             </div>
 
-            <div class="category">
+            <div class="category" data-btn="category">
                 <span class="material-symbols-outlined">category</span>
                 <span>Categorías</span>
             </div>
