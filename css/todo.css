@@ -2897,20 +2897,22 @@ body {
 /* Responsive 768px a 960px: Tablets medianas, otro tipo de pantallas */
 @media (min-width:768px) and (max-width: 960px) {
     body {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     #encabezado {
         & .encabezado_fondo {
-            width: 105%;
-            height: 20rem;
-            border-radius: 0 0 80% 80%;
+            display: var(--desabilitado);
         }
         
         & .encabezado_contenedor {
+            background-color: #082f49;
             padding: 1.5rem;
+            border-radius: 0 0 35px 35px;
 
             & .encabezado_info {
+                margin-top: 0;
+
                 & h2 {
                     letter-spacing: 1.5px;
                     font-weight: 700;
@@ -2921,6 +2923,44 @@ body {
             & .encabezado_imagen {
                 width: 5.5rem;
                 height: 5.5rem;
+                margin-top: 0;
+            }
+        }
+
+        /* CORREGIR ERROR QUE LA HORA SE MANTIENE EN LA PANTALLA SOBREPONIÉNDOSE
+        EN OTROS CONTENIDOS MOSTRADOS EN EL DISPLAY. */
+
+        & .hora {
+            display: var(--flexbox);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -8.75rem;
+            color: #000;
+            font-family: var(--tipografia_texto);
+
+            & span {
+                &:first-child {
+                    display: var(--flexbox);
+                    font-size: 32px;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 600;
+                    font-family: var(--tipografia_subtitulo);
+                    letter-spacing: 1px;
+
+                    & span {
+                        font-size: 32px;
+                        animation: parpadeo 1.5s ease-in-out infinite;
+                    }
+                }
+
+                &:last-child {
+                    font-size: 12px;
+                }
             }
         }
     }
@@ -3501,4 +3541,10 @@ body {
     75% { margin-top: calc(-1 * (1.5rem - .5px)); }
     85% { margin-top: calc(calc(-1 * (1.5rem - .5px))); }
     100% { margin-top: calc(0px); }
+}
+
+@keyframes parpadeo {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
 }
