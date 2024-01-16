@@ -2343,7 +2343,7 @@ body {
 }
 
 /* Responsive 480px a 768px: Celulares grandes, tablets pequeñas */
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 767px) {
     body {
         font-size: 16px;
     }
@@ -2745,36 +2745,116 @@ body {
     }
 
     #pieDePagina {
-        height: 4.25rem;
-        border-radius: 14px 14px 0 0;
-        padding: 1rem;
-        justify-content: space-around;
+        display: var(--flexbox);
+        justify-content: flex-end;
+        background: transparent;
 
-        & .home, .category {
-            gap: .25rem;
+        & .home, .add, .category {
+            display: var(--desabilitado);
+        }
 
-            & span[class="material-symbols-outlined"] {
-                font-size: 32px;
+        & .menu {
+            display: var(--flexbox);
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            left: -2rem;
+            top: -2rem;
+            width: 6.5rem;
+            height: 6.5rem;
+
+            & .toggle {
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                width: 4rem;
+                height: 4rem;
+                border: 1px solid rgba(0, 0, 0, .3);
+                border-radius: 50%;
+                font-size: 3em;
+                background-color: rgba(0, 0, 0, .3);
+                backdrop-filter: blur(10px);
+                color: #000;
+                z-index: 10;
+
+                & ion-icon {
+                    position: absolute;
+                    opacity: 0;
+                    transition: .5s;
+                    color: var(--lightMode_textoPrincipal);
+        
+                    &:nth-child(1) {
+                        opacity: 1;
+                        transform: rotate(360deg);
+                    }
+                }
             }
 
-            & span:nth-child(2) {
-                font-weight: 600;
-                letter-spacing: 1.25px;
-                font-size: 15px;
+            & .menu_list {
+                & .menu_list-item {
+                    position: absolute;
+                    left: -18px;
+                    bottom: 33px;
+                    list-style: var(--desabilitado);
+                    transform-origin: 70px;
+                    transition: .5s;
+                    transform: rotate(calc(360deg / 3 * var(--i)));
+                    scale: 0;
+                    z-index: 1;
+                    overflow: hidden;
+
+                    &:nth-child(1) {
+                        pointer-events: var(--desabilitado);
+                        cursor: pointer !important;
+                    }
+
+                    &:nth-child(2) {
+                        pointer-events: var(--desabilitado);
+                        cursor: pointer !important;
+                    }
+                    
+                    & a {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 3.125rem;
+                        height: 3.125rem;
+                        color: var(--darkMode_textoPrincipal);
+                        background-color: var(--clr);
+                        font-size: 1.34em;
+                        border-radius: 50%;
+                        transform: rotate(calc(360deg / -3 * var(--i)));
+                        box-shadow: 0 3px 4px rgba(0, 0, 0, .15);
+                    }
+                }
             }
         }
 
-        & .add {
-            border: 8px solid var(--lightMode_fondo);
-            width: 4.5rem;
-            height: 4.5rem;
-            top: -34px;
+        & .menu_active {
+            & .toggle ion-icon {
+                &:nth-child(1) {
+                    opacity: 0;
+                    transform: rotate(360deg);
+                }
+    
+                &:nth-child(2) {
+                    opacity: 1;
+                    transform: rotate(360deg);
+                }
+            }
+
+            & .menu_list {
+                & .menu_list-item {
+                    scale: 1;
+                }
+            }
         }
     }
 }
 
 /* Responsive 768px a 960px: Tablets medianas, otro tipo de pantallas */
-@media (min-width:769px) and (max-width: 960px) {
+@media (min-width:768px) and (max-width: 960px) {
 
 }
 
