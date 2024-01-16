@@ -65,7 +65,11 @@ botones.addEventListener("click", (e) => {
 document.getElementById("toggle").addEventListener("click", () => {
     let menu = document.getElementById("menu");
     menu.classList.toggle("menu_active");
-})
+});
+
+document.getElementById("addTask").addEventListener("click", () => {
+    agregarTarea.classList.remove("oculto");
+});
 
 
 window.onload = function() {

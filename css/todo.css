@@ -2597,15 +2597,50 @@ body {
                     }
                 }
             }
+
+            & .botones {
+                gap: 1rem;
+                margin: 1rem 0;
+
+                & .btnForm {
+                    width: calc((100%) / 2);
+                    max-width: 10rem;
+                    height: 2.75rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    border-radius: 8px;
+                    font-size: 15px;
+                }
+
+                & .botones_btnAgregar {
+                    border: 1px solid #3154c4;
+
+                    &:hover {
+                        &::before {
+                            border-radius: 8px;
+                        }
+                    }
+                }
+
+                & .botones_btnCancelar {
+                    border: 1px solid #bf2616;
+
+                    &:hover {
+                        &::before {
+                            border-radius: 8px;
+                        }
+                    }
+                }
+            }
         }
 
         & .resumen {
             margin-top: 1.25rem;
 
             & .resumen_titulo {
-                font-size: 28px;
+                font-size: 32px;
                 letter-spacing: .8px;
-                animation: typing480px 2s steps(7) 1s 1 normal both;
+                animation: typing768px 2s steps(7) 1s 1 normal both;
             }
 
             & .elegirEstado {
@@ -2620,16 +2655,18 @@ body {
 
                 & .elegirEstado_global {
                     gap: .4rem;
+                    width: calc((100% / 3) - 1rem);
+                    height: 3rem;
 
                     & span {
-                        font-size: 12px;
+                        font-size: 14px;
                         font-weight: 500;
                         font-family: var(--tipografia_subtitulo);
                     }
                 }
 
                 & .elegirEstado_pendiente, .elegirEstado_progreso, .elegirEstado_completado {
-                    padding: .8rem 1.4rem;
+                    padding: .8rem 1rem;
                     border-radius: 8px;
                 }
             }
@@ -2711,17 +2748,17 @@ body {
                     }
 
                     & .tarjeta_footer {
-                        font-size: 11px;
+                        font-size: 13px;
 
                         & span {
                             font-weight: 600;
 
                             &:nth-child(1) {
-                                width: 6.125rem;
+                                width: 7.75rem;
 
                                 &::before {
-                                    width: 1.2rem;
-                                    height: 1.2rem;
+                                    width: 1.8rem;
+                                    height: 1.8rem;
                                 }
                             }
 
@@ -2803,18 +2840,8 @@ body {
                     scale: 0;
                     z-index: 1;
                     overflow: hidden;
-
-                    &:nth-child(1) {
-                        pointer-events: var(--desabilitado);
-                        cursor: pointer !important;
-                    }
-
-                    &:nth-child(2) {
-                        pointer-events: var(--desabilitado);
-                        cursor: pointer !important;
-                    }
                     
-                    & a {
+                    & button, a {
                         display: flex;
                         justify-content: center;
                         align-items: center;
@@ -2826,6 +2853,8 @@ body {
                         border-radius: 50%;
                         transform: rotate(calc(360deg / -3 * var(--i)));
                         box-shadow: 0 3px 4px rgba(0, 0, 0, .15);
+                        border: var(--desabilitado);
+                        cursor: pointer;
                     }
                 }
             }
@@ -2855,7 +2884,542 @@ body {
 
 /* Responsive 768px a 960px: Tablets medianas, otro tipo de pantallas */
 @media (min-width:768px) and (max-width: 960px) {
+    body {
+        font-size: 16px;
+    }
 
+    #encabezado {
+        & .encabezado_fondo {
+            width: 105%;
+            height: 20rem;
+            border-radius: 0 0 80% 80%;
+        }
+        
+        & .encabezado_contenedor {
+            padding: 1.5rem;
+
+            & .encabezado_info {
+                & h2 {
+                    letter-spacing: 1.5px;
+                    font-weight: 700;
+                    font-size: 30px;
+                }
+            }
+    
+            & .encabezado_imagen {
+                width: 5.5rem;
+                height: 5.5rem;
+            }
+        }
+    }
+
+    #principal {
+        margin: calc(21rem + 1rem) 0 8rem 0;
+        gap: 1.5rem;
+
+        & .agregarTarea {
+            gap: 1.5rem;
+            width: 90vw;
+            height: 65vh;
+            padding: 1.25rem;
+            border-radius: 14px;
+
+            & .agregarTarea_titulo {
+                font-size: 20px;
+                height: 1.6rem;
+                font-weight: 600;
+
+                & .animacionTitulo {
+                    & .animacionTitulo_sujeto {
+                        margin-right: .65rem;
+                    }
+
+                    & .animacionTitulo_predicado {
+                        animation: 10s linear 0s normal none infinite change768px;
+                    }
+                }
+            }
+
+            & .principal_separacion {
+                width: 60%;
+                border-radius: 25px;
+                margin-top: -12px;
+            }
+
+            & .formulario {
+                gap: 2rem;
+                
+                & .formulario_nombre {
+                    & label {
+                        letter-spacing: .85px;
+                        font-weight: 500;
+                    }
+
+                    & input {
+                        margin-top: .75rem;
+                        height: 2.75rem;
+                        padding: 0 .85rem;
+                        border-radius: 12px;
+
+                        &:focus {
+                            border: 2px solid #3b82f6;
+                        }
+                    }
+                }
+
+                & .formulario_descripcion {
+                    & label {
+                        letter-spacing: .75px;
+                        font-weight: 500;
+                    }
+
+                    & textarea {
+                        margin-top: .75rem;
+                        height: 5.75rem;
+                        padding: .85rem .65rem;
+                        border-radius: 12px;
+
+                        &:focus {
+                            border: 2px solid #3b82f6;
+                        }
+                    }
+                }
+
+                & .formulario_fecha {
+                    padding-top: .75rem;
+                    margin-top: .5rem;
+
+                    & label {
+                        letter-spacing: .75px;
+                        font-weight: 500;
+                    }
+
+                    & input {
+                        border-radius: 8px;
+                        margin-top: .5rem;
+                        height: 2.5rem;
+                        padding: 0 .65rem;
+
+                        &:focus {
+                            border: 2px solid #8b5cf6;
+                        }
+                    }
+                }
+
+                & .formulario_tiempo {
+                    margin-bottom: 1.25rem;
+
+                    & label{
+                        letter-spacing: .75px;
+                        font-weight: 600;
+                    }
+
+                    & input {
+                        height: 2.5rem;
+                        margin-top: .5rem;
+                        padding: 0 .65rem ;
+                        border-radius: 8px;
+
+                        &:focus {
+                            border: 2px solid #8b5cf6;
+                        }
+
+                        &:invalid {
+                            border: 2px solid #ef4444;
+
+                            &::after {
+                                width: 20px;
+                                height: 20px;
+                            }
+
+                            &::before {
+                                bottom: -19px;
+                                left: 5px;
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+
+                & .formulario_opciones, .formulario_categoria {
+                    width: 85%;
+                    font-weight: 500;
+                    border-radius: 8px;
+
+                    &::after {
+                        width: 52px;
+                        height: 52px;
+                        border-radius: 0 8px 8px 0;
+                    }
+
+                    & .formOpc_titulo, .formCat_titulo {
+                        font-weight: 600;
+                        letter-spacing: 1.5px;
+                        padding: 1.05rem .65rem;
+                        font-size: 16px;
+                        letter-spacing: 1.25px;
+                    }
+
+                    & .formOpc_objetos, .formCat_objetos {
+                        gap: .6rem;
+                        border-radius: 6px 6px 8px 8px;
+
+                        & label {
+                            padding: .8rem .6rem;
+                            font-weight: 500;
+
+                            & span {
+                                font-size: 13px;
+                                letter-spacing: .5px;
+                                padding-left: 1.5rem;
+                            }
+                        }
+                    }
+
+                    & .formOpc_objetos {
+                        & label {
+                            & span::before {
+                                left: 10px;
+                            }
+    
+                            &:nth-child(1) {
+                                border-radius: 4px 4px 0 0;
+                            }
+    
+                            &:nth-child(4) {
+                                border-radius: 0 0 8px 8px;
+                            }
+    
+                            &:nth-child(1) input[type=radio]:checked ~ span::after {
+                                border-radius: 4px 4px 0 0;
+                            }
+    
+                            &:nth-child(4) input[type=radio]:checked ~ span::after {
+                                border-radius: 0 0 8px 8px;
+                            }
+                        }
+                    }
+    
+                    &:hover .formOpc_objetos {
+                        max-height: 12.4rem;
+                    }
+                }
+
+                & .formulario_categoria {
+                    & .formCat_objetos {
+                        & label {
+                            & span {
+                                padding-left: 2.5rem;
+
+                                &::before {
+                                    width: 30px;
+                                    height: 30px;
+                                    left: 10px;
+                                }
+                            }
+
+                            &:first-child {
+                                border-radius: 4px 4px 0 0;
+                            }
+
+                            &:last-child {
+                                border-radius: 0 0 8px 8px;
+                            }
+
+                            &:first-child input[type=radio]:checked ~ span::after {
+                                border-radius: 4px 4px 0 0;
+                            }
+
+                            &:last-child input[type=radio]:checked ~ span::after {
+                                border-radius: 0 0 8px 8px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            & .botones {
+                gap: 1rem;
+                margin: 1rem 0;
+
+                & .btnForm {
+                    width: calc((100%) / 2);
+                    max-width: 10rem;
+                    height: 2.75rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    border-radius: 8px;
+                    font-size: 15px;
+                }
+
+                & .botones_btnAgregar {
+                    border: 1px solid #3154c4;
+
+                    &:hover {
+                        &::before {
+                            border-radius: 8px;
+                        }
+                    }
+                }
+
+                & .botones_btnCancelar {
+                    border: 1px solid #bf2616;
+
+                    &:hover {
+                        &::before {
+                            border-radius: 8px;
+                        }
+                    }
+                }
+            }
+        }
+
+        & .resumen {
+            margin-top: 1.25rem;
+
+            & .resumen_titulo {
+                font-size: 32px;
+                letter-spacing: .8px;
+                animation: typing768px 2s steps(7) 1s 1 normal both;
+            }
+
+            & .elegirEstado {
+                margin-top: 2rem;
+                padding: 0 1.25rem;
+                flex-wrap: wrap;
+
+                & .elegirEstado_circulo {
+                    width: 9px;
+                    height: 9px;
+                }
+
+                & .elegirEstado_global {
+                    gap: .4rem;
+                    width: calc((100% / 3) - 1rem);
+                    height: 3rem;
+
+                    & span {
+                        font-size: 14px;
+                        font-weight: 500;
+                        font-family: var(--tipografia_subtitulo);
+                    }
+                }
+
+                & .elegirEstado_pendiente, .elegirEstado_progreso, .elegirEstado_completado {
+                    padding: .8rem 1rem;
+                    border-radius: 8px;
+                }
+            }
+
+            & .pendiente, .progreso, .completado {
+                margin: 2rem 1rem;
+                border-radius: 10px;
+
+                & .pendiente_encabezado {
+                    margin-bottom: .5rem;
+                    padding: 1rem;
+                    border-radius: 10px;
+
+                    & .cantTareas {
+                        font-size: 13px;
+                        width: calc((100% / 2) - (4px + 1rem));
+
+                        & .cantTareas_parrafo {
+                            font-weight: 600;
+                        }
+                    }
+
+                    & .cantTareasClasificadas {
+                        font-weight: 600;
+                        width: calc(((100% / 2) - 4px) + 1.75rem);
+                        max-width: 12rem;
+                        height: 1.5rem;
+                        gap: .25rem;
+
+                        & span {
+                            padding-right: 5px;
+                            border-radius: 5px;
+                            font-size: 12px;
+
+                            &::before {
+                                left: 4px;
+                                width: 14px;
+                                height: 14px;
+                            }
+                        }
+                    }
+                }
+
+                & .tarjeta {
+                    padding: 1rem;
+                    margin: 1rem;
+                    border-radius: 8px;
+
+                    & .tarjeta_encabezado {
+                        & div {
+                            & span {
+                                width: 10%;
+                            }
+                        }
+
+                        & hr {
+                            width: 50%;
+                            margin: 1rem auto 1.125rem auto;
+                            height: 1px;
+                        }
+                    }
+
+                    & .tarjeta_principal {
+                        margin-bottom: 1.35rem;
+
+                        & .descripcion {
+                            margin-bottom: .75rem;
+                        }
+
+                        & span {
+                            font-weight: 600;
+                            width: 1.75rem;
+
+                            &::before {
+                                width: 16px;
+                                height: 16px;
+                            }
+                        }
+                    }
+
+                    & .tarjeta_footer {
+                        font-size: 13px;
+
+                        & span {
+                            font-weight: 600;
+
+                            &:nth-child(1) {
+                                width: 7.75rem;
+
+                                &::before {
+                                    width: 1.8rem;
+                                    height: 1.8rem;
+                                }
+                            }
+
+                            &[data-prioridad] {
+                                width: 2.5rem;
+                                height: 1rem;
+                                border-radius: 4px;
+                                padding: 0 6px;
+
+                                &::before {
+                                    left: 5px;
+                                    width: 10px;
+                                    height: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #pieDePagina {
+        display: var(--flexbox);
+        justify-content: flex-end;
+        background: transparent;
+
+        & .home, .add, .category {
+            display: var(--desabilitado);
+        }
+
+        & .menu {
+            display: var(--flexbox);
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            left: -2rem;
+            top: -2rem;
+            width: 6.5rem;
+            height: 6.5rem;
+
+            & .toggle {
+                display: var(--flexbox);
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                width: 4rem;
+                height: 4rem;
+                border: 1px solid rgba(0, 0, 0, .3);
+                border-radius: 50%;
+                font-size: 3em;
+                background-color: rgba(0, 0, 0, .3);
+                backdrop-filter: blur(10px);
+                color: #000;
+                z-index: 10;
+
+                & ion-icon {
+                    position: absolute;
+                    opacity: 0;
+                    transition: .5s;
+                    color: var(--lightMode_textoPrincipal);
+        
+                    &:nth-child(1) {
+                        opacity: 1;
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+
+            & .menu_list {
+                & .menu_list-item {
+                    position: absolute;
+                    left: -18px;
+                    bottom: 33px;
+                    list-style: var(--desabilitado);
+                    transform-origin: 70px;
+                    transition: .5s;
+                    transform: rotate(calc(360deg / 3 * var(--i)));
+                    scale: 0;
+                    z-index: 1;
+                    overflow: hidden;
+                    
+                    & button, a {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 3.125rem;
+                        height: 3.125rem;
+                        color: var(--darkMode_textoPrincipal);
+                        background-color: var(--clr);
+                        font-size: 1.34em;
+                        border-radius: 50%;
+                        transform: rotate(calc(360deg / -3 * var(--i)));
+                        box-shadow: 0 3px 4px rgba(0, 0, 0, .15);
+                        border: var(--desabilitado);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        & .menu_active {
+            & .toggle ion-icon {
+                &:nth-child(1) {
+                    opacity: 0;
+                    transform: rotate(360deg);
+                }
+    
+                &:nth-child(2) {
+                    opacity: 1;
+                    transform: rotate(360deg);
+                }
+            }
+
+            & .menu_list {
+                & .menu_list-item {
+                    scale: 1;
+                }
+            }
+        }
+    }
 }
 
 /* Responsive 960px a 1024px: Tablets grandes, portátiles pequeños */
@@ -2893,6 +3457,11 @@ body {
 @keyframes typing480px {
     from { width: 0; }
     to { width: 132px; }
+}
+
+@keyframes typing768px {
+    from { width: 0; }
+    to { width: 151px; }
 }
 
 
