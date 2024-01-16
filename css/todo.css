@@ -2247,6 +2247,10 @@ body {
         padding: 1rem;
         justify-content: space-around;
 
+        & .menu {
+            display: var(--desabilitado);
+        }
+
         & .home, .category {
             gap: .25rem;
 
