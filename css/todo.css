@@ -1338,6 +1338,10 @@ body {
         border-radius: 12px 12px 0 0;
         padding: 1rem;
 
+        & .menu {
+            display: var(--desabilitado);
+        }
+
         & .home, .category {
             gap: .25rem;
 
@@ -1786,6 +1790,10 @@ body {
         height: 3.825rem;
         border-radius: 14px 14px 0 0;
         padding: 1rem;
+
+        & .menu {
+            display: var(--desabilitado);
+        }
 
         & .home, .category {
             gap: .25rem;
