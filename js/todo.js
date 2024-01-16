@@ -5,6 +5,7 @@ const pieDePagina = document.getElementById("pieDePagina");
 const seccionResumen = document.getElementById("resumen");
 const lstTarjetasEstado = document.querySelectorAll(".tgteas");
 const agregarTarea = document.getElementById("agregarTarea");
+const botones = document.getElementById("botones");
 
 // AGREGANDO LOS EVENTOS DE ESCUCHA
 perfilImg.addEventListener("click", (e) => {
@@ -47,6 +48,17 @@ pieDePagina.addEventListener("click", (e) => {
         } else if (e.target.parentNode.dataset.btn === "category") {
 
         }
+    }
+});
+
+botones.addEventListener("click", (e) => {
+    console.log(e);
+
+    if (e.target.dataset.btntarea === "agregar") {
+        console.log(e.target);
+
+    } else if (e.target.dataset.btntarea === "cancelar") {
+        agregarTarea.classList.add("oculto");
     }
 });
 
