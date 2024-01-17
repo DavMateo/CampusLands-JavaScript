@@ -1,78 +1,10 @@
-// DECLARANDO LAS VARIABLES Y CONSTANTES NECESARIAS
-const perfilImg = document.getElementById("encabezadoImagen");
-const elegirEstado = document.getElementById("elegirEstado");
-const pieDePagina = document.getElementById("pieDePagina");
-const seccionResumen = document.getElementById("resumen");
-const lstTarjetasEstado = document.querySelectorAll(".tgteas");
-const agregarTarea = document.getElementById("agregarTarea");
-const botones = document.getElementById("botones");
+import { eventosEscucha } from "./todo/eventListeners.js";
+import * as variables from "./variables.js";
 
-// AGREGANDO LOS EVENTOS DE ESCUCHA
-perfilImg.addEventListener("click", (e) => {
-    //pass
-});
-
-elegirEstado.addEventListener("click", (e) => {
-    if (e.target.classList[0] !== "elegirEstado") {
-        const infoDataset = e.target.children.length >= 1 ? e.target.dataset.estado : e.target.parentNode.dataset.estado;
-        
-        for (let i = 0; i < lstTarjetasEstado.length; i++) {
-            if (lstTarjetasEstado[i].classList[0] === infoDataset) {
-                lstTarjetasEstado[i].classList.remove("oculto");
-            } else {
-                lstTarjetasEstado[i].classList.add("oculto");
-            }
-        }
-    }
-});
-
-pieDePagina.addEventListener("click", (e) => {
-    if (e.target.children.length >= 1) {
-        if (e.target.dataset.btn === "home") {
-
-
-        } else if (e.target.dataset.btn === "add") {
-            agregarTarea.classList.remove("oculto");
-
-        } else if (e.target.dataset.btn === "category") {
-
-        }
-
-    } else {
-        if (e.target.parentNode.dataset.btn === "home") {
-
-
-        } else if (e.target.parentNode.dataset.btn === "add") {
-            agregarTarea.classList.remove("oculto");
-
-        } else if (e.target.parentNode.dataset.btn === "category") {
-
-        }
-    }
-});
-
-botones.addEventListener("click", (e) => {
-    console.log(e);
-
-    if (e.target.dataset.btntarea === "agregar") {
-        console.log(e.target);
-
-    } else if (e.target.dataset.btntarea === "cancelar") {
-        agregarTarea.classList.add("oculto");
-    }
-});
-
-document.getElementById("toggle").addEventListener("click", () => {
-    let menu = document.getElementById("menu");
-    menu.classList.toggle("menu_active");
-});
-
-document.getElementById("addTask").addEventListener("click", () => {
-    agregarTarea.classList.remove("oculto");
-});
+eventosEscucha();
 
 
 window.onload = function() {
-    agregarTarea.classList.add("oculto");
-    lstTarjetasEstado.forEach(tarjeta => tarjeta.classList.add("oculto"));
+    variables.agregarTarea.classList.add("oculto");
+    variables.lstTarjetasEstado.forEach(tarjeta => tarjeta.classList.add("oculto"));
 }
