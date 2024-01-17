@@ -1,14 +1,14 @@
 {
-    "usuarios": [
-        {
-        "id": "1",
-        "nombre": "David Carreño",
-        "usuario": "MrLennon4192",
-        "email": "davidcarrenomc@gmail.com",
-        "contrasena": "123456"
-        }
-    ],
-    "tareas": [
-        
-    ]
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "David Carreño",
+      "usuario": "MrLennon4192",
+      "email": "davidcarrenomc@gmail.com",
+      "contrasena": "123456"
+    }
+  ],
+  "tareas": [
+    
+  ]
 }
