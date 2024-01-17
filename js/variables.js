@@ -8,3 +8,10 @@ export const botones = document.getElementById("botones");
 export const toggle = document.getElementById("toggle");
 export const menu = document.getElementById("menu");
 export const addTask = document.getElementById("addTask");
+
+// Variables del login
+export const inputs = document.querySelectorAll(".input-field");
+export const toggle_btn = document.querySelectorAll(".toggle");
+export const main = document.querySelector("main");
+export const bullets = document.querySelectorAll(".bullets span");
+export const images = document.querySelectorAll(".image");

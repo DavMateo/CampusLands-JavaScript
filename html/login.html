@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in & Sign up Form</title>
     <link rel="stylesheet" href="./../css/login.css" />
-    <script src="./../js/login/login.js" defer></script>
+    <script src="./../js/login/login.js" type="module" defer></script>
   </head>
 
   <body>
@@ -16,7 +16,7 @@
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
-            <form action="" autocomplete="off" class="sign-in-form">
+            <form action="" autocomplete="off" class="sign-in-form" id="formSignIn" method="">
               <div class="logo">
                 <img src="./../img/login/logo.png" alt="easyclass" />
                 <h4>To-Do List</h4>
@@ -30,16 +30,16 @@
 
               <div class="actual-form">
                 <div class="input-wrap">
-                  <input type="text" minlength="4" class="input-field" autocomplete="off" required />
+                  <input type="text" name="nombre" minlength="4" class="input-field" autocomplete="off" required />
                   <label>Nombre</label>
                 </div>
 
                 <div class="input-wrap">
-                  <input type="password" minlength="4" class="input-field" autocomplete="off" required />
+                  <input type="password" name="contrasena" minlength="4" class="input-field" autocomplete="off" required />
                   <label>Contraseña</label>
                 </div>
 
-                <input type="submit" value="Iniciar Sesión" class="sign-btn" />
+                <input type="button" value="Iniciar Sesión" class="sign-btn" id="signIn_btn" data-tipo="signIn" />
 
                 <p class="text">
                   ¿Olvidaste tu contraseña o la información de tu cuenta?
@@ -48,7 +48,7 @@
               </div>
             </form>
 
-            <form action="" autocomplete="off" class="sign-up-form">
+            <form action="" autocomplete="off" class="sign-up-form" id="formSignUp">
               <div class="logo">
                 <img src="./../img/login/logo.png" alt="easyclass" />
                 <h4>To-Do List</h4>
@@ -62,21 +62,21 @@
 
               <div class="actual-form">
                 <div class="input-wrap">
-                  <input type="text" minlength="4" class="input-field" autocomplete="off" required />
+                  <input type="text" name="nombreRegistro" minlength="4" class="input-field" autocomplete="off" required />
                   <label>Nombre</label>
                 </div>
 
                 <div class="input-wrap">
-                  <input type="email" class="input-field" autocomplete="off" required />
+                  <input type="email" name="emailRegistro" class="input-field" autocomplete="off" required />
                   <label>Correo Electrónico</label>
                 </div>
 
                 <div class="input-wrap">
-                  <input type="password" minlength="4" class="input-field" autocomplete="off" required />
+                  <input type="password" name="contrasenaRegistro" minlength="4" class="input-field" autocomplete="off" required />
                   <label>Contraseña</label>
                 </div>
 
-                <input type="submit" value="Registrarse" class="sign-btn" />
+                <input type="button" value="Registrarse" class="sign-btn" id="signUp_btn" data-tipo="signUp" />
 
                 <p class="text">
                   Al crear tu cuenta, aceptas los

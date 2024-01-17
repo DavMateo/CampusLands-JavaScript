@@ -2,6 +2,7 @@ import { eventosEscucha } from "./todo/eventListeners.js";
 import * as variables from "./variables.js";
 
 eventosEscucha();
+getInfoForm();
 
 
 window.onload = function() {

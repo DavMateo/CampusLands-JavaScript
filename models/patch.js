@@ -1,9 +1,9 @@
-export function put(url, objeto) {
+export function patch(url, objeto) {
     fetch(url, {
-        method: "PUT",
+        method: "PATCH",
         body: JSON.stringify(objeto),
         headers: {
-            "Content-type": "application/json; charset=UTF-8",
+            "Content-type": "application/json; charset=UTF-8"
         },
     })
       .then(response => response.json())
