@@ -1,6 +1,10 @@
 {
   "usuarios": [
-    
+    {
+      "id": "1",
+      "nombre": "David",
+      "password": "1234"
+    }
   ],
   "tareas": [
     

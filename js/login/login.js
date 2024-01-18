@@ -1,5 +1,6 @@
 import { getInfoForm } from "./tomarInfoForm.js";
 import * as variables from "./../variables.js";
+import { controlador } from "../../controllers/controllers.js";
 
 function moveSlider() {
   let index = this.dataset.value;
@@ -30,5 +31,14 @@ variables.toggle_btn.forEach((btn) => {
 });
 
 variables.bullets.forEach((bullet) => bullet.addEventListener("click", moveSlider));
+
+variables.formSignIn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let estado = controlador(variables.formSignIn, e, "usuarios");
+
+  e.stopPropagation();
+});
+
 
 getInfoForm();

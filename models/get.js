@@ -1,11 +1,16 @@
 export function get(url) {
-    fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-type": "application/json; charset=UTF-8",
-        },
+    return new Promise((resolve, reject) => {
+        fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+        })
+          .then(response => response.json())
+          .then(json => {
+            console.log(json);
+            resolve(json);
+          })
+          .catch(error => reject(error));
     })
-      .then(response => response.json())
-      .then(json => console.log(json))
-      .catch(error => console.error(error));
 }

@@ -15,3 +15,5 @@ export const toggle_btn = document.querySelectorAll(".toggle");
 export const main = document.querySelector("main");
 export const bullets = document.querySelectorAll(".bullets span");
 export const images = document.querySelectorAll(".image");
+export const formSignIn = document.getElementById("formSignIn");
+export const formSignUp = document.getElementById("formSignUp");
