@@ -3,6 +3,7 @@ export const data = {
     "puerto": "3000",
     "endpoints": {
         "usuarios": "usuarios",
-        "tareas": "tareas"
+        "tareas": "tareas",
+        "recuento": "recuento"
     }
 }

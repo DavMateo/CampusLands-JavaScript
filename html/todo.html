@@ -32,7 +32,7 @@
                     <span id="hora">00</span>
                     <span class="separador">:</span>
                     <span id="minuto">00</span>
-                    <span id="segundo">00</span>
+                    <span id="segundo" class="segundo">00</span>
                 </span> <br/>
                 <span id="mostrarFecha">Jueves, 01 de Enero del 1970</span>
             </div>
@@ -51,7 +51,7 @@
 
                 <hr class="principal_separacion"/>
                 
-                <form class="formulario" id="formulario" action="" method="">
+                <form class="formulario" id="formulario" action="" method="" onsubmit="return false">
                     <div class="formulario_nombre">
                         <label for="nombreTarea">Nombre de la tarea</label>
                         <input type="text" name="nombreTarea" id="nombreTarea" placeholder="Escriba su nombre aquí. "/>
@@ -114,8 +114,8 @@
                 </form>
 
                 <div id="botones" class="botones">
-                    <button class="botones_btnAgregar btnForm" data-btnTarea="agregar">Agregar</button>
-                    <button class="botones_btnCancelar btnForm" data-btnTarea="cancelar">Cancelar</button>
+                    <button id="btnAgregarTarea" class="botones_btnAgregar btnForm" data-btnTarea="agregar" value="agregar">Agregar</button>
+                    <button id="btnCancelarTarea" class="botones_btnCancelar btnForm" data-btnTarea="cancelar" value="cancelar">Cancelar</button>
                 </div>
             </section>
 

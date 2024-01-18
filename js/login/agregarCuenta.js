@@ -2,7 +2,7 @@ import { post } from "../../models/post.js";
 import { get } from "../../models/get.js";
 import { lstInfoFecha } from "./obtenerFecha.js";
 
-export async function agregarCuenta(nombre, correo, pwd, urlUser, urlTask) {
+export async function agregarCuenta(nombre, correo, pwd, urlUser, urlTask, urlSummary) {
     const infoFecha = lstInfoFecha();
     const numId = await get(urlUser);
 
@@ -21,19 +21,19 @@ export async function agregarCuenta(nombre, correo, pwd, urlUser, urlTask) {
 
     await post(urlTask, {
         "id": numId.length + 1,
-        "tasks": {
-            "pendiente": {},
-            "curso": {},
-            "completado": {}
-        },
-        "recuento": {
-            "cantPendiente": 0,
-            "cantCurso": 0,
-            "cantCompletado": 0,
-            "p1": 0,
-            "p2": 0,
-            "p3": 0,
-            "p4": 0
-        }
+        "tasks_penndiente": {},
+        "tasks_curso": {},
+        "tasks_completado": {},
     });
+
+    await post(urlSummary, {
+        "id": numId.length + 1,
+        "cantPendiente": 0,
+        "cantCurso": 0,
+        "cantCompletado": 0,
+        "p1": 0,
+        "p2": 0,
+        "p3": 0,
+        "p4": 0
+    })
 }

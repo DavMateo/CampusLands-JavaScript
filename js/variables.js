@@ -25,3 +25,6 @@ export const hora = document.getElementById("hora");
 export const minuto = document.getElementById("minuto");
 export const segundo = document.getElementById("segundo");
 export const mostrarFecha = document.getElementById("mostrarFecha");
+export const formulario = document.getElementById("formulario");
+export const btnAgregarTarea = document.getElementById("btnAgregarTarea");
+export const btnCancelarTarea = document.getElementById("btnCancelarTarea");

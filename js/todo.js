@@ -7,10 +7,9 @@ eventosEscucha();
 //getInfoForm();
 escribirInfoUsuario();
 
-setInterval(() => mostrarFecha(), 500);
-
 
 window.onload = function() {
     variables.agregarTarea.classList.add("oculto");
     variables.lstTarjetasEstado.forEach(tarjeta => tarjeta.classList.add("oculto"));
+    setInterval(() => mostrarFecha(), 500);
 }

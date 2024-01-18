@@ -1,3 +1,5 @@
+import * as variables from "./../variables.js";
+import { controlador } from "../../controllers/controllers.js";
 export let infoNuevaTarea;
 
 export const addTask = () => {
@@ -12,4 +14,6 @@ export const addTask = () => {
         prioridad: formData.get("prioridad"),
         categoria: formData.get("categoria")
     }
+
+    variables.btnAgregarTarea.addEventListener("click", (e) => controlador(formulario, e));
 }

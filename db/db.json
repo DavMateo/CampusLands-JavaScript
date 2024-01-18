@@ -7,7 +7,7 @@
       "password": "2005",
       "metadata": {
         "fecha": "Thu-Jan-18-2024",
-        "hora": "02:56:34",
+        "hora": "08:32:44",
         "gmt": "GMT-0500",
         "pais": "Colombia"
       }
@@ -16,20 +16,21 @@
   "tareas": [
     {
       "id": 1,
-      "tasks": {
-        "pendiente": {},
-        "curso": {},
-        "completado": {}
-      },
-      "recuento": {
-        "cantPendiente": 0,
-        "cantCurso": 0,
-        "cantCompletado": 0,
-        "p1": 0,
-        "p2": 0,
-        "p3": 0,
-        "p4": 0
-      }
+      "tasks_penndiente": {},
+      "tasks_curso": {},
+      "tasks_completado": {}
+    }
+  ],
+  "recuento": [
+    {
+      "id": 1,
+      "cantPendiente": 0,
+      "cantCurso": 0,
+      "cantCompletado": 0,
+      "p1": 0,
+      "p2": 0,
+      "p3": 0,
+      "p4": 0
     }
   ]
 }

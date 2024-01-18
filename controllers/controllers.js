@@ -7,6 +7,7 @@ export function controlador(formulario, evento) {
     let urlCompleta = "";
     let urlCompletaUser = "";
     let urlCompletaTask = "";
+    let urlCompletaSummary = "";
     const datos = formulario !== null ? Object.fromEntries(new FormData(formulario)) : null;
     const value = evento.target.value;
 
@@ -21,7 +22,8 @@ export function controlador(formulario, evento) {
         case "Registrarse":
             urlCompletaUser = `${data.url}:${data.puerto}/${data.endpoints.usuarios}`;
             urlCompletaTask = `${data.url}:${data.puerto}/${data.endpoints.tareas}`;
-            agregarCuenta(datos.nombreRegistro, datos.emailRegistro, datos.contrasenaRegistro, urlCompletaUser, urlCompletaTask);
+            urlCompletaSummary = `${data.url}:${data.puerto}/${data.endpoints.recuento}`;
+            agregarCuenta(datos.nombreRegistro, datos.emailRegistro, datos.contrasenaRegistro, urlCompletaUser, urlCompletaTask, urlCompletaSummary);
             formulario.reset;
     }
 }
