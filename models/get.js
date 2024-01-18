@@ -7,10 +7,7 @@ export function get(url) {
             },
         })
           .then(response => response.json())
-          .then(json => {
-            console.log(json);
-            resolve(json);
-          })
+          .then(json => resolve(json))
           .catch(error => reject(error));
     })
 }

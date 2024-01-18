@@ -18,8 +18,8 @@
             
             <div class="encabezado_contenedor">
                 <div class="encabezado_info">
-                    <h2>¡Hola David!</h2>
-                    <span>Tienes 10 tareas pendientes para hoy</span>
+                    <h2 id="nombreUsuario">¡Bienvenido Usuario!</h2>
+                    <span id="cantTareas"></span>
                 </div>
     
                 <img id="encabezadoImagen" class="encabezado_imagen" src="./../img/img_articulo2.jpg" alt="img_profile" />
@@ -28,8 +28,13 @@
 
         <main id="principal">
             <div class="hora">
-                <span>10<span>:</span>13</span> <br/>
-                <span>Martes, 14 de Enero del 2024</span>
+                <span>
+                    <span id="hora">00</span>
+                    <span class="separador">:</span>
+                    <span id="minuto">00</span>
+                    <span id="segundo">00</span>
+                </span> <br/>
+                <span id="mostrarFecha">Jueves, 01 de Enero del 1970</span>
             </div>
 
             <section id="agregarTarea" class="agregarTarea">

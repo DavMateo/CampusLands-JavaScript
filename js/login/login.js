@@ -35,10 +35,20 @@ variables.bullets.forEach((bullet) => bullet.addEventListener("click", moveSlide
 variables.formSignIn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  let estado = controlador(variables.formSignIn, e, "usuarios");
+  console.log("EVENT!"); // eliminarLuego
+  controlador(variables.formSignIn, e);
 
   e.stopPropagation();
 });
+
+variables.formSignUp.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  console.log("EVENT!"); // eliminarLuego
+  controlador(variables.formSignUp, e);
+
+  e.stopPropagation();
+})
 
 
 getInfoForm();

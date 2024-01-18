@@ -1,24 +1,27 @@
-import { get } from "./../models/get.js";
-import { post } from "./../models/post.js";
-import { put } from "./../models/put.js";
-import { delet } from "../models/delete.js";
-import { patch } from "../models/patch.js";
 import { existeUsuario } from "../js/login/validarCuenta.js";
+import { agregarCuenta } from "./../js/login/agregarCuenta.js";
+import { data } from "../js/config.js";
 
 
-export function controlador(formulario, evento, entidad, elemFormulario) {
-    const URL = "http://localhost:3000/";
+export function controlador(formulario, evento) {
     let urlCompleta = "";
-
+    let urlCompletaUser = "";
+    let urlCompletaTask = "";
     const datos = formulario !== null ? Object.fromEntries(new FormData(formulario)) : null;
     const value = evento.target.value;
 
-    console.log(datos);
+    console.log(datos); // eliminarLuego
 
     switch (value) {
         case "Iniciar Sesión":
-            urlCompleta = `${URL}${entidad}/${datos !== null && datos.id !== undefined ? datos.id : ""}`;
-            console.log(urlCompleta);
+            urlCompleta = `${data.url}:${data.puerto}/${data.endpoints.usuarios}/${datos !== null && datos.id !== undefined ? datos.id : ""}`;
             existeUsuario(datos.nombre, datos.contrasena, urlCompleta);
+            break;
+        
+        case "Registrarse":
+            urlCompletaUser = `${data.url}:${data.puerto}/${data.endpoints.usuarios}`;
+            urlCompletaTask = `${data.url}:${data.puerto}/${data.endpoints.tareas}`;
+            agregarCuenta(datos.nombreRegistro, datos.emailRegistro, datos.contrasenaRegistro, urlCompletaUser, urlCompletaTask);
+            formulario.reset;
     }
 }

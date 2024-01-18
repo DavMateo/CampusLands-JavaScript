@@ -17,3 +17,11 @@ export const bullets = document.querySelectorAll(".bullets span");
 export const images = document.querySelectorAll(".image");
 export const formSignIn = document.getElementById("formSignIn");
 export const formSignUp = document.getElementById("formSignUp");
+
+// Variables To-Do List App
+export const nombreUsuario = document.getElementById("nombreUsuario");
+export const cantTareas = document.getElementById("cantTareas");
+export const hora = document.getElementById("hora");
+export const minuto = document.getElementById("minuto");
+export const segundo = document.getElementById("segundo");
+export const mostrarFecha = document.getElementById("mostrarFecha");
