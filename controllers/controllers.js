@@ -1,5 +1,6 @@
 import { existeUsuario } from "../js/login/validarCuenta.js";
 import { agregarCuenta } from "./../js/login/agregarCuenta.js";
+import { patch } from "../models/patch.js";
 import { data } from "../js/config.js";
 
 
@@ -25,5 +26,6 @@ export function controlador(formulario, evento) {
             urlCompletaSummary = `${data.url}:${data.puerto}/${data.endpoints.recuento}`;
             agregarCuenta(datos.nombreRegistro, datos.emailRegistro, datos.contrasenaRegistro, urlCompletaUser, urlCompletaTask, urlCompletaSummary);
             formulario.reset;
+            break;
     }
 }

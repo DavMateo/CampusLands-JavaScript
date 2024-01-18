@@ -21,7 +21,7 @@ export async function agregarCuenta(nombre, correo, pwd, urlUser, urlTask, urlSu
 
     await post(urlTask, {
         "id": numId.length + 1,
-        "tasks_penndiente": {},
+        "tasks_pendiente": {},
         "tasks_curso": {},
         "tasks_completado": {},
     });

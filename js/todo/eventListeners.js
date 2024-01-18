@@ -1,5 +1,5 @@
 import * as variables from "./../variables.js";
-import { addTask, infoNuevaTarea } from "./../todo/agregarTarea.js";
+import { addTask } from "./../todo/agregarTarea.js";
 
 export const eventosEscucha = () => {
     variables.perfilImg.addEventListener("click", (e) => {
@@ -45,7 +45,7 @@ export const eventosEscucha = () => {
 
     variables.botones.addEventListener("click", (e) => {
         e.target.dataset.btntarea === "agregar" 
-            ? (addTask(), console.log(infoNuevaTarea)) 
+            ? addTask()
             : variables.agregarTarea.classList.add("oculto");
     });
 
