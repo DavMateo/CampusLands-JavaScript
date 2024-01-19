@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nombre": "williams",
+      "apellidos": "morales"
+    },
+    {
+      "id": 2,
+      "nombre": "williams",
+      "apellidos": "morales",
+      "metadata": {
+        "pais": "colombia",
+        "departamento": "santander",
+        "ciudad": "floridablanca",
+        "codigo": "68003"
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "id": "2",
+      "nombre": "Test Nueva Tarea",
+      "descripcion": "Descripción de la nueva tarea",
+      "metadata": {
+        "p1": true,
+        "category": "programacion"
+      }
+    }
+  ],
+  "summary": []
+}
