@@ -1,5 +1,64 @@
 {
-  "usuarios": [],
-  "tareas": [],
-  "recuento": []
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "MrLennon4192",
+      "email": "mrlennon4192@gmail.com",
+      "password": "David@2005@",
+      "metadata": {
+        "fecha": "Thu-Jan-18-2024",
+        "hora": "18:35:04",
+        "gmt": "GMT-0500",
+        "pais": "Colombia"
+      }
+    },
+    {
+      "id": 2,
+      "nombre": "David Carreño",
+      "email": "davidcarrenomc@gmail.com",
+      "password": "1234",
+      "metadata": {
+        "fecha": "Thu-Jan-18-2024",
+        "hora": "20:36:35",
+        "gmt": "GMT-0500",
+        "pais": "Colombia"
+      }
+    }
+  ],
+  "tareas": [
+    {
+      "id": "1",
+      "tasks_pendiente": {},
+      "tasks_curso": {},
+      "tasks_completado": {}
+    },
+    {
+      "id": 2,
+      "tasks_pendiente": {},
+      "tasks_curso": {},
+      "tasks_completado": {}
+    }
+  ],
+  "recuento": [
+    {
+      "id": "1",
+      "cantPendiente": 0,
+      "cantCurso": 0,
+      "cantCompletado": 0,
+      "p1": 0,
+      "p2": 0,
+      "p3": 0,
+      "p4": 0
+    },
+    {
+      "id": 2,
+      "cantPendiente": 0,
+      "cantCurso": 0,
+      "cantCompletado": 0,
+      "p1": 0,
+      "p2": 0,
+      "p3": 0,
+      "p4": 0
+    }
+  ]
 }
