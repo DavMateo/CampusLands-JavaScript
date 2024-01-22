@@ -67,8 +67,4 @@ const arrayId = [{"id": "1"}, {"id": "1"}, {"id": "2"}];
 const arrayNum = [[1, 2, 3], [1, 3, 5], [1, 5, 9]];
 const arrayOne = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-groupBy(arrayId);
-groupBy(arrayNum);
-groupBy(arrayOne);
-
 console.log("", validarLongArray(arrayId), "\n", validarLongArray(arrayNum), "\n", validarLongArray(arrayOne));
