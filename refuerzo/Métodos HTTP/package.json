@@ -1,0 +1,15 @@
+{
+  "name": "jsonserver-example",
+  "version": "1.0.0",
+  "description": "Prácticando para el filtro de JavaScript",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server --watch db.json"
+  },
+  "author": "mateo",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.22"
+  }
+}

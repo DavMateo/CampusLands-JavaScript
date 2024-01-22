@@ -1,32 +1,51 @@
 {
-  "users": [
+  "products": [
     {
       "id": 1,
-      "nombre": "williams",
-      "apellidos": "morales"
+      "name": "laptop",
+      "price": 1599.99,
+      "description": "HP Laptop",
+      "categoryId": 1
     },
     {
       "id": 2,
-      "nombre": "williams",
-      "apellidos": "morales",
-      "metadata": {
-        "pais": "colombia",
-        "departamento": "santander",
-        "ciudad": "floridablanca",
-        "codigo": "68003"
-      }
+      "name": "monitor",
+      "price": 199.99,
+      "description": "Monitor LCD LG",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "mouse",
+      "price": 20,
+      "description": "Razer Gaming Mouse",
+      "categoryId": 2
+    },
+    {
+      "name": "keyboard",
+      "price": "399.00",
+      "description": "gaming keyboard",
+      "categoryId": 2,
+      "id": 4
+    },
+    {
+      "id": "aa81",
+      "name": "keyboard two",
+      "price": 499.99,
+      "description": "gaming keyboard corsair",
+      "categoryId": 2
     }
   ],
-  "tasks": [
+  "categories": [
+    {
+      "id": "1",
+      "name": "computers",
+      "description": "computers, laptops, monitors, etc"
+    },
     {
       "id": "2",
-      "nombre": "Test Nueva Tarea",
-      "descripcion": "Descripción de la nueva tarea",
-      "metadata": {
-        "p1": true,
-        "category": "programacion"
-      }
+      "name": "gaming",
+      "description": "mouse, monitors, keyboards, etc"
     }
-  ],
-  "summary": []
+  ]
 }
