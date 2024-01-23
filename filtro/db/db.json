@@ -31,6 +31,12 @@
       "pass": "123456789",
       "nombre": "Alfredo",
       "tipousuarioId": "3"
+    },
+    {
+      "id": "1234564125",
+      "pass": "contraseña",
+      "nombre": "Yulieth",
+      "tipousuarioId": "3"
     }
   ],
   "registros": [],
