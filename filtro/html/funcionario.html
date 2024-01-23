@@ -18,12 +18,48 @@
         <main id="principal">
             <form id="formulario" class="formulario" action="" method="">
                 <div>
-                    <label for="idUser">Ingrese el nombre de usuario: </label>
-                    <input type="text" name="idUser" id="idUser" />
+                    <label for="idUser">Ingrese la identificación: </label>
+                    <input type="number" name="idUser" id="idUser" min="0" max="2000000000" />
+                </div>
+
+                <div style="display: none;">
+                    <label for="lstPerfumes">Escoja el perfume</label>
+                    <select name="perfumes" id="perfumes">
+                        <option value="1">Perfume A</option>
+                        <option value="2">Perfume B</option>
+                        <option value="3">Perfume C</option>
+                        <option value="4">Perfume D</option>
+                        <option value="5">Perfume E</option>
+                        <option value="6">Perfume F</option>
+                        <option value="7">Perfume G</option>
+                        <option value="8">Perfume H</option>
+                        <option value="9">Perfume I</option>
+                        <option value="10">Perfume J</option>
+                    </select>
                 </div>
             </form>
-
             <button id="btnConsultar" class="btnConsultar">Consultar</button>
+
+
+            <form id="formularioRegistro" class="formularioRegistro" action="" method="" style="display: none">
+                <div>
+                    <label for="id">Ingrese su identificación: </label>
+                    <input type="number" name="id" id="id" />
+                </div>
+
+                <div>
+                    <label for="nombre">Ingrese el nombre de usuario: </label>
+                    <input type="text" name="nombre" id="nombre" />
+                </div>
+
+                <div>
+                    <label for="pass">Ingrese la contraseña: </label>
+                    <input type="password" name="pass" id="pass" />
+                </div>
+
+                <input type="button" value="Registrarse" id="registrarse" />
+            </form>
+
         </main>
 
         <footer id="pieDePágina"></footer>

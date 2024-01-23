@@ -1,88 +1,90 @@
 {
-    "tipousuarios": [
-        {
-            "id": 1,
-            "tipo": "administrador"
-        },
-        {
-            "id": 2,
-            "tipo": "funcionario"
-        },
-        {
-            "id": 3,
-            "tipo": "cliente"
-        }
-    ],
-    "usuarios": [
-        {
-            "id": "1099737474",
-            "pass": "221927",
-            "nombre": "David Carreño",
-            "tipousuarioId": "2"
-        },
-        {
-            "id": "14201475",
-            "pass": "123456",
-            "nombre": "Mónica Ardila",
-            "tipousuarioId": "2"
-        }
-    ],
-    "registros": [
-
-    ],
-    "bonos": [
-
-    ],
-    "perfumes": [
-        {
-            "id": "1",
-            "name": "Perfume A",
-            "marca": "Brand X"
-        },
-        {
-            "id": "2",
-            "name": "Perfume B",
-            "marca": "Brand Y"
-        },
-        {
-            "id": "3",
-            "name": "Perfume C",
-            "marca": "Brand Z"
-        },
-        {
-            "id": "4",
-            "name": "Perfume D",
-            "marca": "Brand X"
-        },
-        {
-            "id": "5",
-            "name": "Perfume E",
-            "marca": "Brand Y"
-        },
-        {
-            "id": "6",
-            "name": "Perfume F",
-            "marca": "Brand Z"
-        },
-        {
-            "id": "7",
-            "name": "Perfume G",
-            "marca": "Brand X"
-        },
-        {
-            "id": "8",
-            "name": "Perfume H",
-            "marca": "Brand Y"
-        },
-        {
-            "id": "9",
-            "name": "Perfume I",
-            "marca": "Brand Z"
-        },
-        {
-            "id": "10",
-            "name": "Perfume J",
-            "marca": "Brand X"
-        }
-    ]
+  "tipousuarios": [
+    {
+      "id": 1,
+      "tipo": "administrador"
+    },
+    {
+      "id": 2,
+      "tipo": "funcionario"
+    },
+    {
+      "id": 3,
+      "tipo": "cliente"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "1099737474",
+      "pass": "221927",
+      "nombre": "David Carreño",
+      "tipousuarioId": "2"
+    },
+    {
+      "id": "14201475",
+      "pass": "123456",
+      "nombre": "Mónica Ardila",
+      "tipousuarioId": "2"
+    },
+    {
+      "id": "1225478832",
+      "pass": "123456789",
+      "nombre": "Alfredo",
+      "tipousuarioId": "3"
+    }
+  ],
+  "registros": [],
+  "bonos": [],
+  "perfumes": [
+    {
+      "id": "1",
+      "name": "Perfume A",
+      "marca": "Brand X"
+    },
+    {
+      "id": "2",
+      "name": "Perfume B",
+      "marca": "Brand Y"
+    },
+    {
+      "id": "3",
+      "name": "Perfume C",
+      "marca": "Brand Z"
+    },
+    {
+      "id": "4",
+      "name": "Perfume D",
+      "marca": "Brand X"
+    },
+    {
+      "id": "5",
+      "name": "Perfume E",
+      "marca": "Brand Y"
+    },
+    {
+      "id": "6",
+      "name": "Perfume F",
+      "marca": "Brand Z"
+    },
+    {
+      "id": "7",
+      "name": "Perfume G",
+      "marca": "Brand X"
+    },
+    {
+      "id": "8",
+      "name": "Perfume H",
+      "marca": "Brand Y"
+    },
+    {
+      "id": "9",
+      "name": "Perfume I",
+      "marca": "Brand Z"
+    },
+    {
+      "id": "10",
+      "name": "Perfume J",
+      "marca": "Brand X"
+    }
+  ]
 }
