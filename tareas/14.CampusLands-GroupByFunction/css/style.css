@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Open Sans', Arial, helvetica, sans-serif, serif;
+  background-color: #D0F4DE;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+  background-color: #A9DEF9;
+
+  & .encabezado_titulo {
+    font-variant: small-caps;
+    font-family: Arial, helvetica, 'Open Sans', sans-serif, serif;
+    text-transform: capitalize;
+    letter-spacing: 1.25px;
+  }
+}
